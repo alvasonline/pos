@@ -32,7 +32,7 @@ $routes->setAutoRoute(false);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($routes) {
-    $routes->get('', 'Home::index',['as' => 'home']);
+    $routes->get('/', 'Home::index',['as' => 'home']);
     $routes->get('unidades', 'Home::unidades',['as' => 'unidades']);
 });
 
