@@ -9,9 +9,11 @@
     <meta name="author" content="" />
     <title><?= $this->renderSection('title') ?>&nbsp;- &nbsp;AlvasOnline</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="https://startbootstrap.github.io/startbootstrap-sb-admin/css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/d27d39ec85.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    
 </head>
 <body class="sb-nav-fixed">
 <div id="layoutSidenav">
