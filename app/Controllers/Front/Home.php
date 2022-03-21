@@ -11,10 +11,7 @@ class Home extends BaseController
         return view('tables');
     }
 
-    public function unidades()
-    {
-        return view('unidades');
-    }
+    
     public function categorias()
     {
         return view('categorias');

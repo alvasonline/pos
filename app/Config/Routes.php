@@ -33,7 +33,7 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($routes) {
     $routes->get('', 'Home::index',['as' => 'home']);
-    $routes->get('unidades', 'Home::unidades',['as' => 'unidades']);
+    $routes->get('unidades', 'Unidades::index',['as' => 'unidades']);
     $routes->get('categorias', 'Home::categorias',['as' => 'categorias']);
 });
 
