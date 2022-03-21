@@ -1,0 +1,124 @@
+CRITICAL - 2022-03-18 11:35:29 --> Archivo inválido: Home.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Home.php')
+#1 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('Home', Array, true)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Home.php(11): view('Home')
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Home->index()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Home))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-18 11:36:13 --> Cannot declare class App\Controllers\front\Home, because the name is already in use
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-18 11:37:20 --> Cannot declare class App\Controllers\Front\Home, because the name is already in use
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-18 11:38:30 --> Archivo inválido: Home.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Home.php')
+#1 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('Home', Array, true)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Home.php(11): view('Home')
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Home->index()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Home))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-18 11:43:58 --> View themes, no current section.
+#0 C:\xampp\htdocs\pos\app\Views\tables.php(619): CodeIgniter\View\View->endSection()
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('tables', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Home.php(11): view('tables')
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Home->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Home))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-18 11:45:29 --> View themes, no current section.
+#0 C:\xampp\htdocs\pos\app\Views\tables.php(619): CodeIgniter\View\View->endSection()
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('tables', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Home.php(11): view('tables')
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Home->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Home))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-18 11:46:58 --> View themes, no current section.
+#0 C:\xampp\htdocs\pos\app\Views\tables.php(619): CodeIgniter\View\View->endSection()
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('tables', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Home.php(11): view('tables')
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Home->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Home))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-18 11:47:14 --> View themes, no current section.
+#0 C:\xampp\htdocs\pos\app\Views\tables.php(619): CodeIgniter\View\View->endSection()
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('tables', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Home.php(11): view('tables')
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Home->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Home))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-18 11:47:50 --> View themes, no current section.
+#0 C:\xampp\htdocs\pos\app\Views\tables.php(619): CodeIgniter\View\View->endSection()
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('tables', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Home.php(11): view('tables')
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Home->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Home))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-18 11:47:52 --> View themes, no current section.
+#0 C:\xampp\htdocs\pos\app\Views\tables.php(619): CodeIgniter\View\View->endSection()
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('tables', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Home.php(11): view('tables')
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Home->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Home))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-18 11:47:59 --> View themes, no current section.
+#0 C:\xampp\htdocs\pos\app\Views\tables.php(619): CodeIgniter\View\View->endSection()
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('tables', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Home.php(11): view('tables')
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Home->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Home))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-18 13:24:17 --> Archivo inválido: front/layout/menu.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('front/layout/me...')
+#1 C:\xampp\htdocs\pos\system\View\View.php(424): CodeIgniter\View\View->render('front/layout/me...', NULL, true)
+#2 C:\xampp\htdocs\pos\app\Views\front\layout\main.php(4): CodeIgniter\View\View->include('front/layout/me...')
+#3 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 C:\xampp\htdocs\pos\system\View\View.php(226): CodeIgniter\View\View->render('front/layout/ma...', Array, true)
+#6 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('tables', Array, true)
+#7 C:\xampp\htdocs\pos\app\Controllers\Front\Home.php(11): view('tables')
+#8 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Home->index()
+#9 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Home))
+#10 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2022-03-18 16:40:22 --> Archivo inválido: unidades.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('unidades.php')
+#1 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades', Array, true)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Home.php(16): view('unidades')
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Home->unidades()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Home))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
