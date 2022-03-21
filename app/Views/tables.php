@@ -1,7 +1,7 @@
 <?= $this->extend('front/layout/main'); ?>
 
 <?= $this->section('title') ?>
-Home
+Bienvenido
 <?= $this->endSection() ?>
 
 <?= $this->section('content'); ?>

@@ -1,13 +1,13 @@
 <?= $this->extend('front/layout/main'); ?>
 
 <?= $this->section('title') ?>
-Unidades
+Categorias
 <?= $this->endSection() ?>
 
 <?= $this->section('content'); ?>
 
 <div id="layoutSidenav_content">
 
-<h1>Estas son las unidades</h1>
+<h1>Estas son las categorias</h1>
 
 <?= $this->endSection(); ?>

@@ -15,4 +15,9 @@ class Home extends BaseController
     {
         return view('unidades');
     }
+    public function categorias()
+    {
+        return view('categorias');
+    }
+
 }

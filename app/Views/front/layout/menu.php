@@ -12,7 +12,7 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="<?= base_url('Front/') ?>">Productos</a>
                         <a class="nav-link" href="<?= base_url('Front/unidades') ?>">Unidades</a>
-                        <a class="nav-link" href="#">Categorias</a>
+                        <a class="nav-link" href="<?= base_url('Front/categorias') ?>">Categorias</a>
                     </nav>
                 </div>
             </div>

@@ -34,6 +34,7 @@ $routes->setAutoRoute(false);
 $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($routes) {
     $routes->get('', 'Home::index',['as' => 'home']);
     $routes->get('unidades', 'Home::unidades',['as' => 'unidades']);
+    $routes->get('categorias', 'Home::categorias',['as' => 'categorias']);
 });
 
 
