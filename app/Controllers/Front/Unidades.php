@@ -16,6 +16,16 @@ class Unidades extends BaseController
     {
         $unidades = $this->unidades->where("activo", $activo)->findAll();
         $data = ['titulo' => 'Lista de Unidades', 'datos' => $unidades];
-        return view('unidades', $data);
+        return view('unidades/unidades', $data);
+    }
+
+    public function nuevo(){
+        $data = ['titulo' => 'Agregar Unidad'];
+        return view('unidades/nuevo', $data);
+    }
+
+    public function eliminado(){
+        $data = ['titulo' => 'Unidades Eliminadas'];
+        return view('unidades/eliminado', $data);
     }
 }

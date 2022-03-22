@@ -11,8 +11,8 @@
         <div class="container px-4">
             
         <div class="container mt-5 mb-3 px-4">
-            <a name="" id="" class="btn btn-dark" href="<?= base_url() ?>" role="button"> <i class="fa-solid fa-file-circle-plus"></i> Nuevo</a>
-            <a name="" id="" class="btn btn-warning" href="<?= base_url() ?>" role="button"><i class="fa-solid fa-square-minus"></i> Eliminados</a>
+            <a name="" id="" class="btn btn-dark" href="<?= base_url('Front/nuevaunidad') ?>" role="button"> <i class="fa-solid fa-file-circle-plus"></i> Nuevo</a>
+            <a name="" id="" class="btn btn-warning" href="<?= base_url('Front/unidadeseliminadas') ?>" role="button"><i class="fa-solid fa-square-minus"></i> Eliminados</a>
         </div>
             <div class="card mb-4">
             <div class="card-header">
