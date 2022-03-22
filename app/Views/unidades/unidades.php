@@ -37,8 +37,8 @@
                                 <td><?= $dato['nombre_corto'] ?></td>
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-warning"><i class="fa-solid fa-square-pen"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                        <a href="<?= base_url('Front/editarunidad') ?>" class="btn btn-warning"><i class="fa-solid fa-square-pen"></i> Editar</a>
+                                        <a href="<?= base_url('Front/eliminarunidad') ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Eliminar</a>
                                     </div>
                                 </td>
 

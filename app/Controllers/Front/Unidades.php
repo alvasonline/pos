@@ -28,4 +28,16 @@ class Unidades extends BaseController
         $data = ['titulo' => 'Unidades Eliminadas'];
         return view('unidades/eliminado', $data);
     }
+
+
+    public function editar(){
+        $data = ['titulo' => 'Editar Unidad'];
+        return view('unidades/editar', $data);
+    }
+
+    public function eliminar(){
+        $data = ['titulo' => 'Eliminar Unidad'];
+        return view('unidades/eliminar', $data);
+    }
+
 }
