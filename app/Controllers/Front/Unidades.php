@@ -5,15 +5,17 @@ use App\Models\UnidadesModel;
 
 class Unidades extends BaseController
 {
-protected $unidades;
-public function __construct()
-{
-    $this->unidades = new UnidadesModel();
-}
-public function index($activo=1)
+    protected $unidades;
+
+    public function __construct()
     {
-        $unidades = $this->unidades->where("activo",$activo)->findAll();
-        $data = ['titulo' => 'Unidades', 'datos' => $unidades];
-        return view('unidades',$data);
+        $this->unidades = new UnidadesModel();
+    }
+
+    public function index($activo = 1)
+    {
+        $unidades = $this->unidades->where("activo", $activo)->findAll();
+        $data = ['titulo' => 'Lista de Unidades', 'datos' => $unidades];
+        return view('unidades', $data);
     }
 }

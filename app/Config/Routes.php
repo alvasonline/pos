@@ -16,7 +16,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * Router Setup
  * --------------------------------------------------------------------
  */
-$routes->setDefaultNamespace('App\Controllers');
+$routes->setDefaultNamespace('App\Controllers\Front');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
@@ -38,7 +38,6 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
 });
 
 
-$routes->get('/', 'Home::index');
 
 
 /*
