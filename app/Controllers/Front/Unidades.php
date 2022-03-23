@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Controllers\Front;
+
 use App\Controllers\BaseController;
 use App\Models\UnidadesModel;
 
@@ -19,25 +21,34 @@ class Unidades extends BaseController
         return view('unidades/unidades', $data);
     }
 
-    public function nuevo(){
-        $data = ['titulo' => 'Agregar Unidad'];
+    public function nuevo()
+    {
+        $unidades = $this->unidades->getForeignKeyData('productos');
+        d($unidades);
+        $data = ['titulo' => 'Agregar Unidad', 'tablas' => $unidades];
         return view('unidades/nuevo', $data);
     }
 
-    public function eliminado(){
+    public function eliminado()
+    {
         $data = ['titulo' => 'Unidades Eliminadas'];
         return view('unidades/eliminado', $data);
     }
 
 
-    public function editar(){
+    public function editar()
+    {
         $data = ['titulo' => 'Editar Unidad'];
         return view('unidades/editar', $data);
     }
 
-    public function eliminar(){
+    public function guardar()
+    {
+    }
+
+    public function eliminar()
+    {
         $data = ['titulo' => 'Eliminar Unidad'];
         return view('unidades/eliminar', $data);
     }
-
 }
