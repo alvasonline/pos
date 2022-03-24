@@ -24,7 +24,7 @@ class Unidades extends BaseController
     public function nuevo()
     {
         $data = ['titulo' => 'Agregar Unidad'];
-        return view('unidades/nuevo',$data);
+        return view('unidades/nuevo', $data);
     }
 
     public function eliminado()
@@ -34,22 +34,55 @@ class Unidades extends BaseController
     }
 
 
-    public function editar()
+    public function editar($id = null)
     {
-        $data = ['titulo' => 'Editar Unidad'];
+        $unidades = $this->unidades->where('id', $id)->first();
+        $data = [
+            'titulo' => 'Editar Unidad',
+            'datos' => $unidades
+        ];
         return view('unidades/editar', $data);
     }
 
-    public function guardar()
+    public function guardartest()
     {
-        $data=[
-          'nombre' => $this->request->getVar('nombre'),
-          'nombre_corto' => $this->request->getVar('nombre_corto'),
-          'titulo' => 'Agregar Unidad',
-          'guardado' => 'Si',
+        $data = [
+            'nombre' => $this->request->getVar('nombre'),
+            'nombre_corto' => $this->request->getVar('nombre_corto'),
+            'titulo' => 'Agregar Unidad',
+            'guardado' => 'Si',
         ];
         $this->unidades->save($data);
-        return view('unidades/nuevo',$data);
+        return view('unidades/nuevo', $data);
+    }
+
+    public function guardar($id = null)
+    {
+        
+     
+        $id = $this->request->getVar('id');
+        if (!$id) {
+            $data = [
+                'nombre' => $this->request->getVar('nombre'),
+                'nombre_corto' => $this->request->getVar('nombre_corto'),
+                'titulo' => 'Agregar Unidad',
+                'guardado' => 'Si',
+            ];
+            $this->unidades->save($data);
+            return view('unidades/nuevo', $data);
+        } else {
+            $unidades = $this->unidades->where('id', $id)->first();
+            $data = [
+                'nombre' => $this->request->getVar('nombre'),
+                'nombre_corto' => $this->request->getVar('nombre_corto'),
+                'titulo' => 'Agregar Unidad',
+                'guardado' => 'Si',
+                'datos' => $unidades,
+            ];
+            $this->unidades->update($id, $data);
+            return view('unidades/editar', $data);
+            
+        }
     }
 
     public function eliminar()

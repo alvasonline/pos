@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(false);
+$routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -36,9 +36,10 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     $routes->get('unidades', 'Unidades::index',['as' => 'unidades']);
     $routes->get('nuevaunidad', 'Unidades::nuevo',['as' => 'nuevaunidad']);
     $routes->get('unidadeseliminadas', 'Unidades::eliminado',['as' => 'unidadeseliminadas']);
-    $routes->get('editarunidad', 'Unidades::editar',['as' => 'editarunidad']);
-    $routes->get('eliminarunidad', 'Unidades::eliminar',['as' => 'eliminarunidad']);
+    $routes->get('editarunidad/(:num)', 'Unidades::editar::/$1',['as' => 'editarunidad(:num)']);
+    $routes->post('actualizarunidad', 'Unidades::guardar',['as' => 'actualizarunidad']);
     $routes->post('crearunidad', 'Unidades::guardar',['as' => 'crearunidad']);
+    $routes->get('eliminarunidad', 'Unidades::eliminar',['as' => 'eliminarunidad']);
     $routes->get('categorias', 'Home::categorias',['as' => 'categorias']);
     
 });
