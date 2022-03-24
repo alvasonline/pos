@@ -7,14 +7,6 @@
 <?= $this->section('content'); ?>
 
 <div id="layoutSidenav_content">
-    <?php foreach($tablas as $key):
-        echo $key->constraint_name."<br>";
-        echo $key->table_name."<br>";
-        echo $key->column_name."<br>";
-        echo $key->foreign_table_name."<br>";
-        echo $key->foreign_column_name."<br>";    
-        endforeach
-        ?>
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
@@ -26,25 +18,35 @@
                                     <h3 class="text-center font-weight-light my-4">Nueva Unidad</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form method="POST" action="<?= base_url() ?>/Front/crearunidad">
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                                    <input class="form-control" id="nombre" name="nombre" type="text" required />
                                                     <label for="inputFirstName">Nombre</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                                                    <input class="form-control" name="nombre_corto" id="nombre_corto" type="text" required />
                                                     <label for="inputLastName">Nombre Corto</label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mt-4 mb-0">
-                                            <div class="d-grid"><a class="btn btn-success btn-block" href="login.html">Agregar</a></div>
+                                        <div class="btn-group d-flex" role="group">
+                                            <button type="submit" name="" id="" class="btn btn-dark">Agregar</button>
+                                            <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/unidades') ?>" role="button">Regresar</a>
                                         </div>
                                     </form>
+                                    <?php
+                                    if(isset($guardado)){
+                                        ?>
+                                        <div class="alert alert-success mt-2 alert-dismissible fade show" role="alert">
+                                            Se ha agregado Satisfactoriamente la Unidad <strong><?php echo $nombre.' / '.$nombre_corto;?></strong>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> 
+                                        </div>
+                                        <?php                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>

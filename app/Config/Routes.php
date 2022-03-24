@@ -38,6 +38,7 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     $routes->get('unidadeseliminadas', 'Unidades::eliminado',['as' => 'unidadeseliminadas']);
     $routes->get('editarunidad', 'Unidades::editar',['as' => 'editarunidad']);
     $routes->get('eliminarunidad', 'Unidades::eliminar',['as' => 'eliminarunidad']);
+    $routes->post('crearunidad', 'Unidades::guardar',['as' => 'crearunidad']);
     $routes->get('categorias', 'Home::categorias',['as' => 'categorias']);
     
 });

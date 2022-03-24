@@ -1,0 +1,101 @@
+ERROR - 2022-03-24 11:07:41 --> Column 'nombre_corto' cannot be null
+CRITICAL - 2022-03-24 11:07:41 --> Column 'nombre_corto' cannot be null
+#0 C:\xampp\htdocs\pos\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `un...', 0)
+#1 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `un...')
+#2 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `un...')
+#3 C:\xampp\htdocs\pos\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `un...', Array, false)
+#4 C:\xampp\htdocs\pos\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\pos\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\pos\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\pos\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(49): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#10 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#11 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2022-03-24 11:08:38 --> Undefined variable $titulo
+#0 C:\xampp\htdocs\pos\app\Views\unidades\nuevo.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 4)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/nuevo', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(50): view('unidades/nuevo', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-24 11:12:37 --> Archivo inválido: /.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/.php')
+#1 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('/', Array, true)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(50): view('/', Array)
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-24 11:14:01 --> Archivo inválido: unidades/agregarunidad.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('unidades/agrega...')
+#1 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/agrega...', Array, true)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(51): view('unidades/agrega...', Array)
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-24 11:14:39 --> Archivo inválido: unidades/nuevaunidad.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('unidades/nuevau...')
+#1 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/nuevau...', Array, true)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(51): view('unidades/nuevau...', Array)
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-24 11:17:32 --> Archivo inválido: /nuevaunidad.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/nuevaunidad.ph...')
+#1 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('/nuevaunidad', Array, true)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(51): view('/nuevaunidad', Array)
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-24 11:18:47 --> Undefined variable $titulo
+#0 C:\xampp\htdocs\pos\app\Views\unidades\nuevo.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 4)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/nuevo', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(51): view('unidades/nuevo', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-24 11:21:59 --> Cannot use isset() on the result of an expression (you can use "null !== expression" instead)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-24 11:22:18 --> Cannot use isset() on the result of an expression (you can use "null !== expression" instead)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-24 11:22:31 --> Cannot use isset() on the result of an expression (you can use "null !== expression" instead)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-24 11:23:22 --> Archivo inválido: unidades/nuevo?agregado=si.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('unidades/nuevo?...')
+#1 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/nuevo?...', Array, true)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(51): view('unidades/nuevo?...', Array)
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-24 11:23:47 --> Archivo inválido: unidades/nuevo/?agregado=si.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('unidades/nuevo/...')
+#1 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/nuevo/...', Array, true)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(51): view('unidades/nuevo/...', Array)
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}

@@ -23,10 +23,8 @@ class Unidades extends BaseController
 
     public function nuevo()
     {
-        $unidades = $this->unidades->getForeignKeyData('productos');
-        d($unidades);
-        $data = ['titulo' => 'Agregar Unidad', 'tablas' => $unidades];
-        return view('unidades/nuevo', $data);
+        $data = ['titulo' => 'Agregar Unidad'];
+        return view('unidades/nuevo',$data);
     }
 
     public function eliminado()
@@ -44,6 +42,14 @@ class Unidades extends BaseController
 
     public function guardar()
     {
+        $data=[
+          'nombre' => $this->request->getVar('nombre'),
+          'nombre_corto' => $this->request->getVar('nombre_corto'),
+          'titulo' => 'Agregar Unidad',
+          'guardado' => 'Si',
+        ];
+        $this->unidades->save($data);
+        return view('unidades/nuevo',$data);
     }
 
     public function eliminar()
