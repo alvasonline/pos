@@ -38,8 +38,8 @@
                                     <td><?= $dato['nombre_corto'] ?></td>
                                     <td>
                                         <div class="btn-group d-flex" role="group">
-                                            <a href="<?php echo base_url() . '/Front/editarunidad/' . $dato['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
-                                            <a href="<?= base_url('Front/eliminarunidad/') ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Eliminar</a>
+                                            <a href="<?= base_url().'/Front/editarunidad/' . $dato['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                                            <a href="<?= base_url().'/Front/eliminarunidad/'.$dato['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Eliminar</a>
                                         </div>
                                     </td>
 

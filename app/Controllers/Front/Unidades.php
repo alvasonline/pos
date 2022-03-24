@@ -85,9 +85,9 @@ class Unidades extends BaseController
         }
     }
 
-    public function eliminar()
+    public function eliminar($id =null)
     {
-        $data = ['titulo' => 'Eliminar Unidad'];
-        return view('unidades/eliminar', $data);
+        $this->unidadades->where('id',$id)->delete($id);
+        return $this->response->redirect('unidades/unidades');
     }
 }
