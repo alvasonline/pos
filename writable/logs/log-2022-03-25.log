@@ -1,0 +1,390 @@
+CRITICAL - 2022-03-25 08:01:37 --> Cannot access offset of type string on string
+#0 C:\xampp\htdocs\pos\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/unidad...', Array, true)
+#3 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(83): view('unidades/unidad...', Array)
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-03-25 08:02:45 --> Undefined variable $datos
+#0 C:\xampp\htdocs\pos\app\Views\unidades\unidades.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 42)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/unidad...', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(83): view('unidades/unidad...', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 08:04:11 --> Undefined variable $datos
+#0 C:\xampp\htdocs\pos\app\Views\unidades\unidades.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 34)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/unidad...', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(83): view('unidades/unidad...', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 08:04:25 --> Cannot access offset of type string on string
+#0 C:\xampp\htdocs\pos\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/unidad...', Array, true)
+#3 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(83): view('unidades/unidad...', Array)
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-03-25 08:06:25 --> Undefined variable $titulo
+#0 C:\xampp\htdocs\pos\app\Views\unidades\unidades.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 4)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/unidad...', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(83): view('unidades/unidad...')
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-03-25 08:07:30 --> Duplicate entry 'Alex' for key 'nombre'
+CRITICAL - 2022-03-25 08:07:30 --> Duplicate entry 'Alex' for key 'nombre'
+#0 C:\xampp\htdocs\pos\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `un...', 0)
+#1 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `un...')
+#2 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `un...')
+#3 C:\xampp\htdocs\pos\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `un...', Array, false)
+#4 C:\xampp\htdocs\pos\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\pos\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\pos\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\pos\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(71): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#10 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#11 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2022-03-25 09:16:58 --> Undefined property: App\Controllers\Front\Unidades::$unidadades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 88)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminar(NULL)
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-25 09:17:22 --> Undefined property: App\Controllers\Front\Unidades::$unidadades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 88)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminar(NULL)
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-25 09:17:38 --> Undefined property: App\Controllers\Front\Unidades::$unidadades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 87)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminar('4')
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-25 09:17:50 --> Undefined property: App\Controllers\Front\Unidades::$unidadades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 87)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminar('4')
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-25 09:30:12 --> Undefined property: App\Controllers\Front\Unidades::$unidadades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(87): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 87)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminar('4')
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-25 09:30:42 --> Undefined property: App\Controllers\Front\Unidades::$unidadades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 88)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminar(NULL)
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-25 09:30:51 --> Undefined property: App\Controllers\Front\Unidades::$unidadades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 88)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminar(NULL)
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-25 09:31:26 --> Undefined property: App\Controllers\Front\Unidades::$unidadades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 88)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminar(NULL)
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-25 09:32:26 --> Undefined property: App\Controllers\Front\Unidades::$unidadades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 88)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminar(NULL)
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-25 09:38:45 --> Undefined property: App\Controllers\Front\Unidades::$unidadades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 88)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminar(NULL)
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-25 09:59:57 --> Undefined variable $titulo
+#0 C:\xampp\htdocs\pos\app\Views\unidades\editar.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 4)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/editar', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(34): view('unidades/editar')
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->activar('1')
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 10:03:11 --> Undefined variable $datos
+#0 C:\xampp\htdocs\pos\app\Views\unidades\eliminado.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 23)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/elimin...', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(34): view('unidades/elimin...', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminado()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 10:04:02 --> Undefined array key "id"
+#0 C:\xampp\htdocs\pos\app\Views\unidades\eliminado.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 23)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/elimin...', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(35): view('unidades/elimin...', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminado()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 10:05:21 --> Undefined array key "id"
+#0 C:\xampp\htdocs\pos\app\Views\unidades\eliminado.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 23)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/elimin...', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(35): view('unidades/elimin...', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminado()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 10:05:42 --> Undefined array key "id"
+#0 C:\xampp\htdocs\pos\app\Views\unidades\eliminado.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 23)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/elimin...', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(35): view('unidades/elimin...', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminado()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 10:09:28 --> Undefined array key "id"
+#0 C:\xampp\htdocs\pos\app\Views\unidades\eliminado.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 23)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/elimin...', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(35): view('unidades/elimin...', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->eliminado()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 11:55:28 --> Class "App\Models\categoriasModel" not found
+#0 C:\xampp\htdocs\pos\system\CodeIgniter.php(809): App\Controllers\Front\Categorias->__construct()
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-03-25 11:55:55 --> Class "App\Models\categoriasModel" not found
+#0 C:\xampp\htdocs\pos\system\CodeIgniter.php(809): App\Controllers\Front\Categorias->__construct()
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-03-25 11:56:04 --> Class "App\Models\categoriasModel" not found
+#0 C:\xampp\htdocs\pos\system\CodeIgniter.php(809): App\Controllers\Front\Categorias->__construct()
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-03-25 11:56:17 --> Class "App\Models\categoriasModel" not found
+#0 C:\xampp\htdocs\pos\system\CodeIgniter.php(809): App\Controllers\Front\Categorias->__construct()
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-03-25 11:57:37 --> Class "App\Models\CategoriasModel" not found
+#0 C:\xampp\htdocs\pos\system\CodeIgniter.php(809): App\Controllers\Front\Categorias->__construct()
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-03-25 11:58:09 --> Class "App\Models\CategoriasModel" not found
+#0 C:\xampp\htdocs\pos\system\CodeIgniter.php(809): App\Controllers\Front\Categorias->__construct()
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-03-25 11:58:12 --> Class "App\Models\CategoriasModel" not found
+#0 C:\xampp\htdocs\pos\system\CodeIgniter.php(809): App\Controllers\Front\Categorias->__construct()
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-03-25 11:59:11 --> Class "App\Models\CategoriassModel" not found
+#0 C:\xampp\htdocs\pos\system\CodeIgniter.php(809): App\Controllers\Front\Categorias->__construct()
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->createController()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-03-25 13:23:50 --> Undefined array key "nombre_corto"
+#0 C:\xampp\htdocs\pos\app\Views\categorias\categorias.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 38)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('categorias/cate...', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Categorias.php(22): view('categorias/cate...', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Categorias->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Categorias))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 13:24:16 --> Undefined array key "nombre_corto"
+#0 C:\xampp\htdocs\pos\app\Views\categorias\editar.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 33)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('categorias/edit...', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Categorias.php(46): view('categorias/edit...', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Categorias->editar('1')
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Categorias))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 13:35:14 --> Undefined array key "nombre_corto"
+#0 C:\xampp\htdocs\pos\app\Views\categorias\eliminado.php(36): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 36)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('categorias/elim...', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Categorias.php(30): view('categorias/elim...', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Categorias->eliminado()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Categorias))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 14:24:47 --> Undefined property: App\Controllers\Front\Unidades::$requiest
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 34)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->nuevo()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-03-25 14:30:21 --> Duplicate entry 'pl' for key 'nombre_corto'
+CRITICAL - 2022-03-25 14:30:21 --> Duplicate entry 'pl' for key 'nombre_corto'
+#0 C:\xampp\htdocs\pos\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `un...', 0)
+#1 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `un...')
+#2 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `un...')
+#3 C:\xampp\htdocs\pos\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `un...', Array, false)
+#4 C:\xampp\htdocs\pos\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\pos\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\pos\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\pos\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(58): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#10 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#11 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+ERROR - 2022-03-25 14:31:51 --> Duplicate entry 'lp' for key 'nombre_corto'
+CRITICAL - 2022-03-25 14:31:51 --> Duplicate entry 'lp' for key 'nombre_corto'
+#0 C:\xampp\htdocs\pos\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `un...', 0)
+#1 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `un...')
+#2 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `un...')
+#3 C:\xampp\htdocs\pos\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `un...', Array, false)
+#4 C:\xampp\htdocs\pos\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\pos\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\pos\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\pos\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(58): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#10 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#11 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2022-03-25 16:28:56 --> No se puede encontrar la ruta  mientras se realiza el enrutamiento inverso.
+#0 C:\xampp\htdocs\pos\system\HTTP\RedirectResponse.php(56): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('')
+#1 C:\xampp\htdocs\pos\system\Common.php(832): CodeIgniter\HTTP\RedirectResponse->route(false)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(80): redirect('http://localhos...', Array)
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-25 16:29:10 --> No se puede encontrar la ruta  mientras se realiza el enrutamiento inverso.
+#0 C:\xampp\htdocs\pos\system\HTTP\RedirectResponse.php(56): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('')
+#1 C:\xampp\htdocs\pos\system\Common.php(832): CodeIgniter\HTTP\RedirectResponse->route(false)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(80): redirect('http://localhos...')
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-25 16:30:39 --> No se puede encontrar la ruta  mientras se realiza el enrutamiento inverso.
+#0 C:\xampp\htdocs\pos\system\HTTP\RedirectResponse.php(56): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('')
+#1 C:\xampp\htdocs\pos\system\Common.php(832): CodeIgniter\HTTP\RedirectResponse->route(false)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(80): redirect('http://localhos...')
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-25 16:31:09 --> No se puede encontrar la ruta  mientras se realiza el enrutamiento inverso.
+#0 C:\xampp\htdocs\pos\system\HTTP\RedirectResponse.php(56): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('')
+#1 C:\xampp\htdocs\pos\system\Common.php(832): CodeIgniter\HTTP\RedirectResponse->route(false)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(81): redirect('http://localhos...')
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-25 16:47:47 --> Undefined variable $datos
+#0 C:\xampp\htdocs\pos\app\Views\unidades\editar.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 23)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/editar', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(94): view('unidades/editar', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->actualizar()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-25 16:48:10 --> Archivo inválido: unidades/actualizar.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('unidades/actual...')
+#1 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/actual...', Array, true)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(94): view('unidades/actual...', Array)
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->actualizar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-25 16:48:37 --> Archivo inválido: unidades/editarunidad.php
+#0 C:\xampp\htdocs\pos\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('unidades/editar...')
+#1 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/editar...', Array, true)
+#2 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(94): view('unidades/editar...', Array)
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->actualizar()
+#4 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}

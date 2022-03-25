@@ -8,11 +8,9 @@
 
 <div id="layoutSidenav_content">
     <main>
-        <div class="container px-4">
-
-            <div class="container mt-5 mb-3 px-4">
-                <a name="" id="" class="btn btn-dark" href="<?= base_url('Front/nuevaunidad') ?>" role="button"> <i class="fa-solid fa-file-circle-plus"></i> Nuevo</a>
-                <a name="" id="" class="btn btn-warning" href="<?= base_url('Front/unidadeseliminadas') ?>" role="button"><i class="fa-solid fa-square-minus"></i> Eliminados</a>
+        <div class="container px-4 mt-5">
+        <div class="container mt-5 mb-3 px-4">
+                <a name="" id="" class="btn btn-dark" href="<?= base_url('/categorias') ?>" role="button"> <i class="fa-solid fa-arrow-left"></i> Regresar</a>
             </div>
             <div class="card mb-4">
 
@@ -26,7 +24,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre</th>
-                                <th>Nombre Corto</th>
+                         
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -35,11 +33,10 @@
                                 <tr>
                                     <td><?= $dato['id'] ?></td>
                                     <td><?= $dato['nombre'] ?></td>
-                                    <td><?= $dato['nombre_corto'] ?></td>
+                                  
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="<?= base_url().'/Front/editarunidad/' . $dato['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
-                                            <a href="<?= base_url().'/unidades/eliminar/'.$dato['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Eliminar</a>
+                                            <a href="<?= base_url().'/Front/activarcategoria/' . $dato['id'] ?>" class="btn btn-success"><i class="fa-solid fa-circle-check"></i></i> Activar</a>
                                         </div>
                                     </td>
 

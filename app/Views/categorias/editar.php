@@ -19,25 +19,20 @@
                                     <h3 class="text-center font-weight-light my-4">Editar Unidad</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form method="POST" action="<?= base_url() ?>/Front/actualizarunidad">
+                                    <form method="POST" action="<?= base_url() ?>/Front/actualizarcategoria">
                                     <input type="text" hidden value="<?= $datos['id'] ?>" name="id" class="form-control">
                                         <div class="row mb-3">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" autofocus value="<?= $datos['nombre']?>" id="nombre" name="nombre" type="text" required />
                                                     <label for="inputFirstName">Nombre</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <input class="form-control" value="<?= $datos['nombre_corto']?>" name="nombre_corto" id="nombre_corto" type="text" required />
-                                                    <label for="inputLastName">Nombre Corto</label>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                         <div class="btn-group d-flex" role="group">
                                             <button type="submit" name="" id="" class="btn btn-dark">Actualizar</button>
-                                            <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/unidades') ?>" role="button">Regresar</a>
+                                            <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/categorias') ?>" role="button">Regresar</a>
                                         </div>
                                     </form>
                                     <?php
