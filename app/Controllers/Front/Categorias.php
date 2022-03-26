@@ -32,7 +32,7 @@ class Categorias extends BaseController
 
     public function nuevo()
     {
-        $data = ['titulo' => 'Agregar Unidad'];
+        $data = ['titulo' => 'Agregar Categoria'];
         return view('categorias/nuevo', $data);
     }
 
@@ -40,46 +40,57 @@ class Categorias extends BaseController
     {
         $categorias = $this->categorias->where('id', $id)->first();
         $data = [
-            'titulo' => 'Editar Unidad',
+            'titulo' => 'Editar Categoria',
             'datos' => $categorias
         ];
         return view('categorias/editar', $data);
     }
 
-    public function guardar($id = null)
+    
+    public function guardar()
     {
-        $id = $this->request->getVar('id');
-        
-if($this->request->getMethod() == "POST" && $this->validate(['nombre'=>'required', 'nombre_corto'=> 'required'])){
-        if (!$id) {
+        if ($this->request->getMethod() == "post" && $this->validate(['nombre' => 'required'])) {
             $data = [
                 'nombre' => $this->request->getPost('nombre'),
-                'nombre_corto' => $this->request->getPost('nombre_corto'),
-                'titulo' => 'Agregar Unidad',
+                'titulo' => 'Agregar Categoria',
                 'guardado' => 'Si',
             ];
             $this->categorias->save($data);
             return view('categorias/nuevo', $data);
         } else {
+            $data = [
+                'error' => 'No pueden existir campos en blanco, por favor llene los campos correctamente',
+                'titulo' => 'Agregar Categoria',
+            ];
+            return view('categorias/nuevo', $data);
+        }
+    }
+
+    public function actualizar($id = null)
+    {
+        if ($this->request->getMethod() == "post" && $this->validate(['nombre' => 'required'])) {
+            $id = $this->request->getVar('id');
             $categorias = $this->categorias->where('id', $id)->first();
             $data = [
                 'nombre' => $this->request->getVar('nombre'),
-                'nombre_corto' => $this->request->getVar('nombre_corto'),
-                'titulo' => 'Agregar Unidad',
-                'guardado' => 'Si',
-                'datos' => $categorias,
+                'titulo' => 'Actualizar Categoria',
+                'guardado' => 'Se guardó correctamente la Categoria',
+                'datos' =>  $categorias,
             ];
             $this->categorias->update($id, $data);
-            return redirect()->to(base_url() . '/categorias');
-        }
-    }else{
-        $data=[
-            'titulo' => 'Agregar Unidad',
-            'error' =>' No Se ha agregado la Categoria por <strong>Falta de información</strong>',
-        ];
-        return view('categorias/nuevo', $data);
+            return view('categorias/editar', $data);
 
-    }
+        } else {
+            $id = $this->request->getVar('id');
+            $categorias = $this->categorias->where('id', $id)->first();
+            $data = [
+                'titulo' => 'Actualizar Categoria',
+                'error' => 'No pueden existir campos en blanco, por favor llene los campos correctamente',
+                'titulo' => 'Actualizar Categoria',
+                'datos' =>  $categorias,
+            ];
+            return view('categorias/editar', $data);
+        }
     }
 
     public function eliminar($id = null)

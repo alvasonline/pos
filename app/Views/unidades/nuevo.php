@@ -34,8 +34,8 @@
                                             </div>
                                         </div>
                                         <div class="btn-group d-flex" role="group">
-                                            <button type="submit" name="" id="" class="btn btn-dark">Agregar</button>
-                                            <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/unidades') ?>" role="button">Regresar</a>
+                                            <button type="submit" name="" id="" class="btn btn-dark"><i class="fa-solid fa-circle-plus"></i> Agregar</button>
+                                            <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/unidades') ?>" role="button"><i class="fa-solid fa-circle-chevron-left"></i> Regresar</a>
                                         </div>
                                     </form>
                                     <?php

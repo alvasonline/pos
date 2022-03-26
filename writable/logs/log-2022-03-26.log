@@ -1,0 +1,173 @@
+CRITICAL - 2022-03-26 08:26:18 --> Undefined array key "nomnre"
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(51): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array...', 'C:\\xampp\\htdocs...', 51)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->guardar()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-26 09:09:10 --> Undefined variable $datos
+#0 C:\xampp\htdocs\pos\app\Views\unidades\editar.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 23)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/editar', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(91): view('unidades/editar', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->actualizar()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-26 09:09:38 --> Undefined variable $titulo
+#0 C:\xampp\htdocs\pos\app\Views\unidades\editar.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 4)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/editar', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(91): view('unidades/editar')
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->actualizar()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-26 09:10:17 --> Undefined variable $datos
+#0 C:\xampp\htdocs\pos\app\Views\unidades\editar.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 23)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/editar', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(91): view('unidades/editar', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->actualizar()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-26 09:16:56 --> Undefined property: App\Controllers\Front\Categorias::$unidades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Categorias.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 73)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Categorias->actualizar()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Categorias))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-26 09:18:32 --> Undefined property: App\Controllers\Front\Categorias::$unidades
+#0 C:\xampp\htdocs\pos\app\Controllers\Front\Categorias.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined prope...', 'C:\\xampp\\htdocs...', 73)
+#1 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Categorias->actualizar()
+#2 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Categorias))
+#3 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-03-26 09:38:36 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+CRITICAL - 2022-03-26 09:38:36 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+#0 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\pos\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ca...', Array, false)
+#2 C:\xampp\htdocs\pos\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#3 C:\xampp\htdocs\pos\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#4 C:\xampp\htdocs\pos\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#5 C:\xampp\htdocs\pos\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\pos\app\Controllers\Front\Categorias.php(58): CodeIgniter\BaseModel->save(Array)
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Categorias->guardar()
+#8 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Categorias))
+#9 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-03-26 09:38:38 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+CRITICAL - 2022-03-26 09:38:38 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+#0 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\pos\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ca...', Array, false)
+#2 C:\xampp\htdocs\pos\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#3 C:\xampp\htdocs\pos\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#4 C:\xampp\htdocs\pos\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#5 C:\xampp\htdocs\pos\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\pos\app\Controllers\Front\Categorias.php(58): CodeIgniter\BaseModel->save(Array)
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Categorias->guardar()
+#8 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Categorias))
+#9 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-03-26 09:38:40 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+CRITICAL - 2022-03-26 09:38:40 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+#0 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\pos\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ca...', Array, false)
+#2 C:\xampp\htdocs\pos\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#3 C:\xampp\htdocs\pos\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#4 C:\xampp\htdocs\pos\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#5 C:\xampp\htdocs\pos\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#6 C:\xampp\htdocs\pos\app\Controllers\Front\Categorias.php(58): CodeIgniter\BaseModel->save(Array)
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Categorias->guardar()
+#8 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Categorias))
+#9 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-03-26 09:38:56 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+CRITICAL - 2022-03-26 09:38:56 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+#0 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\pos\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\pos\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\pos\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Categorias.php(20): CodeIgniter\BaseModel->findAll()
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Categorias->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Categorias))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-03-26 09:39:00 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+CRITICAL - 2022-03-26 09:39:00 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+#0 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\pos\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\pos\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\pos\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Categorias.php(20): CodeIgniter\BaseModel->findAll()
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Categorias->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Categorias))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-03-26 09:39:01 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+CRITICAL - 2022-03-26 09:39:01 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+#0 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\pos\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\pos\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\pos\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(19): CodeIgniter\BaseModel->findAll()
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-03-26 09:39:06 --> Error connecting to the database: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+CRITICAL - 2022-03-26 09:39:06 --> Unable to connect to the database.
+Main connection [MySQLi]: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+#0 C:\xampp\htdocs\pos\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\pos\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\xampp\htdocs\pos\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\pos\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(19): CodeIgniter\BaseModel->findAll()
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->index()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-26 11:39:42 --> Undefined variable $titulo
+#0 C:\xampp\htdocs\pos\app\Views\unidades\nuevo.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 4)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/nuevo', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(115): view('unidades/nuevo', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->nuevotest()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-26 11:39:45 --> Undefined variable $titulo
+#0 C:\xampp\htdocs\pos\app\Views\unidades\nuevo.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', 'C:\\xampp\\htdocs...', 4)
+#1 C:\xampp\htdocs\pos\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\pos\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\pos\system\Common.php(1089): CodeIgniter\View\View->render('unidades/nuevo', Array, true)
+#4 C:\xampp\htdocs\pos\app\Controllers\Front\Unidades.php(115): view('unidades/nuevo', Array)
+#5 C:\xampp\htdocs\pos\system\CodeIgniter.php(832): App\Controllers\Front\Unidades->nuevotest()
+#6 C:\xampp\htdocs\pos\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Front\Unidades))
+#7 C:\xampp\htdocs\pos\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\pos\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

@@ -39,7 +39,7 @@ class Unidades extends BaseController
     {
         $unidades = $this->unidades->where('id', $id)->first();
         $data = [
-            'titulo' => 'Editar Unidad',
+            'titulo' => 'Actualizar Unidad',
             'datos' => $unidades
         ];
         return view('unidades/editar', $data);
@@ -47,31 +47,50 @@ class Unidades extends BaseController
 
     public function guardar()
     {
-        $data = [
-            'nombre' => $this->request->getPost('nombre'),
-            'nombre_corto' => $this->request->getPost('nombre_corto'),
-            'titulo' => 'Agregar Unidad',
-            'guardado' => 'Si',
-        ];
-        $this->unidades->save($data);
-        return view('unidades/nuevo', $data);
+        if ($this->request->getMethod() == "post" && $this->validate(['nombre' => 'required', 'nombre_corto' => 'required'])) {
+            $data = [
+                'nombre' => $this->request->getPost('nombre'),
+                'nombre_corto' => $this->request->getPost('nombre_corto'),
+                'titulo' => 'Agregar Unidad',
+                'guardado' => 'Si',
+            ];
+            $this->unidades->save($data);
+            return view('unidades/nuevo', $data);
+        } else {
+            $data = [
+                'error' => 'No pueden existir campos en blanco, por favor llene los campos correctamente',
+                'titulo' => 'Agregar Unidad',
+            ];
+            return view('unidades/nuevo', $data);
+        }
     }
 
     public function actualizar($id = null)
     {
-        $id = $this->request->getVar('id');
+        if ($this->request->getMethod() == "post" && $this->validate(['nombre' => 'required', 'nombre_corto' => 'required'])) {
+            $id = $this->request->getVar('id');
+            $unidades = $this->unidades->where('id', $id)->first();
+            $data = [
+                'nombre' => $this->request->getVar('nombre'),
+                'nombre_corto' => $this->request->getVar('nombre_corto'),
+                'titulo' => 'Actualizar Unidad',
+                'guardado' => 'Se guardó correctamente la Unidad',
+                'datos' => $unidades,
+            ];
+            $this->unidades->update($id, $data);
+            return view('unidades/editar', $data);
 
-
-        $unidades = $this->unidades->where('id', $id)->first();
-        $data = [
-            'nombre' => $this->request->getVar('nombre'),
-            'nombre_corto' => $this->request->getVar('nombre_corto'),
-            'titulo' => 'Actualizar Unidad',
-            'guardado' => 'Si',
-            'datos' => $unidades,
-        ];
-        $this->unidades->update($id, $data);
-        return redirect()->to(base_url() . '/unidades');
+        } else {
+            $id = $this->request->getVar('id');
+            $unidades = $this->unidades->where('id', $id)->first();
+            $data = [
+                'titulo' => 'Actualizar Unidad',
+                'error' => 'No pueden existir campos en blanco, por favor llene los campos correctamente',
+                'titulo' => 'Actualizar Unidad',
+                'datos' => $unidades,
+            ];
+            return view('unidades/editar', $data);
+        }
     }
 
     public function eliminar($id = null)
