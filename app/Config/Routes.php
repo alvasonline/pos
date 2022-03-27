@@ -55,6 +55,10 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     $routes->post('actualizarcategoria', 'Categorias::actualizar', ['as' => 'actualizarcategoria']);
     $routes->post('crearcategoria', 'Categorias::guardar', ['as' => 'crearcategoria']);
     $routes->post('eliminarcategoria(:num)', 'Categorias::eliminar::/1', ['as' => 'eliminarcategoria(:num)']);
+
+/*Validaciones*/
+$routes->get('frvalidar','Form::verformulario');
+$routes->post('vld','Form::vld');
 });
 
 

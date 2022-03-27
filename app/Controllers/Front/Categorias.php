@@ -32,7 +32,7 @@ class Categorias extends BaseController
 
     public function nuevo()
     {
-        $data = ['titulo' => 'Agregar Categoria'];
+        $data = ['titulo' => 'Nueva Categoria'];
         return view('categorias/nuevo', $data);
     }
 

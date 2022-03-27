@@ -15,7 +15,7 @@
                         <div class="col-lg-7">
                             <div class="card shadow-lg border-0 rounded-lg mt-5 p-4">
                                 <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Nueva Categoria</h3>
+                                    <h3 class="text-center font-weight-light my-4"><?= $titulo; ?></h3>
                                 </div>
                                 <div class="card-body">
                                     <form method="POST" action="<?= base_url() ?>/Front/crearcategoria">
