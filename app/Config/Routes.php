@@ -47,14 +47,24 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     $routes->post('eliminarunidad(:num)', 'Unidades::eliminar::/1');
 
     /*Categorias*/
-    $routes->get('categorias', 'Categorias::index', ['as' => 'categorias']);
-    $routes->get('nuevacategoria', 'Categorias::nuevo', ['as' => 'nuevacategoria']);
-    $routes->get('categoriaseliminadas', 'Categorias::eliminado', ['as' => 'categoriaeliminadas']);
-    $routes->get('editarcategoria/(:num)', 'Categorias::editar::/$1', ['as' => 'editarcategoria(:num)']);
-    $routes->get('activarcategoria/(:num)', 'Categorias::activar::/$1', ['as' => 'activarcategoria(:num)']);
-    $routes->post('actualizarcategoria', 'Categorias::actualizar', ['as' => 'actualizarcategoria']);
-    $routes->post('crearcategoria', 'Categorias::guardar', ['as' => 'crearcategoria']);
-    $routes->post('eliminarcategoria(:num)', 'Categorias::eliminar::/1', ['as' => 'eliminarcategoria(:num)']);
+    $routes->get('categorias', 'Categorias::index');
+    $routes->get('nuevacategoria', 'Categorias::nuevo');
+    $routes->get('categoriaseliminadas', 'Categorias::eliminado');
+    $routes->get('editarcategoria/(:num)', 'Categorias::editar::/$1');
+    $routes->get('activarcategoria/(:num)', 'Categorias::activar::/$1');
+    $routes->post('actualizarcategoria', 'Categorias::actualizar');
+    $routes->post('crearcategoria', 'Categorias::guardar');
+    $routes->post('eliminarcategoria(:num)', 'Categorias::eliminar::/1');
+
+     /*Productos*/
+     $routes->get('productos', 'Productos::index');
+     $routes->get('nuevoproducto', 'Productos::nuevo');
+     $routes->get('productoseliminadas', 'Productos::eliminado');
+     $routes->get('editarproducto/(:num)', 'Productos::editar::/$1');
+     $routes->get('activarproducto/(:num)', 'Productos::activar::/$1');
+     $routes->post('actualizarproducto', 'Productos::actualizar');
+     $routes->post('crearproducto', 'Productos::guardar');
+     $routes->post('eliminarproducto(:num)', 'Productos::eliminar::/1');
 
 /*Validaciones*/
 $routes->get('frvalidar','Form::verformulario');

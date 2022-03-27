@@ -31,7 +31,6 @@ class Form extends BaseController
             'nombre' => 'required|alpha_space|is_unique[categorias.nombre]|min_length[3]',
         ]);
         if(!$validation->withRequest($this->request)->run()){
-          /*  dd($validation->getErrors()); */
           return redirect()->back()->withInput()->with('errors',$validation->getErrors());
         }
       
