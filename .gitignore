@@ -1,4 +1,10 @@
 #-------------------------
+# DataBae Info
+#-------------------------
+app/Config/Database.php
+
+
+#-------------------------
 # Operating Specific Junk Files
 #-------------------------
 

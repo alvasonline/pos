@@ -33,16 +33,18 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($routes) {
 
-    /*Unidades*/
+    /* Home */
     $routes->get('', 'Home::index', ['as' => 'home']);
-    $routes->get('unidades', 'Unidades::index', ['as' => 'unidades']);
-    $routes->get('nuevaunidad', 'Unidades::nuevo', ['as' => 'nuevaunidad']);
-    $routes->get('unidadeseliminadas', 'Unidades::eliminado', ['as' => 'unidadeseliminadas']);
-    $routes->get('editarunidad/(:num)', 'Unidades::editar::/$1', ['as' => 'editarunidad(:num)']);
-    $routes->get('activarunidad/(:num)', 'Unidades::activar::/$1', ['as' => 'activarunidad(:num)']);
-    $routes->post('actualizarunidad', 'Unidades::actualizar', ['as' => 'actualizarunidad']);
-    $routes->post('crearunidad', 'Unidades::guardar', ['as' => 'crearunidad']);
-    $routes->post('eliminarunidad(:num)', 'Unidades::eliminar::/1', ['as' => 'eliminarunidad(:num)']);
+
+    /*Unidades*/
+    $routes->get('unidades', 'Unidades::index');
+    $routes->get('nuevaunidad', 'Unidades::nuevo');
+    $routes->get('unidadeseliminadas', 'Unidades::eliminado');
+    $routes->get('editarunidad/(:num)', 'Unidades::editar::/$1');
+    $routes->get('activarunidad/(:num)', 'Unidades::activar::/$1');
+    $routes->post('actualizarunidad', 'Unidades::actualizar');
+    $routes->post('crearunidad', 'Unidades::guardar');
+    $routes->post('eliminarunidad(:num)', 'Unidades::eliminar::/1');
 
     /*Categorias*/
     $routes->get('categorias', 'Categorias::index', ['as' => 'categorias']);

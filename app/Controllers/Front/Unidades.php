@@ -21,6 +21,11 @@ class Unidades extends BaseController
         return view('unidades/unidades', $data);
     }
 
+    public function nuevo()
+    {
+        $data = ['titulo' => 'Agregar Unidad'];
+        return view('unidades/nuevo', $data);
+    }
 
     public function eliminado($activo = 0)
     {
@@ -29,11 +34,6 @@ class Unidades extends BaseController
         return view('unidades/eliminado', $data);
     }
 
-    public function nuevo()
-    {
-        $data = ['titulo' => 'Agregar Unidad'];
-        return view('unidades/nuevo', $data);
-    }
 
     public function editar($id = null)
     {
