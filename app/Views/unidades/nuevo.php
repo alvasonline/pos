@@ -25,12 +25,14 @@
                                                     <input autofocus class="form-control" id="nombre" name="nombre" type="text" required />
                                                     <label for="inputFirstName">Nombre</label>
                                                 </div>
+                                                <small class="text-danger"> <?=session('errors.nombre')?></small>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <input class="form-control" name="nombre_corto" id="nombre_corto" type="text" required />
                                                     <label for="inputLastName">Nombre Corto</label>
                                                 </div>
+                                                <small class="text-danger"> <?=session('errors.nombre_corto')?></small>
                                             </div>
                                         </div>
                                         <div class="btn-group d-flex" role="group">
@@ -47,17 +49,6 @@
                                         </div>
                                     <?php                                    }
                                     ?>
-
-                                    <?php
-                                    if (isset($error)) {
-                                    ?>
-                                        <div class="alert alert-danger mt-2 alert-dismissible fade show" role="alert">
-                                       <?php echo $error?>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
-                                    <?php                                    }
-                                    ?>
-
                                 </div>
                             </div>
                         </div>
