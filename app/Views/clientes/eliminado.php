@@ -10,7 +10,7 @@
     <main>
         <div class="container px-4 mt-5">
         <div class="container mt-5 mb-3 px-4">
-                <a name="" id="" class="btn btn-dark" href="<?= base_url('/productos') ?>" role="button"> <i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                <a name="" id="" class="btn btn-dark" href="<?= base_url('/clientes') ?>" role="button"> <i class="fa-solid fa-arrow-left"></i> Regresar</a>
             </div>
             <div class="card mb-4">
 
@@ -38,14 +38,14 @@
                                         <div class="btn" role="group">
                                           
                                             <!-- Button trigger modal -->
-                                            <a href="#" data-href="<?= base_url() . '/Front/activarproducto/'. $dato['id'] ?>" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-circle-check"></i> </a>
+                                            <a href="#" data-href="<?= base_url() . '/Front/activarclientes/'. $dato['id'] ?>" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-circle-check"></i> </a>
 
                                             <!-- Modal -->
                                             <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-sm" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Activar Producto</h5>
+                                                            <h5 class="modal-title" id="exampleModalLabel">Activar Cliente</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">

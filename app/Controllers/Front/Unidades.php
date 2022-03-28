@@ -50,7 +50,7 @@ class Unidades extends BaseController
         $validation = service('validation');
         $validation->setRules([
             'nombre' => 'required|alpha_space|is_unique[unidades.nombre]|min_length[3]',
-            'nombre_corto' => 'required|alpha_space|is_unique[unidades.nombre]',
+            'nombre_corto' => 'required|alpha_space|is_unique[unidades.nombre_corto]|min_length[3]',
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {

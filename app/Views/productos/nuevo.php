@@ -12,7 +12,7 @@
             <main>
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg">
+                        <div class="col-lg-9">
                             <div class="card shadow-lg border-0 rounded-lg mt-5  p-4">
                                 <div class="card-header">
                                     <h3 class="text-center font-weight-light my-4"><?= $titulo; ?></h3>
@@ -21,9 +21,9 @@
                                     <form method="POST" action="<?= base_url() ?>/Front/crearproducto">
                                         <div class="row mb-3">
                                             <div class="col-md-4">
-                                                <div class="form-floating mb-3 mb-md-0">
+                                                <div class="form-floating">
                                                     <input autofocus value="<?= old('codigo') ?>" class="form-control" id="codigo" name="codigo" type="text" required />
-                                                    <label">Codigo</label>
+                                                    <label>Codigos</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.codigo') ?></small>
                                             </div>
@@ -36,7 +36,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-floating">
-                                                    <input value="<?= old('existencia') ?>" class="form-control" name="existencia" id="existencia" type="text" required />
+                                                    <input value="<?= old('existencia') ?>" class="form-control" name="existencia" id="existencia" type="number" required />
                                                     <label>Existencia</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.existencia') ?></small>
@@ -45,21 +45,21 @@
                                         <div class="row mb-3">
                                             <div class="col-md-4">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input value="<?= old('precio_venta') ?>" class="form-control" id="precio_venta" name="precio_venta" type="text" required />
+                                                    <input value="<?= old('precio_venta') ?>" class="form-control" id="precio_venta" name="precio_venta" type="number" required />
                                                     <label>Precio Venta</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.precio_venta') ?></small>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-floating">
-                                                    <input value="<?= old('precio_compra') ?>" class="form-control" name="precio_compra" id="precio_compra" type="text" required />
+                                                    <input value="<?= old('precio_compra') ?>" class="form-control" name="precio_compra" id="precio_compra" type="number" required />
                                                     <label>Precio Compra</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.precio_compra') ?></small>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-floating">
-                                                    <input value="<?= old('stock_minimo') ?>" class="form-control" name="stock_minimo" id="stock_minimo" type="text" required />
+                                                    <input value="<?= old('stock_minimo') ?>" class="form-control" name="stock_minimo" id="stock_minimo" type="number" required />
                                                     <label>Stock Minimo</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.stock_minimo') ?></small>
@@ -107,26 +107,7 @@
                                             <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/productos') ?>" role="button"><i class="fa-solid fa-circle-chevron-left"></i> Regresar</a>
                                         </div>
                                     </form>
-                                    <?php
-                                    if (isset($guardado)) {
-                                    ?>
-                                        <div class="alert alert-success mt-2 alert-dismissible fade show" role="alert">
-                                            Se ha agregado Satisfactoriamente la Unidad <strong><?php echo $nombre; ?></strong>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
-                                    <?php                                    }
-                                    ?>
-
-                                    <?php
-                                    if (isset($error)) {
-                                    ?>
-                                        <div class="alert alert-danger mt-2 alert-dismissible fade show" role="alert">
-                                            <?php echo $error ?>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
-                                    <?php                                    }
-                                    ?>
-
+                                    
                                 </div>
                             </div>
                         </div>

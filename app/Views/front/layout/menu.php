@@ -5,7 +5,7 @@
 
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-basket-shopping"></i></div>
-                    Productos
+                    Tienda
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -15,6 +15,10 @@
                         <a class="nav-link" href="<?= base_url('Front/categorias') ?>">Categorias</a>
                     </nav>
                 </div>
+                <a href="<?= base_url('Front/clientes') ?>" class="nav-link">
+                
+                <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i> </div>
+                   Clientes</a>
             </div>
         </div>
     </nav>

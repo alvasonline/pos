@@ -66,6 +66,17 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
      $routes->post('crearproducto', 'Productos::guardar');
      $routes->get('eliminarproducto/(:num)', 'Productos::eliminar::/$1');
 
+     /*Clientes */
+      /*Productos*/
+      $routes->get('clientes', 'Clientes::index');
+      $routes->get('nuevocliente', 'Clientes::nuevo');
+      $routes->get('clienteseliminados', 'Clientes::eliminado');
+      $routes->get('editarcliente/(:num)', 'Clientes::editar::/$1');
+      $routes->get('activarclientes/(:num)', 'Clientes::activar::/$1');
+      $routes->post('actualizarcliente', 'Clientes::actualizar');
+      $routes->post('crearcliente', 'Clientes::guardar');
+      $routes->get('eliminarcliente/(:num)', 'Clientes::eliminar::/$1');
+
 /*Validaciones*/
 $routes->get('frvalidar','Form::verformulario');
 $routes->post('vld','Form::vld');
