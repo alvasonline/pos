@@ -2,7 +2,7 @@
 # DataBae Info
 #-------------------------
 app/Config/Database.php
-
+writable
 
 #-------------------------
 # Operating Specific Junk Files
