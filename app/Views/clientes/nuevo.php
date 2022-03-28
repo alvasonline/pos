@@ -19,10 +19,19 @@
                                 </div>
                                 <div class="card-body">
                                     <form method="POST" action="<?= base_url() ?>/Front/crearcliente">
+                                    <div class="row mb-3">
+                                            <div class="col-md-12">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input autofocus class="form-control" value="<?= old('identificacion') ?>" id="identificacion" name="identificacion" type="text" required />
+                                                    <label for="inputFirstName">Identificacion</label>
+                                                </div>
+                                                <small class="text-danger"> <?= session('errors.identificacion') ?></small>
+                                            </div>
+                                        </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input value="<?= old('nombre') ?>" class="form-control" name="nombre" id="nombre" type="text" required />
+                                                    <input autofocus value="<?= old('nombre') ?>" class="form-control" name="nombre" id="nombre" type="text" required />
                                                     <label>Nombre</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.nombre') ?></small>

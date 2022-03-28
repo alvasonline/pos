@@ -36,7 +36,7 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     /* Home */
     /* $routes->get('', 'Home::index', ['as' => 'home']); */
 
-    /*Unidades*/
+    /* Unidades*/
     $routes->get('unidades/', 'Unidades::index');
     $routes->get('nuevaunidad/', 'Unidades::nuevo');
     $routes->get('unidadeseliminadas/', 'Unidades::eliminado');
@@ -46,7 +46,7 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     $routes->post('crearunidad/', 'Unidades::guardar');
     $routes->get('eliminarunidad/(:num)', 'Unidades::eliminar::/$1');
 
-    /*Categorias*/
+    /* Categorias*/
     $routes->get('categorias', 'Categorias::index');
     $routes->get('nuevacategoria', 'Categorias::nuevo');
     $routes->get('categoriaseliminadas', 'Categorias::eliminado');
@@ -56,7 +56,7 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     $routes->post('crearcategoria', 'Categorias::guardar');
     $routes->get('eliminarcategoria/(:num)', 'Categorias::eliminar::/$1');
 
-     /*Productos*/
+     /* Productos*/
      $routes->get('productos', 'Productos::index');
      $routes->get('nuevoproducto', 'Productos::nuevo');
      $routes->get('productoseliminados', 'Productos::eliminado');
@@ -66,8 +66,7 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
      $routes->post('crearproducto', 'Productos::guardar');
      $routes->get('eliminarproducto/(:num)', 'Productos::eliminar::/$1');
 
-     /*Clientes */
-      /*Productos*/
+     /* Clientes */
       $routes->get('clientes', 'Clientes::index');
       $routes->get('nuevocliente', 'Clientes::nuevo');
       $routes->get('clienteseliminados', 'Clientes::eliminado');
@@ -76,6 +75,16 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
       $routes->post('actualizarcliente', 'Clientes::actualizar');
       $routes->post('crearcliente', 'Clientes::guardar');
       $routes->get('eliminarcliente/(:num)', 'Clientes::eliminar::/$1');
+
+       /* Configuracion */
+       $routes->get('configuracion', 'Configuracion::index');
+       $routes->get('nuevocliente', 'Clientes::nuevo');
+       $routes->get('clienteseliminados', 'Clientes::eliminado');
+       $routes->get('editarcliente/(:num)', 'Clientes::editar::/$1');
+       $routes->get('activarclientes/(:num)', 'Clientes::activar::/$1');
+       $routes->post('actualizarcliente', 'Clientes::actualizar');
+       $routes->post('crearcliente', 'Clientes::guardar');
+       $routes->get('eliminarcliente/(:num)', 'Clientes::eliminar::/$1');
 
 /*Validaciones*/
 $routes->get('frvalidar','Form::verformulario');

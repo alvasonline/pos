@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers\Front;
+
 use App\Controllers\BaseController;
 use App\Models\ClientesModel;
 
@@ -51,7 +52,8 @@ class Clientes extends BaseController
     {
         $validation = service('validation');
         $validation->setRules([
-            'nombre' => 'required|string|is_unique[clientes.nombre]|min_length[3]',
+            'nombre' => 'required|string|min_length[3]',
+            'identificacion' => 'required|string|is_unique[clientes.identificacion]|min_length[3]',
             'direccion' => 'required|string',
             'telefono' => 'required|alpha_numeric_space',
             'correo' => 'required|valid_email',
@@ -63,23 +65,26 @@ class Clientes extends BaseController
         } else {
             $data = [
                 'nombre' => $this->request->getPost('nombre'),
+                'identificacion' => $this->request->getPost('identificacion'),
                 'direccion' => $this->request->getPost('direccion'),
                 'telefono' => $this->request->getPost('telefono'),
                 'correo' => $this->request->getPost('correo'),
                 'titulo' => 'Agregar Cliente',
             ];
-            
+
 
             $this->conectar->save($data);
             return redirect()->to(base_url() . '/clientes');
-        } 
+        }
     }
 
     public function actualizar($id = null)
+
     {
         $validation = service('validation');
         $validation->setRules([
             'nombre' => 'required|string|min_length[3]',
+            'identificacion' => 'required|string|min_length[3]',
             'direccion' => 'required|string',
             'telefono' => 'required|alpha_numeric_space',
             'correo' => 'required|valid_email',
@@ -87,11 +92,11 @@ class Clientes extends BaseController
 
         if (!$validation->withRequest($this->request)->run()) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
-        }else{
+        } else {
             $id = $this->request->getVar('id');
-            $conectar = $this->conectar->where('id', $id)->first();
             $data = [
                 'nombre' => $this->request->getPost('nombre'),
+                'identificacion' => $this->request->getPost('identificacion'),
                 'direccion' => $this->request->getPost('direccion'),
                 'telefono' => $this->request->getPost('telefono'),
                 'correo' => $this->request->getPost('correo'),
@@ -99,9 +104,8 @@ class Clientes extends BaseController
             ];
             $this->conectar->update($id, $data);
             return redirect()->to(base_url() . '/clientes');
-        } 
+        }
     }
-
 
     public function eliminar($id = null)
     {
@@ -115,5 +119,3 @@ class Clientes extends BaseController
         return redirect()->to(base_url() . '/clientes/eliminado');
     }
 }
-
- 

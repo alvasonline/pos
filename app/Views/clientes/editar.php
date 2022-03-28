@@ -22,20 +22,30 @@
                                     <form method="POST" action="<?= base_url() ?>/Front/actualizarcliente">
                                         <input type="text" hidden value="<?= $datos['id'] ?>" name="id" class="form-control">
                                         <div class="row mb-3">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" value="<?= $datos['nombre'] ?>" id="nombre" name="nombre" type="text" required />
-                                                    <label for="inputFirstName">Nombre</label>
+                                                    <input autofocus class="form-control" value="<?= $datos['identificacion'] ?>" id="identificacion" name="identificacion" type="text" required />
+                                                    <label for="inputFirstName">Identificacion</label>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" autofocus value="<?= $datos['direccion'] ?>" id="direccion" name="direccion" type="text" required />
-                                                    <label for="inputFirstName">Direccion</label>
-                                                </div>
+                                                <small class="text-danger"> <?= session('errors.identificacion') ?></small>
                                             </div>
                                         </div>
-
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input autofocus class="form-control" value="<?= $datos['nombre'] ?>" id="nombre" name="nombre" type="text" required />
+                                                    <label for="inputFirstName">Nombre</label>
+                                                </div>
+                                                <small class="text-danger"> <?= session('errors.nombre') ?></small>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" value="<?= $datos['direccion'] ?>" id="direccion" name="direccion" type="text" required />
+                                                    <label for="inputFirstName">Direccion</label>
+                                                </div>
+                                                <small class="text-danger"> <?= session('errors.direccion') ?></small>
+                                            </div>
+                                        </div>
                                         <div class="row mb-3">
 
                                             <div class="col-md-6">
@@ -43,12 +53,14 @@
                                                     <input class="form-control" value="<?= $datos['telefono'] ?>" id="telefono" name="telefono" type="number" required />
                                                     <label for="inputFirstName">Telefono</label>
                                                 </div>
+                                                <small class="text-danger"> <?= session('errors.telefono') ?></small>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" value="<?= $datos['correo'] ?>" id="correo" name="correo" type="email" required />
                                                     <label for="inputFirstName">Correo</label>
                                                 </div>
+                                                <small class="text-danger"> <?= session('errors.correo') ?></small>
                                             </div>
                                         </div>
 
