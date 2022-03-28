@@ -10,7 +10,7 @@
     <main>
         <div class="container px-4 mt-5">
         <div class="container mt-5 mb-3 px-4">
-                <a name="" id="" class="btn btn-dark" href="<?= base_url('/unidades') ?>" role="button"> <i class="fa-solid fa-arrow-left"></i> Regresar</a>
+                <a name="" id="" class="btn btn-dark" href="<?= base_url('/productos') ?>" role="button"> <i class="fa-solid fa-arrow-left"></i> Regresar</a>
             </div>
             <div class="card mb-4">
 
@@ -24,7 +24,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre</th>
-                                <th>Nombre Corto</th>
+                                
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -33,7 +33,7 @@
                                 <tr>
                                     <td><?= $dato['id'] ?></td>
                                     <td><?= $dato['nombre'] ?></td>
-                                    <td><?= $dato['nombre_corto'] ?></td>
+                                    
                                     <td>
                                         <div class="btn-group" role="group">
                                           
@@ -47,15 +47,15 @@
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Activar Unidad</h5>
+                                                            <h5 class="modal-title" id="exampleModalLabel">Activar Producto</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                           Está seguro que desea activar la Unidad <strong><?=$dato['nombre']?></strong>
+                                                           Está seguro que desea activar el producto <strong><?=$dato['nombre']?></strong>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">No</button>
-                                                            <a href="<?= base_url().'/Front/activarunidad/' . $dato['id'] ?>" class="btn btn-success"><i class="fa-solid fa-circle-check"></i> Si</a>
+                                                            <a href="<?= base_url().'/Front/activarproducto/' . $dato['id'] ?>" class="btn btn-success"><i class="fa-solid fa-circle-check"></i> Si</a>
                                                         </div>
                                                     </div>
                                                 </div>

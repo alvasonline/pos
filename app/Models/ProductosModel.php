@@ -14,7 +14,7 @@ class ProductosModel extends Model{
         'nombre',
         'precio_venta',
         'precio_compra',
-        'existencia',
+        'existencias',
         'stock_minimo',
         'inventariable',
         'id_unidad',

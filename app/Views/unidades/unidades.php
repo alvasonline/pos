@@ -39,15 +39,14 @@
                                     <td><?= $dato['nombre_corto'] ?></td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="<?= base_url().'/Front/editarunidad/' . $dato['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+                                            <a href="<?= base_url().'/Front/editarunidad/' . $dato['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> </a>
                                             
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="fa-solid fa-trash"> </i> Eliminar
-                                            </button>
-
+                                           
+                                            <a href="#" data-href="<?= base_url() . '/Front/eliminarproducto/' . $dato['id'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-trash"> </i></a>
+</div>
                                             <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -58,13 +57,15 @@
                                                            Está seguro que desea eliminar la unidad <strong><?=$dato['nombre']?></strong>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">No</button>
-                                                            <a href="<?= base_url().'/unidades/eliminar/'.$dato['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Si</a>
+                                                        <div class="btn-group" role="group">
+                                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal"><i class="fa-solid fa-angle-left"></i> No</button>
+                                                        <a class="btn btn-danger btn-ok" id="btn-ok"> <i class="fa-solid fa-trash"> </i> Si</a>
+                                                    </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        
                                     </td>
 
                                 </tr>

@@ -29,10 +29,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-floating">
-                                                    <input class="form-control" value="<?= $datos['nombre_corto'] ?>" name="nombre_corto" id="nombre_corto" type="text" required />
-                                                    <label for="inputLastName">Nombre Corto</label>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                         <div class="btn-group d-flex" role="group">

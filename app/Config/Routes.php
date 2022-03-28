@@ -44,7 +44,7 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     $routes->get('activarunidad/(:num)', 'Unidades::activar::/$1');
     $routes->post('actualizarunidad', 'Unidades::actualizar');
     $routes->post('crearunidad', 'Unidades::guardar');
-    $routes->post('eliminarunidad(:num)', 'Unidades::eliminar::/1');
+    $routes->post('eliminarunidad(:num)', 'Unidades::eliminar::/$1');
 
     /*Categorias*/
     $routes->get('categorias', 'Categorias::index');
@@ -54,17 +54,17 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     $routes->get('activarcategoria/(:num)', 'Categorias::activar::/$1');
     $routes->post('actualizarcategoria', 'Categorias::actualizar');
     $routes->post('crearcategoria', 'Categorias::guardar');
-    $routes->post('eliminarcategoria(:num)', 'Categorias::eliminar::/1');
+    $routes->post('eliminarcategoria(:num)', 'Categorias::eliminar::/$1');
 
      /*Productos*/
      $routes->get('productos', 'Productos::index');
      $routes->get('nuevoproducto', 'Productos::nuevo');
-     $routes->get('productoseliminadas', 'Productos::eliminado');
+     $routes->get('productoseliminados', 'Productos::eliminado');
      $routes->get('editarproducto/(:num)', 'Productos::editar::/$1');
      $routes->get('activarproducto/(:num)', 'Productos::activar::/$1');
      $routes->post('actualizarproducto', 'Productos::actualizar');
      $routes->post('crearproducto', 'Productos::guardar');
-     $routes->post('eliminarproducto(:num)', 'Productos::eliminar::/1');
+     $routes->post('eliminarproducto(:num)', 'Productos::eliminar::/$1');
 
 /*Validaciones*/
 $routes->get('frvalidar','Form::verformulario');
