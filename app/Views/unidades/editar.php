@@ -20,17 +20,17 @@
                                 </div>
                                 <div class="card-body">
                                     <form method="POST" action="<?= base_url() ?>/Front/actualizarunidad">
-                                    <input type="text" hidden value="<?= $datos['id'] ?>" name="id" class="form-control">
+                                        <input type="text" hidden value="<?= $datos['id'] ?>" name="id" class="form-control">
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" autofocus value="<?= $datos['nombre']?>" id="nombre" name="nombre" type="text" required />
+                                                    <input class="form-control" autofocus value="<?= $datos['nombre'] ?>" id="nombre" name="nombre" type="text" required />
                                                     <label for="inputFirstName">Nombre</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input class="form-control" value="<?= $datos['nombre_corto']?>" name="nombre_corto" id="nombre_corto" type="text" required />
+                                                    <input class="form-control" value="<?= $datos['nombre_corto'] ?>" name="nombre_corto" id="nombre_corto" type="text" required />
                                                     <label for="inputLastName">Nombre Corto</label>
                                                 </div>
                                             </div>
@@ -41,23 +41,14 @@
                                         </div>
                                     </form>
                                     <?php
-                                    if(isset($guardado)){
-                                        ?>
+                                    if (isset($guardado)) {
+                                    ?>
                                         <div class="alert alert-success mt-2 alert-dismissible fade show" role="alert">
-                                            Se ha agregado Satisfactoriamente la Categoria <strong><?php echo $nombre;?></strong>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> 
-                                        </div>
-                                        <?php                                    }
-                                    ?>
-                                    <?php
-                                    if (isset($error)) {
-                                    ?>
-                                        <div class="alert alert-danger mt-2 alert-dismissible fade show" role="alert">
-                                       <?php echo $error?>
+                                            Se ha agregado Satisfactoriamente la Categoria <strong><?php echo $nombre; ?></strong>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
-                                    <?php                                    }
-                                    ?>
+                                    <?php } ?>
+
                                 </div>
                             </div>
                         </div>

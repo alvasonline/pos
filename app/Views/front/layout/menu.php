@@ -10,7 +10,7 @@
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= base_url('Front/') ?>">Productos</a>
+                        <a class="nav-link" href="<?= base_url('Front/productos') ?>">Productos</a>
                         <a class="nav-link" href="<?= base_url('Front/unidades') ?>">Unidades</a>
                         <a class="nav-link" href="<?= base_url('Front/categorias') ?>">Categorias</a>
                     </nav>

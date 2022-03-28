@@ -21,6 +21,11 @@ class Unidades extends BaseController
         return view('unidades/unidades', $data);
     }
 
+    public function nuevo()
+    {
+        $data = ['titulo' => 'Agregar Unidad'];
+        return view('unidades/nuevo', $data);
+    }
 
     public function eliminado($activo = 0)
     {
@@ -29,11 +34,6 @@ class Unidades extends BaseController
         return view('unidades/eliminado', $data);
     }
 
-    public function nuevo()
-    {
-        $data = ['titulo' => 'Agregar Unidad'];
-        return view('unidades/nuevo', $data);
-    }
 
     public function editar($id = null)
     {
@@ -47,7 +47,15 @@ class Unidades extends BaseController
 
     public function guardar()
     {
-        if ($this->request->getMethod() == "post" && $this->validate(['nombre' => 'required', 'nombre_corto' => 'required'])) {
+        $validation = service('validation');
+        $validation->setRules([
+            'nombre' => 'required|alpha_space|is_unique[unidades.nombre]|min_length[3]',
+            'nombre_corto' => 'required|alpha_space|is_unique[unidades.nombre]',
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        } else {
             $data = [
                 'nombre' => $this->request->getPost('nombre'),
                 'nombre_corto' => $this->request->getPost('nombre_corto'),
@@ -56,18 +64,20 @@ class Unidades extends BaseController
             ];
             $this->unidades->save($data);
             return view('unidades/nuevo', $data);
-        } else {
-            $data = [
-                'error' => 'No pueden existir campos en blanco, por favor llene los campos correctamente',
-                'titulo' => 'Agregar Unidad',
-            ];
-            return view('unidades/nuevo', $data);
-        }
+        } 
     }
 
     public function actualizar($id = null)
     {
-        if ($this->request->getMethod() == "post" && $this->validate(['nombre' => 'required', 'nombre_corto' => 'required'])) {
+        $validation = service('validation');
+        $validation->setRules([
+            'nombre' => 'required|alpha_space|is_unique[unidades.nombre]|min_length[3]',
+            'nombre_corto' => 'required|alpha_space|is_unique[unidades.nombre]',
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }else{
             $id = $this->request->getVar('id');
             $unidades = $this->unidades->where('id', $id)->first();
             $data = [
@@ -79,18 +89,7 @@ class Unidades extends BaseController
             ];
             $this->unidades->update($id, $data);
             return view('unidades/editar', $data);
-
-        } else {
-            $id = $this->request->getVar('id');
-            $unidades = $this->unidades->where('id', $id)->first();
-            $data = [
-                'titulo' => 'Actualizar Unidad',
-                'error' => 'No pueden existir campos en blanco, por favor llene los campos correctamente',
-                'titulo' => 'Actualizar Unidad',
-                'datos' => $unidades,
-            ];
-            return view('unidades/editar', $data);
-        }
+        } 
     }
 
     public function eliminar($id = null)

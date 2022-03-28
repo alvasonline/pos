@@ -37,7 +37,7 @@ return [
     'is_natural'            => 'El campo {field} debe contener solo dígitos.',
     'is_natural_no_zero'    => 'El campo {field} debe solo contener dígitos y ser mayor que cero.',
     'is_not_unique'         => 'El campo {field} debe contener un valor previamente existente en la base de datos.',
-    'is_unique'             => 'El campo {field} debe contener un valor único.',
+    'is_unique'             => 'El campo {field} ya existe.',
     'less_than'             => 'El campo {field} debe contener un número menor que {param}.',
     'less_than_equal_to'    => 'El campo {field} debe contener un número menor o igual a {param}.',
     'matches'               => 'El campo {field} no coincide con el campo {param}.',
