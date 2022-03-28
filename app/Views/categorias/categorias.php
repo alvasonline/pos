@@ -18,7 +18,11 @@
 
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
+<<<<<<< HEAD
                     <?= $titulo; ?>
+=======
+                    <?= $titulo; ?> en la URL <?=base_url()?>
+>>>>>>> c9697396bc6f870a6b78e31261267418ad35fa75
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">
