@@ -50,9 +50,13 @@ class Productos extends BaseController
     public function editar($id = null)
     {
         $productos = $this->productos->where('id', $id)->first();
+        $categorias = $this->categorias->where("activo", 1)->findAll();
+        $unidades = $this->unidades->where("activo", 1)->findAll();
         $data = [
             'titulo' => 'Actualizar Producto',
-            'datos' => $productos
+            'datos' => $productos,
+            'categorias' => $categorias,
+            'unidades' => $unidades,
         ];
         return view('productos/editar', $data);
     }
@@ -87,7 +91,6 @@ class Productos extends BaseController
                 'id_unidad' => $this->request->getPost('unidades'),
                 'id_categoria' => $this->request->getPost('categorias'),
                 'titulo' => 'Agregar Producto',
-                'guardado' => 'Si',
             ];
             
 
@@ -100,8 +103,15 @@ class Productos extends BaseController
     {
         $validation = service('validation');
         $validation->setRules([
-            'nombre' => 'required|alpha_space|is_unique[productos.nombre]|min_length[3]',
-            'nombre_corto' => 'required|alpha_space|is_unique[productos.nombre]',
+            'codigo' => 'required|alpha_numeric_space|min_length[3]',
+            'nombre' => 'required|alpha_numeric_space|min_length[3]',
+            'precio_venta' => 'required|decimal',
+            'precio_compra' => 'required|decimal',
+            'existencia' => 'required|integer',
+            'stock_minimo' => 'required|integer',
+            'inventariable' => 'required',
+            'unidades' => 'required',
+            'categorias' => 'required',
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
@@ -110,14 +120,19 @@ class Productos extends BaseController
             $id = $this->request->getVar('id');
             $productos = $this->productos->where('id', $id)->first();
             $data = [
-                'nombre' => $this->request->getVar('nombre'),
-                'nombre_corto' => $this->request->getVar('nombre_corto'),
-                'titulo' => 'Actualizar Producto',
-                'guardado' => 'Se guardó correctamente el Producto',
-                'datos' => $productos,
+                'codigo' => $this->request->getPost('codigo'),
+                'nombre' => $this->request->getPost('nombre'),
+                'precio_venta' => $this->request->getPost('precio_venta'),
+                'precio_compra' => $this->request->getPost('precio_compra'),
+                'existencias' => $this->request->getPost('existencia'),
+                'stock_minimo' => $this->request->getPost('stock_minimo'),
+                'inventariable' => $this->request->getPost('inventariable'),
+                'id_unidad' => $this->request->getPost('unidades'),
+                'id_categoria' => $this->request->getPost('categorias'),
+                'titulo' => 'Agregar Producto',
             ];
             $this->productos->update($id, $data);
-            return view('productos/editar', $data);
+            return redirect()->to(base_url() . '/productos');
         } 
     }
 
@@ -134,3 +149,5 @@ class Productos extends BaseController
         return redirect()->to(base_url() . '/productos/eliminado');
     }
 }
+
+ 

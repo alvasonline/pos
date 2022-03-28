@@ -18,7 +18,7 @@
 
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    <?= $titulo; ?> en la URL <?=base_url()?>
+                    <?= $titulo; ?>
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">
@@ -36,32 +36,28 @@
                                     <td><?= $dato['nombre'] ?></td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="<?= base_url() . '/Front/editarcategoria/' . $dato['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
-                                           
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="fa-solid fa-trash"> </i> Eliminar
-                                            </button>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Categoria</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                           Está seguro que desea eliminar la categoria <strong><?=$dato['nombre']?></strong>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">No</button>
-                                                            <a href="<?= base_url() . '/categorias/eliminar/' . $dato['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Si</a>
-                                                        </div>
+                                            <a href="<?= base_url() . '/Front/editarcategoria/' . $dato['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a href="#" data-href="<?= base_url() . '/Front/eliminarcategoria/' . $dato['id'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-trash"> </i></a>
+                                        </div>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Categoria</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Está seguro que desea eliminar la categoria?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">No</button>
+                                                        <a class="btn btn-danger btn-ok" id="btn-ok"> <i class="fa-solid fa-trash"> </i> Si</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </td>
 
                                 </tr>

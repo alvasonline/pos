@@ -25,7 +25,7 @@
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 
-                                <th>Acciones</th>
+                                <th>Activar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,15 +35,13 @@
                                     <td><?= $dato['nombre'] ?></td>
                                     
                                     <td>
-                                        <div class="btn-group" role="group">
+                                        <div class="btn" role="group">
                                           
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="fa-solid fa-circle-check"></i> Activar
-                                            </button>
+                                            <a href="#" data-href="<?= base_url() . '/Front/activarproducto/'. $dato['id'] ?>" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-circle-check"></i> </a>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -51,11 +49,11 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                           Está seguro que desea activar el producto <strong><?=$dato['nombre']?></strong>
+                                                           Está seguro que desea activar el producto?
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">No</button>
-                                                            <a href="<?= base_url().'/Front/activarproducto/' . $dato['id'] ?>" class="btn btn-success"><i class="fa-solid fa-circle-check"></i> Si</a>
+                                                            <a class="btn btn-success btn-ok" id="btn-ok"><i class="fa-solid fa-circle-check"></i> Si</a>
                                                         </div>
                                                     </div>
                                                 </div>

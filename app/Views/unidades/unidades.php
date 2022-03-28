@@ -43,7 +43,7 @@
                                             
                                             <!-- Button trigger modal -->
                                            
-                                            <a href="#" data-href="<?= base_url() . '/Front/eliminarproducto/' . $dato['id'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-trash"> </i></a>
+                                            <a href="#" data-href="<?= base_url() . '/Front/eliminarunidad/' . $dato['id'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-trash"> </i></a>
 </div>
                                             <!-- Modal -->
                                             <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -54,7 +54,7 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                           Está seguro que desea eliminar la unidad <strong><?=$dato['nombre']?></strong>
+                                                           Está seguro que desea eliminar la unidad?
                                                         </div>
                                                         <div class="modal-footer">
                                                         <div class="btn-group" role="group">

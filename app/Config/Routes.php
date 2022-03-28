@@ -34,17 +34,17 @@ $routes->setAutoRoute(true);
 $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($routes) {
 
     /* Home */
-    $routes->get('', 'Home::index', ['as' => 'home']);
+    /* $routes->get('', 'Home::index', ['as' => 'home']); */
 
     /*Unidades*/
-    $routes->get('unidades', 'Unidades::index');
-    $routes->get('nuevaunidad', 'Unidades::nuevo');
-    $routes->get('unidadeseliminadas', 'Unidades::eliminado');
+    $routes->get('unidades/', 'Unidades::index');
+    $routes->get('nuevaunidad/', 'Unidades::nuevo');
+    $routes->get('unidadeseliminadas/', 'Unidades::eliminado');
     $routes->get('editarunidad/(:num)', 'Unidades::editar::/$1');
     $routes->get('activarunidad/(:num)', 'Unidades::activar::/$1');
-    $routes->post('actualizarunidad', 'Unidades::actualizar');
-    $routes->post('crearunidad', 'Unidades::guardar');
-    $routes->post('eliminarunidad(:num)', 'Unidades::eliminar::/$1');
+    $routes->post('actualizarunidad/', 'Unidades::actualizar');
+    $routes->post('crearunidad/', 'Unidades::guardar');
+    $routes->get('eliminarunidad/(:num)', 'Unidades::eliminar::/$1');
 
     /*Categorias*/
     $routes->get('categorias', 'Categorias::index');
@@ -54,7 +54,7 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     $routes->get('activarcategoria/(:num)', 'Categorias::activar::/$1');
     $routes->post('actualizarcategoria', 'Categorias::actualizar');
     $routes->post('crearcategoria', 'Categorias::guardar');
-    $routes->post('eliminarcategoria(:num)', 'Categorias::eliminar::/$1');
+    $routes->get('eliminarcategoria/(:num)', 'Categorias::eliminar::/$1');
 
      /*Productos*/
      $routes->get('productos', 'Productos::index');
@@ -64,7 +64,7 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
      $routes->get('activarproducto/(:num)', 'Productos::activar::/$1');
      $routes->post('actualizarproducto', 'Productos::actualizar');
      $routes->post('crearproducto', 'Productos::guardar');
-     $routes->post('eliminarproducto(:num)', 'Productos::eliminar::/$1');
+     $routes->get('eliminarproducto/(:num)', 'Productos::eliminar::/$1');
 
 /*Validaciones*/
 $routes->get('frvalidar','Form::verformulario');
