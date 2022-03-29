@@ -7,72 +7,80 @@
 <?= $this->section('content'); ?>
 
 <div id="layoutSidenav_content">
-    
-    <main>
-        <div class="container px-4">
-
-            <div class="container mt-5 mb-3 px-4">
-                <a name="" id="" class="btn btn-dark" href="<?= base_url('Front/nuevaunidad') ?>" role="button"> <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
-                <a name="" id="" class="btn btn-warning" href="<?= base_url('Front/unidadeseliminadas') ?>" role="button"><i class="fa-solid fa-square-minus"></i> Eliminados</a>
-            </div>
-            <div class="card mb-4">
-
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    <?= $titulo; ?>
-                </div>
-                <div class="card-body">
-                    <table id="datatablesSimple">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Nombre</th>
-                                
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($datos as $dato) : ?>
-                                <tr>
-                                    <td><?= $dato['id'] ?></td>
-                                    <td><?= $dato['nombre'] ?></td>
-                                    
-                                    <td>
-                                        <div class="btn-group" role="group">
-                                            <a href="<?= base_url().'/Front/editarunidad/' . $dato['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> </a>
-                                            
-                                            <!-- Button trigger modal -->
-                                           
-                                            <a href="#" data-href="<?= base_url() . '/Front/eliminarunidad/' . $dato['id'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-trash"> </i></a>
-</div>
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-sm" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Unidad</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                           Está seguro que desea eliminar la unidad?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                        <div class="btn-group" role="group">
-                                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal"><i class="fa-solid fa-angle-left"></i> No</button>
-                                                        <a class="btn btn-danger btn-ok" id="btn-ok"> <i class="fa-solid fa-trash"> </i> Si</a>
-                                                    </div>
-                                                        </div>
-                                                    </div>
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5 p-4">
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4"><?= $titulo; ?></h3>
+                                </div>
+                                <div class="card-body">
+                                    <form method="POST" action="<?= base_url() ?>/Front/crearcategoria">
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input autofocus class="form-control" id="tienda_nombre" name="tienda_nombre" type="text" value="<?= $tienda_nombre ?>" required />
+                                                    <label>Nombre de la Tienda</label>
                                                 </div>
+                                                <small class="text-danger"> <?= session('errors.tienda_nombre') ?></small>
                                             </div>
-                                        
-                                    </td>
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="tienda_rfc" name="tienda_rfc" type="text" value="<?= $tienda_rfc ?>" required />
+                                                    <label>RUC</label>
+                                                </div>
+                                                <small class="text-danger"> <?= session('errors.tienda_rfc') ?></small>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="tienda_telefono" name="tienda_telefono" type="text" value="<?= $tienda_telefono ?>" required />
+                                                    <label>Telefono</label>
+                                                </div>
+                                                <small class="text-danger"> <?= session('errors.tienda_telefono') ?></small>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="tienda_correo" name="tienda_correo" type="text" value="<?= $tienda_email ?>" required />
+                                                    <label>Correo</label>
+                                                </div>
+                                                <small class="text-danger"> <?= session('errors.tienda_correo') ?></small>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <textarea rows="3" class="form-control" id="tienda_direccion" name="tienda_direccion" required><?= $tienda_direccion ?></textarea>
+                                                    <label>Direccion de la tienda</label>
+                                                </div>
+                                                <small class="text-danger"> <?= session('errors.tienda_direccion') ?></small>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <div class="form-floating mb-3 mb-md-0">
+                                                    <textarea rows="3" class="form-control" id="tienda_direccion" name="tienda_nombre"><?= $tiket_leyenda ?></textarea>
+                                                    <label>Leyenda Ticket</label>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="btn-group mb-4" role="group">
+                                    <button type="submit" name="" id="" class="btn btn-dark"><i class="fa-solid fa-circle-plus"></i> Agregar</button>
+                                    <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/categorias') ?>" role="button"><i class="fa-solid fa-circle-chevron-left"></i> Regresar</a>
+                                </div>
+                                </form>
 
-                                </tr>
-                            <?php endforeach ?>
-                        </tbody>
-                    </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-    </main>
-    <?= $this->endSection(); ?>
+        </div>
+        </main>
+    </div>
+</div>
+</main>
+<?= $this->endSection(); ?>

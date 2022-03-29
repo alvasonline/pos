@@ -22,16 +22,38 @@
                                     <form method="POST" action="<?= base_url() ?>/Front/actualizarunidad">
                                         <input type="text" hidden value="<?= $datos['id'] ?>" name="id" class="form-control">
                                         <div class="row mb-3">
+                                            <div class="col-md-12">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" autofocus value="<?= $datos['tienda_rfc'][0] ?>" id="tienda_rfc" name="tienda_rfc" type="text" required />
+                                                    <label for="inputFirstName">RUC</label>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" autofocus value="<?= $datos['nombre'] ?>" id="nombre" name="nombre" type="text" required />
-                                                    <label for="inputFirstName">Nombre</label>
+                                                    <input class="form-control" autofocus value="<?= $datos['tienda_nombre'][0] ?>" id="tienda_nombre" name="tienda_nombre" type="text" required />
+                                                    <label for="inputFirstName">Nombre de la Tienda</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input class="form-control" value="<?= $datos['nombre_corto'] ?>" name="nombre_corto" id="nombre_corto" type="text" required />
-                                                    <label for="inputLastName">Nombre Corto</label>
+                                                    <input class="form-control" value="<?= $datos['tienda_telefono'] ?>" name="tienda_telefono" id="tienda_telefono" type="text" required />
+                                                    <label for="inputLastName">Telefono</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" autofocus value="<?= $datos['tienda_direccion'][0] ?>" id="tienda_direccion" name="tienda_direccion" type="text" required />
+                                                    <label for="inputFirstName">Dirección de la Tienda</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input class="form-control" value="<?= $datos['RUC'] ?>" name="tienda_email" id="tienda_ruc" type="text" required />
+                                                    <label for="inputLastName">RUC</label>
                                                 </div>
                                             </div>
                                         </div>

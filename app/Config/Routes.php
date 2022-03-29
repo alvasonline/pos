@@ -78,13 +78,10 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
 
        /* Configuracion */
        $routes->get('configuracion', 'Configuracion::index');
-       $routes->get('nuevocliente', 'Clientes::nuevo');
-       $routes->get('clienteseliminados', 'Clientes::eliminado');
-       $routes->get('editarcliente/(:num)', 'Clientes::editar::/$1');
-       $routes->get('activarclientes/(:num)', 'Clientes::activar::/$1');
-       $routes->post('actualizarcliente', 'Clientes::actualizar');
-       $routes->post('crearcliente', 'Clientes::guardar');
-       $routes->get('eliminarcliente/(:num)', 'Clientes::eliminar::/$1');
+       $routes->get('editarconfiguracion', 'Configuracion::editar');
+       $routes->post('actualizarconfiguracion', 'Configuracion::actualizar');
+       
+       
 
 /*Validaciones*/
 $routes->get('frvalidar','Form::verformulario');
