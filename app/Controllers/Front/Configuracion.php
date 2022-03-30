@@ -17,14 +17,15 @@ class Configuracion extends BaseController
     public function index()
     {
         $conectar = $this->conectar->findAll();
-        foreach ($conectar as $datos) {
-            $datos[$datos['nombre']] = $datos['valor'];
-        }
         $data = [
             'titulo' => 'Configuracion de la Tienda',
-            'datos' => $datos,
+            'tienda_nombre' => $conectar[0]['valor'],
+            'tienda_rfc' => $conectar[1]['valor'],
+            'tienda_telefono' => $conectar[2]['valor'],
+            'tienda_email' => $conectar[3]['valor'],
+            'tienda_direccion' => $conectar[4]['valor'],
+            'ticket_leyenda' => $conectar[5]['valor'],
         ];
-        dd($datos['tienda_nombre']);
 
         return view('configuracion/configuracion', $data);
     }
@@ -35,8 +36,12 @@ class Configuracion extends BaseController
         $validation = service('validation');
         $validation->setRules(
             [
-                'nombre' => 'required|alpha_space|is_unique[configuracion.nombre]|min_length[3]',
-                'nombre_corto' => 'required|alpha_space|is_unique[configuracion.nombre]',
+                'tienda_nombre' => 'required|string|min_length[3]',
+                'tienda_rfc' => 'required|string|min_length[3]',
+                'tienda_telefono' => 'required',
+                'tienda_email' => 'required|valid_email',
+                'tienda_direccion' => 'required|min_length[10]',
+                'ticket_leyenda' => 'required|min_length[10]',
             ]
         );
 
@@ -50,9 +55,10 @@ class Configuracion extends BaseController
                 'nombre_corto' => $this->request->getVar('nombre_corto'),
                 'titulo' => 'Actualizar Información de la Tienda',
                 'datos' => $conectar,
+                'guardado' => 'La información se ha guardado correctamente',
             ];
             $this->conectar->update($id, $data);
-            return view('configuracion/editar', $data);
+            return view('configuracion/configuracion', $data);
         }
     }
 }
