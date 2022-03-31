@@ -25,6 +25,7 @@
                 <div class="collapse" id="administracion" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="<?= base_url('Front/configuracion') ?>">Configuracion</a>
+                        <a class="nav-link" href="<?= base_url('Front/caja') ?>">Caja</a>
                     </nav>
                 </div>
             </div>

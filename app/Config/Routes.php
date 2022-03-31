@@ -76,6 +76,16 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
       $routes->post('crearcliente', 'Clientes::guardar');
       $routes->get('eliminarcliente/(:num)', 'Clientes::eliminar::/$1');
 
+       /* Caja */
+       $routes->get('caja', 'caja::index');
+       $routes->get('nuevacaja', 'Caja::nuevo');
+       $routes->get('cajaeliminada', 'Caja::eliminado');
+       $routes->get('editarcaja/(:num)', 'Caja::editar::/$1');
+       $routes->get('activarcaja/(:num)', 'Caja::activar::/$1');
+       $routes->post('actualizarcaja', 'Caja::actualizar');
+       $routes->post('crearcaja', 'Caja::guardar');
+       $routes->get('eliminarcaja/(:num)', 'Caja::eliminar::/$1');
+
        /* Configuracion */
        $routes->get('configuracion', 'Configuracion::index');
        $routes->get('editarconfiguracion', 'Configuracion::editar');

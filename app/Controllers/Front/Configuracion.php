@@ -42,12 +42,17 @@ class Configuracion extends BaseController
                 'ticket_leyenda' => 'required|min_length[10]',
             ]
         );
-        
+
         if (!$validation->withRequest($this->request)->run()) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         } else {
-         dd($validation('tienda_nombre'));
-           return redirect()->to(base_url('/configuracion'));
+            $this->conectar->set('valor', $_POST['tienda_nombre'])->where('nombre', 'tienda_nombre')->update();
+            $this->conectar->set('valor', $_POST['tienda_rfc'])->where('nombre', 'tienda_rfc')->update();
+            $this->conectar->set('valor', $_POST['tienda_telefono'])->where('nombre', 'tienda_telefono')->update();
+            $this->conectar->set('valor', $_POST['tienda_email'])->where('nombre', 'tienda_email')->update();
+            $this->conectar->set('valor', $_POST['tienda_direccion'])->where('nombre', 'tienda_direccion')->update();
+            $this->conectar->set('valor', $_POST['ticket_leyenda'])->where('nombre', 'ticket_leyenda')->update();
+            return redirect()->to(base_url('/configuracion'));
         }
     }
 }

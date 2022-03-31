@@ -64,16 +64,7 @@
                                                     <label>Leyenda Ticket</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.ticket_leyenda') ?></small>
-                                            </div>
-                                        
-                                        <?php
-                                    if (isset($guardado)) {
-                                    ?>
-                                        <div class="alert alert-success mt-2 alert-dismissible fade show" role="alert">
-                                          <?php echo $guardado; ?></strong>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
-                                    <?php } ?>
+                                            </div>                                 
                                 </div>
                                 <div class="btn-group mb-4" role="group">
                                     <button type="submit" name="" id="" class="btn btn-dark"><i class="fa-solid fa-circle-plus"></i> Guardar</button>

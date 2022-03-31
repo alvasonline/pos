@@ -22,6 +22,7 @@
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
+                            <th>Id</th>
                                 <th>Identificacion</th>
                                 <th>Nombre</th>
                                 <th>Direccion</th>
@@ -32,6 +33,7 @@
                         <tbody>
                             <?php foreach ($datos as $dato) { ?>
                                 <tr>
+                                <td><?= $dato['id'] ?></td>
                                     <td><?= $dato['identificacion'] ?></td>
                                     <td><?= $dato['nombre'] ?></td>
                                     <td><?= $dato['direccion'] ?></td>
@@ -40,7 +42,7 @@
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a href="<?= base_url() . '/Front/editarcliente/' . $dato['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a href="#" data-href="<?= base_url() . '/Front/eliminarcliente/' . $dato['identificacion'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-trash"> </i></a>
+                                            <a href="#" data-href="<?= base_url() .'/Front/eliminarcliente/' . $dato['id'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-trash"> </i></a>
                                         </div>
                                         <!-- Ventana Modal -->
                                         <div class="modal fade" id="modal-confirma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
