@@ -26,12 +26,10 @@ class Configuracion extends BaseController
             'tienda_direccion' => $conectar[4]['valor'],
             'ticket_leyenda' => $conectar[5]['valor'],
         ];
-
         return view('configuracion/configuracion', $data);
     }
 
-
-    public function actualizar($id = null)
+    public function actualizar()
     {
         $validation = service('validation');
         $validation->setRules(
@@ -44,21 +42,12 @@ class Configuracion extends BaseController
                 'ticket_leyenda' => 'required|min_length[10]',
             ]
         );
-
+        
         if (!$validation->withRequest($this->request)->run()) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         } else {
-            $id = $this->request->getVar('id');
-            $conectar = $this->conectar->where('id', $id)->first();
-            $data = [
-                'nombre' => $this->request->getVar('nombre'),
-                'nombre_corto' => $this->request->getVar('nombre_corto'),
-                'titulo' => 'Actualizar Información de la Tienda',
-                'datos' => $conectar,
-                'guardado' => 'La información se ha guardado correctamente',
-            ];
-            $this->conectar->update($id, $data);
-            return view('configuracion/configuracion', $data);
+         dd($validation('tienda_nombre'));
+           return redirect()->to(base_url('/configuracion'));
         }
     }
 }

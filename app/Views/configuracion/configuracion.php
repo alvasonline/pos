@@ -37,14 +37,14 @@
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="tienda_telefono" name="tienda_telefono" type="text" value="<?= $tienda_telefono ?>" required />
+                                                    <input class="form-control" id="tienda_telefono" name="tienda_telefono" type="number" value="<?= $tienda_telefono ?>" required />
                                                     <label>Telefono</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.tienda_telefono') ?></small>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="tienda_email" name="tienda_email" type="text" value="<?= $tienda_email ?>" required />
+                                                    <input class="form-control" id="tienda_email" name="tienda_email" type="email" value="<?= $tienda_email ?>" required />
                                                     <label>Correo</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.tienda_email') ?></small>
@@ -65,12 +65,12 @@
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.ticket_leyenda') ?></small>
                                             </div>
-                                        </div>
+                                        
                                         <?php
                                     if (isset($guardado)) {
                                     ?>
                                         <div class="alert alert-success mt-2 alert-dismissible fade show" role="alert">
-                                            Se ha agregado Satisfactoriamente la Categoria <strong><?php echo $nombre; ?></strong>
+                                          <?php echo $guardado; ?></strong>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         </div>
                                     <?php } ?>
