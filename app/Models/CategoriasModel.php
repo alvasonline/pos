@@ -13,9 +13,6 @@ class CategoriasModel extends Model{
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';
     protected $updatedField  = 'fecha_edit';
-    protected $validationRules    = [];
-    protected $validationMessages = [];
-    protected $skipValidation     = false;
 }
 
 

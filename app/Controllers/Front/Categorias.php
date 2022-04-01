@@ -86,7 +86,7 @@ class Categorias extends BaseController
                 'datos' =>  $categorias,
             ];
             $this->categorias->update($id, $data);
-            return view('categorias/editar', $data);
+            return redirect()->to(base_url().'/Front/editarcategoria/'.$id);
         }
     }
 

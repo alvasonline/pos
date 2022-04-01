@@ -3,36 +3,36 @@
 namespace App\Controllers\Front;
 
 use App\Controllers\BaseController;
-use App\Models\CajasModel;
+use App\Models\RolesModel;
 
-class Caja extends BaseController
+class Roles extends BaseController
 {
     protected $conectar;
 
     public function __construct()
     {
-        $this->conectar = new CajasModel();
+        $this->conectar = new RolesModel();
     }
     
     public function index($activo = 1)
     {
         $conectar = $this->conectar->where("activo", $activo)->findAll();
-        $data = ['titulo' => 'Caja', 'datos' => $conectar];
+        $data = ['titulo' => 'Roles', 'datos' => $conectar];
         
-        return view('caja/caja', $data);
+        return view('roles/roles', $data);
     }
 
     public function nuevo()
     {
-        $data = ['titulo' => 'Nueva Caja'];
-        return view('caja/nuevo', $data);
+        $data = ['titulo' => 'Nuevo Rol'];
+        return view('roles/nuevo', $data);
     }
 
     public function eliminado($activo = 0)
     {
         $conectar = $this->conectar->where("activo", $activo)->findAll();
         $data = ['titulo' => 'Cajas Desactivadas', 'datos' => $conectar];
-        return view('caja/eliminado', $data);
+        return view('roles/eliminado', $data);
     }
 
 
@@ -40,33 +40,29 @@ class Caja extends BaseController
     {
         $conectar = $this->conectar->where('id', $id)->first();
         $data = [
-            'titulo' => 'Actualizar Caja',
+            'titulo' => 'Actualizar Rol',
             'datos' => $conectar
         ];
-        return view('caja/editar', $data);
+        return view('roles/editar', $data);
     }
 
     public function guardar()
     {
         $validation = service('validation');
         $validation->setRules([
-            'folio' => 'required|alpha_numeric_space|is_unique[caja.folio]|min_length[3]',
-            'numero_caja' => 'required|alpha_numeric_space|is_unique[caja.numero_caja]|min_length[3]',
-            'nombre' => 'required|string|min_length[3]',
+            'nombre' => 'required|alpha|min_length[3]|is_unique[roles.nombre]',
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         } else {
             $data = [
-                'folio' => $this->request->getPost('folio'),
                 'nombre' => $this->request->getPost('nombre'),
-                'numero_caja' => $this->request->getPost('numero_caja'),
-                'titulo' => 'Agregar Caja',
+                'titulo' => 'Agregar Rol',
                 'guardado' => 'Si',
             ];
             $this->conectar->save($data);
-            return view('caja/nuevo', $data);
+            return view('roles/nuevo', $data);
         } 
     }
 
@@ -74,8 +70,6 @@ class Caja extends BaseController
     {
         $validation = service('validation');
         $validation->setRules([
-            'folio' => 'required|alpha_numeric_space|min_length[3]',
-            'numero_caja' => 'required|alpha_numeric_space|min_length[3]',
             'nombre' => 'required|string|min_length[3]',
         ]);
 
@@ -86,27 +80,25 @@ class Caja extends BaseController
             
             $conectar = $this->conectar->where('id', $id)->first();
             $data = [
-                'folio' => $this->request->getPost('folio'),
                 'nombre' => $this->request->getPost('nombre'),
-                'numero_caja' => $this->request->getPost('numero_caja'),
-                'titulo' => 'Actualizar Caja',
-                'guardado' => 'Se guardó correctamente la Caja',
+                'titulo' => 'Actualizar Rol',
+                'guardado' => 'Se guardó correctamente el Rol',
                 'datos' => $conectar,
             ];
             $this->conectar->update($id, $data);
-            return view('caja/editar', $data);
+            return redirect()->to(base_url() . '/roles/editar/'.$id);
         } 
     }
 
     public function eliminar($id = null)
     {
         $this->conectar->update($id, ['activo' => 0]);
-        return redirect()->to(base_url() . '/caja');
+        return redirect()->to(base_url() . '/roles');
     }
 
     public function activar($id = null)
     {
         $this->conectar->update($id, ['activo' => 1]);
-        return redirect()->to(base_url() . '/caja/eliminado');
+        return redirect()->to(base_url() . '/roles/eliminado');
     }
 }

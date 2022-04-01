@@ -103,7 +103,7 @@ class Clientes extends BaseController
                 'titulo' => 'Agregar Cliente',
             ];
             $this->conectar->update($id, $data);
-            return redirect()->to(base_url() . '/clientes');
+            return redirect()->to(base_url().'/Front/editarcliente/'.$id);
         }
     }
 

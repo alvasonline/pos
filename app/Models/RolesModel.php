@@ -3,13 +3,13 @@
 namespace  App\Models;
 use CodeIgniter\Model;
 
-class UnidadesModel extends Model{
-    protected $table      = 'unidades';
+class RolesModel extends Model{
+    protected $table      = 'roles';
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
-    protected $allowedFields = ['nombre', 'nombre_corto','activo'];
+    protected $allowedFields = ['nombre','activo'];
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';
     protected $updatedField  = 'fecha_edit';

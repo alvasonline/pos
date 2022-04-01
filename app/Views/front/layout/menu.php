@@ -26,6 +26,8 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="<?= base_url('Front/configuracion') ?>">Configuracion</a>
                         <a class="nav-link" href="<?= base_url('Front/caja') ?>">Caja</a>
+                        <a class="nav-link" href="<?= base_url('Front/roles') ?>">Roles</a>
+                        <a class="nav-link" href="<?= base_url('Front/usuarios') ?>">Usuarios</a>
                     </nav>
                 </div>
             </div>

@@ -132,7 +132,7 @@ class Productos extends BaseController
                 'titulo' => 'Agregar Producto',
             ];
             $this->productos->update($id, $data);
-            return redirect()->to(base_url() . '/productos');
+            return redirect()->to(base_url().'/Front/editarproducto/'.$id.'?guardado=Si');
         } 
     }
 

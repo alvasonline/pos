@@ -3,18 +3,15 @@
 namespace  App\Models;
 use CodeIgniter\Model;
 
-class UnidadesModel extends Model{
-    protected $table      = 'unidades';
+class UsuariosModel extends Model{
+    protected $table      = 'usuarios';
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
     protected $returnType     = 'array';
     protected $useSoftDeletes = false;
-    protected $allowedFields = ['nombre', 'nombre_corto','activo'];
+    protected $allowedFields = ['usuario','password','nombre','id_caja','id_rol','activo'];
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';
     protected $updatedField  = 'fecha_edit';
 }
-
-
-
 ?>

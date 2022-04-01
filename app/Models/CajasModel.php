@@ -3,7 +3,7 @@
 namespace  App\Models;
 use CodeIgniter\Model;
 
-class CajaModel extends Model{
+class CajasModel extends Model{
     protected $table      = 'caja';
     protected $primaryKey = 'id';
     protected $useAutoIncrement = true;
@@ -13,9 +13,6 @@ class CajaModel extends Model{
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';
     protected $updatedField  = 'fecha_edit';
-    protected $validationRules    = [];
-    protected $validationMessages = [];
-    protected $skipValidation     = false;
 }
 
 

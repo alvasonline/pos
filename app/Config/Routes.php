@@ -56,46 +56,67 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     $routes->post('crearcategoria', 'Categorias::guardar');
     $routes->get('eliminarcategoria/(:num)', 'Categorias::eliminar::/$1');
 
-     /* Productos*/
-     $routes->get('productos', 'Productos::index');
-     $routes->get('nuevoproducto', 'Productos::nuevo');
-     $routes->get('productoseliminados', 'Productos::eliminado');
-     $routes->get('editarproducto/(:num)', 'Productos::editar::/$1');
-     $routes->get('activarproducto/(:num)', 'Productos::activar::/$1');
-     $routes->post('actualizarproducto', 'Productos::actualizar');
-     $routes->post('crearproducto', 'Productos::guardar');
-     $routes->get('eliminarproducto/(:num)', 'Productos::eliminar::/$1');
+    /* Productos*/
+    $routes->get('productos', 'Productos::index');
+    $routes->get('nuevoproducto', 'Productos::nuevo');
+    $routes->get('productoseliminados', 'Productos::eliminado');
+    $routes->get('editarproducto/(:num)', 'Productos::editar::/$1');
+    $routes->get('activarproducto/(:num)', 'Productos::activar::/$1');
+    $routes->post('actualizarproducto', 'Productos::actualizar');
+    $routes->post('crearproducto', 'Productos::guardar');
+    $routes->get('eliminarproducto/(:num)', 'Productos::eliminar::/$1');
 
-     /* Clientes */
-      $routes->get('clientes', 'Clientes::index');
-      $routes->get('nuevocliente', 'Clientes::nuevo');
-      $routes->get('clienteseliminados', 'Clientes::eliminado');
-      $routes->get('editarcliente/(:num)', 'Clientes::editar::/$1');
-      $routes->get('activarclientes/(:num)', 'Clientes::activar::/$1');
-      $routes->post('actualizarcliente', 'Clientes::actualizar');
-      $routes->post('crearcliente', 'Clientes::guardar');
-      $routes->get('eliminarcliente/(:num)', 'Clientes::eliminar::/$1');
+    /* Clientes */
+    $routes->get('clientes', 'Clientes::index');
+    $routes->get('nuevocliente', 'Clientes::nuevo');
+    $routes->get('clienteseliminados', 'Clientes::eliminado');
+    $routes->get('editarcliente/(:num)', 'Clientes::editar::/$1');
+    $routes->get('activarclientes/(:num)', 'Clientes::activar::/$1');
+    $routes->post('actualizarcliente', 'Clientes::actualizar');
+    $routes->post('crearcliente', 'Clientes::guardar');
+    $routes->get('eliminarcliente/(:num)', 'Clientes::eliminar::/$1');
 
-       /* Caja */
-       $routes->get('caja', 'caja::index');
-       $routes->get('nuevacaja', 'Caja::nuevo');
-       $routes->get('cajaeliminada', 'Caja::eliminado');
-       $routes->get('editarcaja/(:num)', 'Caja::editar::/$1');
-       $routes->get('activarcaja/(:num)', 'Caja::activar::/$1');
-       $routes->post('actualizarcaja', 'Caja::actualizar');
-       $routes->post('crearcaja', 'Caja::guardar');
-       $routes->get('eliminarcaja/(:num)', 'Caja::eliminar::/$1');
+    /* Configuracion */
+    $routes->get('configuracion', 'Configuracion::index');
+    $routes->get('editarconfiguracion', 'Configuracion::editar');
+    $routes->post('actualizarconfiguracion', 'Configuracion::actualizar');
 
-       /* Configuracion */
-       $routes->get('configuracion', 'Configuracion::index');
-       $routes->get('editarconfiguracion', 'Configuracion::editar');
-       $routes->post('actualizarconfiguracion', 'Configuracion::actualizar');
-       
-       
+    /* Caja */
+    $routes->get('caja', 'caja::index');
+    $routes->get('nuevacaja', 'Caja::nuevo');
+    $routes->get('cajaeliminada', 'Caja::eliminado');
+    $routes->get('editarcaja/(:num)', 'Caja::editar::/$1');
+    $routes->get('activarcaja/(:num)', 'Caja::activar::/$1');
+    $routes->post('actualizarcaja', 'Caja::actualizar');
+    $routes->post('crearcaja', 'Caja::guardar');
+    $routes->get('eliminarcaja/(:num)', 'Caja::eliminar::/$1');
 
-/*Validaciones*/
-$routes->get('frvalidar','Form::verformulario');
-$routes->post('vld','Form::vld');
+    /* Roles */
+    $routes->get('roles', 'Roles::index');
+    $routes->get('nuevorol', 'Roles::nuevo');
+    $routes->get('roleliminado', 'Roles::eliminado');
+    $routes->get('editarrol/(:num)', 'Roles::editar::/$1');
+    $routes->get('activarrol/(:num)', 'Roles::activar::/$1');
+    $routes->post('actualizarrol', 'Roles::actualizar');
+    $routes->post('crearrol', 'Roles::guardar');
+    $routes->get('eliminarrol/(:num)', 'Roles::eliminar::/$1');
+
+    /* Usuarios */
+    $routes->get('usuarios', 'Usuarios::index');
+    $routes->get('nuevousuario', 'Usuarios::nuevo');
+    $routes->get('usuarioseliminados', 'Usuarios::eliminado');
+    $routes->get('editarusuario/(:num)', 'Usuarios::editar::/$1');
+    $routes->get('activarusuario/(:num)', 'Usuarios::activar::/$1');
+    $routes->post('actualizarusuario', 'Usuarios::actualizar');
+    $routes->post('crearusuario', 'Usuarios::guardar');
+    $routes->get('eliminarusuario/(:num)', 'Usuarios::eliminar::/$1');
+
+
+
+
+    /*Validaciones*/
+    $routes->get('frvalidar', 'Form::verformulario');
+    $routes->post('vld', 'Form::vld');
 });
 
 

@@ -19,10 +19,10 @@
                                 </div>
                                 <div class="card-body">
                                     <form method="POST" action="<?= base_url() ?>/Front/crearcaja">
-                                    <div class="row mb-3">
+                                        <div class="row mb-3">
                                             <div class="col-md-12">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input autofocus value="<?=old('folio')?>" class="form-control" id="folio" name="folio" type="text" required />
+                                                    <input autofocus value="<?= old('folio') ?>" class="form-control" id="folio" name="folio" type="text" required />
                                                     <label for="inputFirstName">Folio</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.folio') ?></small>
@@ -31,20 +31,20 @@
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
-                                                    <input value="<?=old('numero_caja')?>"  class="form-control" id="numero_caja" name="numero_caja" type="text" required />
+                                                    <input value="<?= old('numero_caja') ?>" class="form-control" id="numero_caja" name="numero_caja" type="text" required />
                                                     <label for="inputFirstName">Numero caja</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.numero_caja') ?></small>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
-                                                    <input value="<?=old('nombre')?>" class="form-control" name="nombre" id="nombre" type="text" required />
+                                                    <input value="<?= old('nombre') ?>" class="form-control" name="nombre" id="nombre" type="text" required />
                                                     <label for="inputLastName">Nombre</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.nombre') ?></small>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="btn-group d-flex" role="group">
                                             <button type="submit" name="" id="" class="btn btn-success"><i class="fa-solid fa-circle-check"></i> Agregar</button>
                                             <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/caja') ?>" role="button"><i class="fa-solid fa-circle-chevron-left"></i> Regresar</a>

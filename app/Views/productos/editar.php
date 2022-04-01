@@ -7,6 +7,7 @@
 <?= $this->section('content'); ?>
 <?php
 ?>
+
 <div id="layoutSidenav_content">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
@@ -108,6 +109,12 @@
 
                                 </div>
                             </div>
+                            <?php
+                            if (isset($_GET['guardado']) == 'Si') {?>
+                                <div class="alert alert-success" role="alert">
+                                    Información guardada satisfactoriamente
+                            </div>
+                            <?php }; ?>
                             <div class="btn-group d-flex mb-2" role="group">
                                 <button type="submit" name="" id="" class="btn btn-dark"><i class="fa-solid fa-thumbs-up"></i> Actualizar</button>
                                 <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/productos') ?>" role="button"><i class="fa-solid fa-circle-chevron-left"></i> Regresar</a>

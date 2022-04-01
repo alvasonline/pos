@@ -53,6 +53,7 @@ class Configuracion extends BaseController
             $this->conectar->set('valor', $_POST['tienda_direccion'])->where('nombre', 'tienda_direccion')->update();
             $this->conectar->set('valor', $_POST['ticket_leyenda'])->where('nombre', 'ticket_leyenda')->update();
             return redirect()->to(base_url('/configuracion'));
+            return redirect()->to(base_url().'/Front/configuracion/');
         }
     }
 }
