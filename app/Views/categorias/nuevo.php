@@ -31,7 +31,7 @@
                                             </div>
                                         </div>
                                         <div class="btn-group mb-4" role="group">
-                                            <button type="submit" name="" id="" class="btn btn-dark"><i class="fa-solid fa-circle-plus"></i> Agregar</button>
+                                            <button type="submit" name="" id="" class="btn btn-success"><i class="fa-solid fa-circle-check"></i> Agregar</button>
                                             <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/categorias') ?>" role="button"><i class="fa-solid fa-circle-chevron-left"></i> Regresar</a>
                                         </div>
                                     </form>

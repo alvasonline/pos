@@ -53,9 +53,11 @@
                                                            Está seguro que desea activar la Unidad?
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">No</button>
+                                                        <div class="btn-group d-flex" role="group">
+                                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal"><i class="fa-solid fa-arrow-left"></i> No</button>
                                                             <a class="btn btn-success btn-ok" id="btn-ok"><i class="fa-solid fa-circle-check"></i> Si</a>
-                                                        </div>
+                                                            </div>
+                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>

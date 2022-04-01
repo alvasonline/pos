@@ -59,7 +59,7 @@
                                         </div>
                                         <div class="btn-group d-flex" role="group">
                                             <button type="submit" name="" id="" class="btn btn-dark"><i class="fa-solid fa-thumbs-up"></i> Actualizar</button>
-                                            <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/unidades') ?>" role="button"><i class="fa-solid fa-circle-chevron-left"></i> Regresar</a>
+                                            <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/configuracion') ?>" role="button"><i class="fa-solid fa-circle-chevron-left"></i> Regresar</a>
                                         </div>
                                     </form>
                                     <?php

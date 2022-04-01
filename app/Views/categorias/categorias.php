@@ -51,8 +51,11 @@
                                                         Está seguro que desea eliminar la categoria?
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">No</button>
+                                                    <div class="btn-group d-flex" role="group">
+                                                            
+                                                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal"> <i class="fa-solid fa-arrow-left"></i> No</button>
                                                         <a class="btn btn-danger btn-ok" id="btn-ok"> <i class="fa-solid fa-trash"> </i> Si</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

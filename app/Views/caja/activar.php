@@ -36,7 +36,7 @@
                                             </div>
                                         </div>
                                         <div class="btn-group d-flex" role="group">
-                                            <button type="submit" name="" id="" class="btn btn-dark">Activar</button>
+                                            <button type="submit" name="" id="" class="btn btn-success"><i class="fa-solid fa-circle-check"></i> Activar</button>
                                             <a type="button" name="regresar" id="regresar" class="btn btn-warning" href="<?= base_url('Front/unidadeseliminadas') ?>" role="button">Regresar</a>
                                         </div>
                                     </form>

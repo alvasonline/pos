@@ -35,7 +35,7 @@
                                     <td><?= $dato['nombre'] ?></td>
                                     
                                     <td>
-                                        <div class="btn" role="group">
+                                        <div class="btn btn-group" role="group">
                                           
                                             <!-- Button trigger modal -->
                                             <a href="#" data-href="<?= base_url() . '/Front/activarclientes/'. $dato['id'] ?>" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-circle-check"></i> </a>
@@ -52,8 +52,10 @@
                                                            Está seguro que desea activar el producto?
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">No</button>
+                                                        <div class="btn-group d-flex" role="group">
+                                                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal"><i class="fa-solid fa-arrow-left"></i> No</button>
                                                             <a class="btn btn-success btn-ok" id="btn-ok"><i class="fa-solid fa-circle-check"></i> Si</a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
