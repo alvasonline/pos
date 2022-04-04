@@ -16,7 +16,7 @@ class Clientes extends BaseController
 
     public function index($activo = 1)
     {
-        $conectar = $this->conectar->where("activo", $activo)->findAll();
+        $conectar = $this->conectar->where("activo", $activo)->orderBy('id','DESC')->findAll();
         $data = ['titulo' => 'Lista de Clientes', 'datos' => $conectar];
         return view('clientes/clientes', $data);
     }

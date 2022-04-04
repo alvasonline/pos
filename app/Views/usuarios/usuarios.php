@@ -35,7 +35,11 @@
                                     <td><?= $dato['usuario'] ?></td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <a href="<?= base_url() . '/Front/editarusuario/' . $dato['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <form action="<?= base_url().'/Front/editarusuario'?>" method="POST">
+                                            <input type="text" hidden value="<?= $dato['id'] ?>" name="id" class="form-control">
+                                            <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        </form>                                        
+                                      
                                             <a href="#" data-href="<?= base_url() .'/Front/eliminarusuario/' . $dato['id'] ?>" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-confirma"><i class="fa-solid fa-trash"> </i></a>
                                         </div>
                                         <!-- Ventana Modal -->

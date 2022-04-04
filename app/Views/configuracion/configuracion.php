@@ -3,7 +3,6 @@
 <?= $this->section('title') ?>
 <?= $titulo; ?>
 <?= $this->endSection() ?>
-
 <?= $this->section('content'); ?>
 <div id="layoutSidenav_content">
     <div id="layoutAuthentication">
@@ -64,18 +63,18 @@
                                                     <label>Leyenda Ticket</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.ticket_leyenda') ?></small>
-                                            </div>                                 
-                                </div>
-                                <div class="btn" role="button">
-                                    <button type="submit" name="" id="" class="btn btn-success"><i class="fa-solid fa-circle-check"></i> Guardar</button>
-                                   
-                                </div>
-                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="btn" role="button">
+                                            <button type="submit" name="" id="" class="btn btn-success"><i class="fa-solid fa-circle-check"></i> Guardar</button>
 
+                                        </div>
+                                    </form>
+                                 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </main>
         </div>
     </div>

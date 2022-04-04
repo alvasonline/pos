@@ -20,16 +20,13 @@
                                 <div class="card-body">
                                     <form method="POST" action="<?= base_url() ?>/Front/crearusuario">
                                         <div class="row mb-3">
-                                            <div class="col-md-12">
+                                            <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input autofocus class="form-control" value="<?= old('usuario') ?>" id="usuario" name="usuario" type="text" required />
                                                     <label for="inputFirstName">Usuarios</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.usuario') ?></small>
                                             </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                        
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <input autofocus value="<?= old('nombre') ?>" class="form-control" name="nombre" id="nombre" type="text" required />
@@ -37,12 +34,21 @@
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.nombre') ?></small>
                                             </div>
-                                            <div class="col-md-6">
+                                        </div>
+                                        <div class="row mb-3">
+                                           <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <input value="<?= old('password') ?>" class="form-control" name="password" id="password" type="password" required />
                                                     <label>Contraseña</label>
                                                 </div>
                                                 <small class="text-danger"> <?= session('errors.password') ?></small>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input value="<?= old('rppassword') ?>" class="form-control" name="rppassword" id="rppassword" type="password" required />
+                                                    <label>Repetir Contraseña</label>
+                                                </div>
+                                                <small class="text-danger"> <?= session('errors.rppassword') ?></small>
                                             </div>
                                         </div>
                                        
@@ -50,26 +56,26 @@
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <select class="form-control" name="rol" id="rol">
-                                                        <option selected value="">Seleccione</option>
+                                                        <option required selected value="">Seleccione</option>
                                                         <?php foreach ($roles as $rol) { ?>
                                                             <option value="<?= $rol['id'] ?>"><?= $rol['nombre'] ?></option>
                                                         <?php } ?>
                                                     </select>
                                                     <label for="unidad_flotante">Rol</label>
                                                 </div>
-                                                <small class="text-danger"> <?= session('errors.roles') ?></small>
+                                                <small class="text-danger"> <?= session('errors.rol') ?></small>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <select class="form-control" name="caja" id="cajas">
-                                                        <option selected value="">Seleccione</option>
+                                                        <option required selected value="">Seleccione</option>
                                                         <?php foreach ($cajas as $caja) { ?>
                                                             <option value="<?= $caja['id'] ?>"><?= $caja['nombre'] ?></option>
                                                         <?php } ?>
                                                     </select>
                                                     <label for="unidad_flotante">Caja</label>
                                                 </div>
-                                                <small class="text-danger"> <?= session('errors.roles') ?></small>
+                                                <small class="text-danger"> <?= session('errors.caja') ?></small>
                                             </div>
                                         </div>
                                         <div class="btn-group d-flex" role="group">

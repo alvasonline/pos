@@ -104,15 +104,19 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     /* Usuarios */
     $routes->get('usuarios', 'Usuarios::index');
     $routes->get('nuevousuario', 'Usuarios::nuevo');
-    $routes->get('usuarioseliminados', 'Usuarios::eliminado');
-    $routes->get('editarusuario/(:num)', 'Usuarios::editar::/$1');
-    $routes->get('activarusuario/(:num)', 'Usuarios::activar::/$1');
-    $routes->post('actualizarusuario', 'Usuarios::actualizar');
     $routes->post('crearusuario', 'Usuarios::guardar');
+    $routes->post('editarusuario', 'Usuarios::editar');
+    $routes->post('actualizarusuario', 'Usuarios::actualizar');
+    $routes->get('activarusuario/(:num)', 'Usuarios::activar::/$1');
     $routes->get('eliminarusuario/(:num)', 'Usuarios::eliminar::/$1');
+    $routes->get('usuarioseliminados', 'Usuarios::eliminado');
+    $routes->get('cambiapassword', 'Usuarios::cambiar_password');
+    $routes->post('actualizarpassword', 'Usuarios::actualizar_password');
 
 
-
+    /* Login */
+    $routes->get('login', 'Usuarios::login');
+    $routes->post('validarlogin', 'Usuarios::valida');
 
     /*Validaciones*/
     $routes->get('frvalidar', 'Form::verformulario');

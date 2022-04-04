@@ -21,7 +21,10 @@ class Productos extends BaseController
     public function index($activo = 1)
     {
         $productos = $this->productos->where("activo", $activo)->findAll();
-        $data = ['titulo' => 'Lista de Productos', 'datos' => $productos];
+        $data = [
+            'titulo' => 'Lista de Productos',
+            'datos' => $productos,
+        ];
         return view('productos/productos', $data);
     }
 
