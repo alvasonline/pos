@@ -72,9 +72,9 @@ class Usuarios extends BaseController
     {
         $id = $this->request->getVar('id');
         $validation = service('validation');
-        $validation->setRules(['usuario' => 'required|string|min_length[3]', 'password' => 'required|string|min_length[3]', 'rppassword' => 'required|matches[password]', 'nombre' => 'required|string|min_length[3]', 'rol' => 'required|alpha_numeric', 'caja' => 'required|alpha_numeric',]);
+        $validation->setRules(['usuario' => 'required|string|min_length[3]', 'password' => 'required|string|min_length[3]', 'rppassword' => 'required|matches[password]', 'nombre' => 'required|string|min_length[3]', 'rol' => 'required|alpha_numeric', 'caja' => 'required|alpha_numeric']);
         if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->to(base_url() . '/usuarios/editar')->withInput()->with('errors', $validation->getErrors());//No Logro arreglar que devuelva los datos
+            return redirect()->to(base_url() . '/usuarios/editar')->withInput()->with('errors', $validation->getErrors(),'id',$id);//No Logro arreglar que devuelva los datos
 
         }  else {
             $hash = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
@@ -171,7 +171,7 @@ class Usuarios extends BaseController
 
             $hash = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
             $this->conectar->update($idUsuario, ['password' => $hash]);
-           
+           $conectar = $this->conectar->where('id',$idUsuario)->first();
             $data = ['titulo' => 'Cambiar la contraseña', 'datos' => $conectar, 'mensaje' => 'La contraseña ha sido actualizada satisfactoriamente'];
             return view('usuarios/cambia_password', $data);
         }
