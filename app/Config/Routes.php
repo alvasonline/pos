@@ -121,8 +121,13 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     /*Validaciones*/
     $routes->get('frvalidar', 'Form::verformulario');
     $routes->post('vld', 'Form::vld');
+    
+    /* Compras */
+    $routes->get('compras', 'Compras:index');
+    $routes->get('nuevacompra', 'Compras::nuevo');
 });
 
+ 
 
 
 

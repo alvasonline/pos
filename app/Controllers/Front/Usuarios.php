@@ -11,6 +11,7 @@ class Usuarios extends BaseController
 {
     protected $conectar;
 
+    /*----------------------------------------------------------------------------------------------------Constructor de conecciones */
     public function __construct()
     {
         $this->conectar = new UsuariosModel();
@@ -59,7 +60,7 @@ class Usuarios extends BaseController
         $validation = service('validation');
         $validation->setRules(['usuario' => 'required|string|min_length[3]', 'password' => 'required|string|min_length[3]', 'rppassword' => 'required|matches[password]', 'nombre' => 'required|string|min_length[3]', 'rol' => 'required|alpha_numeric', 'caja' => 'required|alpha_numeric',]);
         if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+            return redirect()->back()->with('errors', $validation->getErrors());
         } else {
             $hash = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
             $data = ['usuario' => $this->request->getPost('usuario'), 'password' => $hash, 'nombre' => $this->request->getPost('nombre'), 'id_rol' => $this->request->getPost('rol'), 'id_caja' => $this->request->getPost('caja'),];
@@ -74,9 +75,9 @@ class Usuarios extends BaseController
         $validation = service('validation');
         $validation->setRules(['usuario' => 'required|string|min_length[3]', 'password' => 'required|string|min_length[3]', 'rppassword' => 'required|matches[password]', 'nombre' => 'required|string|min_length[3]', 'rol' => 'required|alpha_numeric', 'caja' => 'required|alpha_numeric']);
         if (!$validation->withRequest($this->request)->run()) {
-            return redirect()->to(base_url() . '/usuarios/editar')->withInput()->with('errors', $validation->getErrors(),'id',$id);//No Logro arreglar que devuelva los datos
+            return redirect()->to(base_url() . '/usuarios/editar')->withInput()->with('errors', $validation->getErrors()); //No Logro arreglar que devuelva los datos
 
-        }  else {
+        } else {
             $hash = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
             $data = ['usuario' => $this->request->getPost('usuario'), 'password' => $hash, 'nombre' => $this->request->getPost('nombre'), 'id_rol' => $this->request->getPost('rol'), 'id_caja' => $this->request->getPost('caja'),];
             $this->conectar->update($id, $data);
@@ -171,7 +172,7 @@ class Usuarios extends BaseController
 
             $hash = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
             $this->conectar->update($idUsuario, ['password' => $hash]);
-           $conectar = $this->conectar->where('id',$idUsuario)->first();
+            $conectar = $this->conectar->where('id', $idUsuario)->first();
             $data = ['titulo' => 'Cambiar la contraseña', 'datos' => $conectar, 'mensaje' => 'La contraseña ha sido actualizada satisfactoriamente'];
             return view('usuarios/cambia_password', $data);
         }

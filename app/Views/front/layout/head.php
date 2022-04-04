@@ -12,9 +12,10 @@
     <title><?= $this->renderSection('title') ?>&nbsp;- &nbsp;AlvasOnline</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="https://startbootstrap.github.io/startbootstrap-sb-admin/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/d27d39ec85.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -69,8 +70,8 @@
                 </a>
                 <div class="collapse" id="compras" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= base_url('Front/productos') ?>">Nueva Compra</a>
-                        <a class="nav-link" href="<?= base_url('Front/unidades') ?>">Compras</a>
+                        <a class="nav-link" href="<?= base_url('Front/compras') ?>">Nueva Compra</a>
+                        <a class="nav-link" href="<?= base_url('Front/nuevacompra') ?>">Compras</a>
                     </nav>
                 </div>
                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#administracion" aria-expanded="false" aria-controls="administracion">
