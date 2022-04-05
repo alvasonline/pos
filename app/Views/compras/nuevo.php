@@ -22,7 +22,7 @@
                                                     <input class="form-control" id="codigo" name="codigo" type="text" onkeyup="buscarProducto(event, this, this.value)" />
                                                     <label for="inputFirstName">Codigo</label>
                                                 </div>
-                                                <label for="codigo" id="resultado_error" style="color:red"></label>
+                                                <small for="codigo" id="resultado_error" style="color:red"></small>
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-floating">
@@ -32,7 +32,7 @@
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-floating ">
-                                                    <input class="form-control" name="cantidad" id="cantidad" type="number" />
+                                                    <input class="form-control" name="cantidad" id="cantidad" type="number" onkeyup="mySubtotal(this.value)" />
                                                     <label for="inputLastName">Cantidad</label>
                                                 </div>
                                             </div>
@@ -54,8 +54,8 @@
                                                 <button type="button" class="btn btn-warning" id="agregar_producto" name="agregar_producto"><i class="fa-solid fa-circle-plus"></i> Agregar Producto</button>
                                             </div>
                                         </div>
-                                        <table class="table table-dark table-hover table-striped table-sm table-responsive tablaProductos" width='100%'>
-                                            <thead>
+                                        <table class="table table-hover table-striped table-sm table-responsive tablaProductos" width='100%'>
+                                            <thead class="table-dark">
                                                 <th>#</th>
                                                 <th>Codigo</th>
                                                 <th>Nombre</th>
@@ -66,6 +66,14 @@
                                                     </th>
                                                 </thead>
                                             <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Codigo</td>
+                                                    <td>Nombre</td>
+                                                    <td>Precio</td>
+                                                    <td>Cantidad</td>
+                                                    <td>Total</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                         <div class="row">
@@ -73,6 +81,7 @@
 
                                                 <label style="font-weight: bold; font-size: 30px; text-align: center" for="">Total $</label>
                                                 <input readonly id="total" name="total" value="0.00" size="7" type="text" class="mb-2" style="font-weight: bold; font-size: 30px; text-align:center">
+                                                <button type="button" name="completa_compra" id="completa_compra" class="btn btn-success mb-3">Completar Compra</button>
                                             </div>
                                         </div>
                                     </form>
@@ -86,11 +95,9 @@
     </div>
     </main>
     <script>
-       
-
+        
         function buscarProducto(e, tagCodigo, codigo) {
             var enterKey = 13;
-
             if (codigo != '') {
                 if (e.which == enterKey) {
                     $.ajax({
@@ -100,18 +107,21 @@
                             if (resultado == 0) {
                                 $(tagCodigo).val('');
                             } else {
-                                $(tagCodigo).removeClass('has-error');
+                                $(tagCodigo).addClass('is-invalid');
                                 $("#resultado_error").html(resultado.error);
                                 if (resultado.existe) {
+                                    
+                                    $(tagCodigo).removeClass('is-invalid');
+                                    $(tagCodigo).addClass('is-valid');
                                     $("#id_producto").val(resultado.datos.id);
                                     $("#nombre").val(resultado.datos.nombre);
                                     $("#cantidad").val(1);
                                     $("#precio_compra").val(resultado.datos.precio_compra);
-                                    $("#subtotal").val(resultado.datos.precio_compra);
+                                    /* $("#subtotal").val(resultado.datos.precio_compra * $("#cantidad").val()); */
                                     $('#cantidad').focus();
                                 } else {
                                     $("#id_producto").val('');
-                                    $("#id_nombre").val('');
+                                    $("#nombre").val('');
                                     $("#cantidad").val('');
                                     $("#precio_compra").val('');
                                     $("#subtotal").val('');
@@ -123,5 +133,12 @@
                 }
             }
         }
+        function mySubtotal(cantidades) {
+           
+           
+            var multiplica = $('#precio_compra') * cantidad;
+               $('#subtotal').val(multiplica);
+          }
+
     </script>
     <?= $this->endSection(); ?>

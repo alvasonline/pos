@@ -89,6 +89,7 @@ class Productos extends BaseController
         $this->conectar->update($id, ['activo' => 1]);
         return redirect()->to(base_url() . '/productos/eliminado');
     }
+   
     public function buscarPorCodigo($codigo)
     {
         $this->conectar->select('*');
@@ -108,5 +109,5 @@ class Productos extends BaseController
             $res['existe'] = false;
         }
         echo json_encode($res);
-    }
+        }
 }
