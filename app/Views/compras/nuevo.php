@@ -32,7 +32,7 @@
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-floating ">
-                                                    <input class="form-control" name="cantidad" id="cantidad" type="number" onkeyup="mySubtotal(this.value)" />
+                                                    <input class="form-control" name="cantidad" id="cantidad" type="number" onchange="mySubtotal(this.value)" />
                                                     <label for="inputLastName">Cantidad</label>
                                                 </div>
                                             </div>
@@ -95,7 +95,6 @@
     </div>
     </main>
     <script>
-        
         function buscarProducto(e, tagCodigo, codigo) {
             var enterKey = 13;
             if (codigo != '') {
@@ -110,14 +109,13 @@
                                 $(tagCodigo).addClass('is-invalid');
                                 $("#resultado_error").html(resultado.error);
                                 if (resultado.existe) {
-                                    
                                     $(tagCodigo).removeClass('is-invalid');
                                     $(tagCodigo).addClass('is-valid');
                                     $("#id_producto").val(resultado.datos.id);
                                     $("#nombre").val(resultado.datos.nombre);
                                     $("#cantidad").val(1);
                                     $("#precio_compra").val(resultado.datos.precio_compra);
-                                    /* $("#subtotal").val(resultado.datos.precio_compra * $("#cantidad").val()); */
+                                    $("#subtotal").val(resultado.datos.precio_compra)
                                     $('#cantidad').focus();
                                 } else {
                                     $("#id_producto").val('');
@@ -133,12 +131,14 @@
                 }
             }
         }
-        function mySubtotal(cantidades) {
-           
-           
-            var multiplica = $('#precio_compra') * cantidad;
-               $('#subtotal').val(multiplica);
-          }
 
+        function mySubtotal(cantidad) {
+
+            var precio = document.getElementById('precio_compra').value;
+            var subtotal = document.getElementById('subtotal');
+            var total = precio * cantidad
+            subtotal.value = total.toFixed(2)
+
+        }
     </script>
     <?= $this->endSection(); ?>
