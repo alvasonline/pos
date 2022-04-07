@@ -18,8 +18,7 @@ class TemporalCompras extends BaseController
 
     public function guardar($id_producto, $cantidad)
     {
-         $id_compra = uniqid();
-        /*dd($id_producto, $cantidad, $id_compra); */
+        $id_compra = uniqid();
         $producto = $this->productos->where('id', $id_producto)->first();
         if ($producto) {
             $datosExiste = $this->porIdProcutoCompra($id_producto, $id_compra);
@@ -35,7 +34,6 @@ class TemporalCompras extends BaseController
                 $this->conectar->update($data);
             } else {
                 $subtotal = $cantidad * $producto['precio_compra'];
-                /*     dd($producto,$id_producto,$cantidad, $id_compra, $subtotal); */
                 $data = [
                     'folio' => $id_compra,
                     'id_producto' => $id_producto,
@@ -56,8 +54,6 @@ class TemporalCompras extends BaseController
 
     public function porIdProcutoCompra($id_producto, $folio)
     {
-
-
         $this->conectar->select('*');
         $this->conectar->where('folio', $folio);
         $this->conectar->where('id_producto', $id_producto);

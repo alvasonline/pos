@@ -96,11 +96,9 @@ class Productos extends BaseController
         $this->conectar->where('codigo', $codigo);
         $this->conectar->where('activo', 1);
         $datos = $this->conectar->get()->getRow();
-
         $res['existe'] = false;
         $res['datos'] = '';
         $res['error'] = '';
-
         if ($datos) {
             $res['datos'] = $datos;
             $res['existe'] = true;

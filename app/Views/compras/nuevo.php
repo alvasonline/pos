@@ -1,7 +1,7 @@
 <?= $this->extend('front/layout/main'); ?>
 
 <?= $this->section('content'); ?>
-
+<?php $id_compra = uniqid(); ?>
 <div id="layoutSidenav_content">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
@@ -32,9 +32,10 @@
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-floating ">
-                                                    <input class="form-control" name="cantidad" id="cantidad" type="number" onchange="mySubtotal(this.value)" />
+                                                    <input class="form-control" name="cantidad" id="cantidad" type="number" min="1" oninput="mySubtotal(this, this.value)" />
                                                     <label for="inputLastName">Cantidad</label>
                                                 </div>
+                                                <small for="codigo" id="cantidad_error" style="color:red"></small>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -51,7 +52,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mt-4">
-                                                <button type="button" class="btn btn-warning" id="agregar_producto" name="agregar_producto"><i class="fa-solid fa-circle-plus"></i> Agregar Producto</button>
+                                                <button type="button" class="btn btn-warning" disabled id="agregar_producto" name="agregar_producto" onclick="agregarProducto(id_producto.value, cantidad.value)"><i class="fa-solid fa-circle-plus"></i> Agregar Producto</button>
                                             </div>
                                         </div>
                                         <table class="table table-hover table-striped table-sm table-responsive tablaProductos" width='100%'>
@@ -78,7 +79,6 @@
                                         </table>
                                         <div class="row">
                                             <div class="col-12 col-sm-6 offset-md-6">
-
                                                 <label style="font-weight: bold; font-size: 30px; text-align: center" for="">Total $</label>
                                                 <input readonly id="total" name="total" value="0.00" size="7" type="text" class="mb-2" style="font-weight: bold; font-size: 30px; text-align:center">
                                                 <button type="button" name="completa_compra" id="completa_compra" class="btn btn-success mb-3">Completar Compra</button>
@@ -95,6 +95,7 @@
     </div>
     </main>
     <script>
+        var error = document.getElementById('cantidad_error');
         function buscarProducto(e, tagCodigo, codigo) {
             var enterKey = 13;
             if (codigo != '') {
@@ -111,9 +112,16 @@
                                 if (resultado.existe) {
                                     $(tagCodigo).removeClass('is-invalid');
                                     $(tagCodigo).addClass('is-valid');
+                                    $("#agregar_producto").prop('disabled', false);
                                     $("#id_producto").val(resultado.datos.id);
                                     $("#nombre").val(resultado.datos.nombre);
                                     $("#cantidad").val(1);
+                                    $("#cantidad").attr('max', resultado.datos.existencias);
+                                    if ($("#cantidad").attr('max') == 1) {
+                                        error.innerHTML = "Solo existe 1";
+                                    } else {
+                                        error.innerHTML = "";
+                                    }
                                     $("#precio_compra").val(resultado.datos.precio_compra);
                                     $("#subtotal").val(resultado.datos.precio_compra)
                                     $('#cantidad').focus();
@@ -132,13 +140,38 @@
             }
         }
 
-        function mySubtotal(cantidad) {
-
+        function mySubtotal(tagCodigo, cantidad) {
+            var cant = document.getElementById('cantidad').value;
+            var aviso = document.getElementById('cantidad');
+            var max = tagCodigo.getAttribute('max');
             var precio = document.getElementById('precio_compra').value;
             var subtotal = document.getElementById('subtotal');
-            var total = precio * cantidad
-            subtotal.value = total.toFixed(2)
+            var multiplica = cant * precio
+            subtotal.value = multiplica.toFixed(2);
+            switch (true) {
+                case (cant == max):
+                    error.innerHTML = `solo existen ${max} unidades`;
+                    aviso.classList.add('is-invalid');
+                    break
+                case (cant <= 0):
+                    error.innerHTML = `ingrese una cantidad mayor a cero`
+                    aviso.classList.add('is-invalid');
+                    break
+                case (cant > 0 && cant != max):
+                    error.innerHTML = '';
+                    aviso.classList.remove('is-invalid');
+                    break;
+                default:
+                    error.innetHtml = ''
+                    break
+            }
+        }
 
+        function agregarProducto(id_producto, cantidad) {
+            $.ajax({
+                url:'<?php echo base_url(); ?>/TemporalCompras/guardar/'+ id_producto +'/'+cantidad,
+                dataType:'json',
+             })
         }
     </script>
     <?= $this->endSection(); ?>

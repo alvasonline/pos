@@ -125,7 +125,7 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     /* Compras */
     $routes->get('compras', 'Compras:index');
     $routes->get('nuevacompra', 'Compras::nuevo');
-    $routes->get('agregacompra', 'TemporalCompras::guardar');
+    $routes->post('agregacompra', 'TemporalCompras::guardar');
 
 });
 
