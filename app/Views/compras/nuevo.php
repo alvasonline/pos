@@ -1,7 +1,8 @@
 <?= $this->extend('front/layout/main'); ?>
-
 <?= $this->section('content'); ?>
-<?php $id_compra = uniqid(); ?>
+<?php
+
+?>
 <div id="layoutSidenav_content">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
@@ -67,14 +68,9 @@
                                                     </th>
                                                 </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Codigo</td>
-                                                    <td>Nombre</td>
-                                                    <td>Precio</td>
-                                                    <td>Cantidad</td>
-                                                    <td>Total</td>
-                                                </tr>
+                                                <!-- inicia Foreach -->
+                                               
+                                                <!-- Termina Foreach -->
                                             </tbody>
                                         </table>
                                         <div class="row">
@@ -96,6 +92,7 @@
     </main>
     <script>
         var error = document.getElementById('cantidad_error');
+
         function buscarProducto(e, tagCodigo, codigo) {
             var enterKey = 13;
             if (codigo != '') {
@@ -104,9 +101,8 @@
                         url: '<?php echo base_url(); ?>/productos/buscarPorCodigo/' + codigo,
                         dataType: 'json',
                         success: function(resultado) {
-                            if (resultado == 0) {
-                                $(tagCodigo).val('');
-                            } else {
+                            console.log(resultado)
+                            if (resultado) {
                                 $(tagCodigo).addClass('is-invalid');
                                 $("#resultado_error").html(resultado.error);
                                 if (resultado.existe) {
@@ -154,7 +150,7 @@
                     aviso.classList.add('is-invalid');
                     break
                 case (cant <= 0):
-                    error.innerHTML = `ingrese una cantidad mayor a cero`
+                    error.innerHTML = `ingrese la cantidad por favor`
                     aviso.classList.add('is-invalid');
                     break
                 case (cant > 0 && cant != max):
@@ -169,9 +165,16 @@
 
         function agregarProducto(id_producto, cantidad) {
             $.ajax({
-                url:'<?php echo base_url(); ?>/TemporalCompras/guardar/'+ id_producto +'/'+cantidad,
-                dataType:'json',
-             })
+                url: '<?php echo base_url(); ?>/TemporalCompras/guardar/' + id_producto + '/' + cantidad,
+                dataType: 'json',
+                success: function(resultados) {
+                    $.each(resultados, function(resultados, index) {
+
+                        $("#tabla").html('<tr><td>' + index.nombre + '</td></tr>');
+                        console.log(index.nombre);
+                    })
+                }
+            })
         }
     </script>
     <?= $this->endSection(); ?>

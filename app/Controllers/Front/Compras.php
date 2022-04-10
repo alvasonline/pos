@@ -7,7 +7,7 @@ use App\Models\ComprasModel;
 
 class Compras extends BaseController
 {
-    protected $conectar;
+    protected $conectar, $compras;
 
     public function __construct()
     {
@@ -25,6 +25,7 @@ class Compras extends BaseController
     {
         return view('compras/nuevo');
     }
+
 
     public function eliminado($activo = 0)
     {

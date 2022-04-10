@@ -22,7 +22,7 @@ class TemporalCompras extends BaseController
         $producto = $this->productos->where('id', $id_producto)->first();
         if ($producto) {
             $datosExiste = $this->porIdProcutoCompra($id_producto);
-        
+
             if ($datosExiste) {
                 $id = $datosExiste->id;
                 $cantidad = $datosExiste->cantidad + $cantidad;
@@ -31,9 +31,7 @@ class TemporalCompras extends BaseController
                     'cantidad' => $cantidad,
                     'subtotal' => $subtotal,
                 ];
-           
-
-                $this->conectar->update($id,$data);
+                $this->conectar->update($id, $data);
             } else {
                 $subtotal = $cantidad * $producto['precio_compra'];
                 $data = [
@@ -48,6 +46,7 @@ class TemporalCompras extends BaseController
                     'guardado' => 'Si',
                 ];
                 $this->conectar->save($data);
+                $this->listarCompras();
             }
         } else {
             echo 'Error al guardar';
@@ -60,5 +59,18 @@ class TemporalCompras extends BaseController
         $this->conectar->where('id_producto', $id_producto);
         $datos = $this->conectar->get()->getRow();
         return $datos;
+    }
+
+    public function listarCompras(){
+        $lista = $this->conectar->findAll();
+        $data = [
+            'titulo' => 'Resultados de la lista',
+            'datos' => $lista
+        ];
+        return $data;
+
+        /* dd($data['info'][0]['nombre']); */
+
+      
     }
 }
