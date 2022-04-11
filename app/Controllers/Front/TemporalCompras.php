@@ -19,10 +19,10 @@ class TemporalCompras extends BaseController
     public function guardar($id_producto, $cantidad)
     {
         $id_compra = uniqid();
+        $error='';
         $producto = $this->productos->where('id', $id_producto)->first();
         if ($producto) {
             $datosExiste = $this->porIdProcutoCompra($id_producto);
-
             if ($datosExiste) {
                 $id = $datosExiste->id;
                 $cantidad = $datosExiste->cantidad + $cantidad;
@@ -31,6 +31,7 @@ class TemporalCompras extends BaseController
                     'cantidad' => $cantidad,
                     'subtotal' => $subtotal,
                 ];
+                /* dd($id, $data); */
                 $this->conectar->update($id, $data);
             } else {
                 $subtotal = $cantidad * $producto['precio_compra'];
@@ -46,11 +47,15 @@ class TemporalCompras extends BaseController
                     'guardado' => 'Si',
                 ];
                 $this->conectar->save($data);
-                $this->listarCompras();
             }
         } else {
-            echo 'Error al guardar';
+            $error = 'Error al guardar';
         }
+        $res['datos'] = $this->cargaProductos($id_compra);
+        $res['total'] = $this->totalProductos($id_compra);
+        $res['error'] = $error;
+   
+        echo json_encode($res);
     }
 
     public function porIdProcutoCompra($id_producto)
@@ -61,16 +66,40 @@ class TemporalCompras extends BaseController
         return $datos;
     }
 
-    public function listarCompras(){
-        $lista = $this->conectar->findAll();
-        $data = [
-            'titulo' => 'Resultados de la lista',
-            'datos' => $lista
-        ];
-        return $data;
+    public function cargaProductos($id_compra)
+    {
+        $resultado = $this->porCompra();
+        $fila = '';
+        $numFila = 0;
 
-        /* dd($data['info'][0]['nombre']); */
+        foreach ($resultado as $row) {
+            $numFila++;
+            $fila .= "<tr id='fila" . $numFila . "'>";
+            $fila .= "<td>" . $numFila . "</td>";
+            $fila .= "<td>" . $row['nombre'] . "</td>";
+            $fila .= "<td>" . $row['precio'] . "</td>";
+            $fila .= "<td>" . $row['cantidad'] . "</td>";
+            $fila .= "<td>" . $row['subtotal'] . "</td>";
+            $fila .= "<td><a onclick=\"eliminaproducto(" . $row['id_producto'] . ", " . $id_compra . ")\" class='borrar'><i class='fa-solid fa-tras'></i></a></td>";
+            $fila .= "</tr>";
+        }
+        return $fila;
+    }
 
-      
+    public function porCompra()
+    {
+        $this->conectar->select('*');
+        $datos = $this->conectar->findAll();
+        return $datos;
+    }
+
+    public function totalProductos($id_compra)
+    {
+        $resultado = $this->porCompra($id_compra);
+        $total = 0;
+        foreach ($resultado as $row) {
+            $total += $row['subtotal'];
+        }
+        return $total;
     }
 }

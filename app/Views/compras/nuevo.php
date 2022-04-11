@@ -67,11 +67,10 @@
                                                 <thead width="1%">
                                                     </th>
                                                 </thead>
-                                            <tbody>
-                                                <!-- inicia Foreach -->
-                                               
-                                                <!-- Termina Foreach -->
-                                            </tbody>
+                                                <tbody id="tablaProductos" >
+
+                                                </tbody>
+                                          
                                         </table>
                                         <div class="row">
                                             <div class="col-12 col-sm-6 offset-md-6">
@@ -101,7 +100,6 @@
                         url: '<?php echo base_url(); ?>/productos/buscarPorCodigo/' + codigo,
                         dataType: 'json',
                         success: function(resultado) {
-                            console.log(resultado)
                             if (resultado) {
                                 $(tagCodigo).addClass('is-invalid');
                                 $("#resultado_error").html(resultado.error);
@@ -166,13 +164,24 @@
         function agregarProducto(id_producto, cantidad) {
             $.ajax({
                 url: '<?php echo base_url(); ?>/TemporalCompras/guardar/' + id_producto + '/' + cantidad,
-                dataType: 'json',
                 success: function(resultados) {
-                    $.each(resultados, function(resultados, index) {
-
-                        $("#tabla").html('<tr><td>' + index.nombre + '</td></tr>');
-                        console.log(index.nombre);
-                    })
+                    if (resultados == 0) {
+                    } else {
+                        var resultados = JSON.parse(resultados);
+                        if (resultados.error == '') {
+                            console.log(resultados.datos)
+                            $('#tablaProductos').empty();
+                            $('#tablaProductos').append(resultados.datos);
+                            $('#total').val(resultados.total.toFixed(2));
+                            $("#codigo").val('');
+                            $("#codigo").removeClass('is-valid')
+                            $("#id_producto").val('');
+                            $("#nombre").val('');
+                            $("#cantidad").val('');
+                            $("#precio_compra").val('');
+                            $("#subtotal").val('');
+                        }
+                    }
                 }
             })
         }

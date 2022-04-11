@@ -108,5 +108,6 @@ class Productos extends BaseController
             $res['existe'] = false;
         }
         echo json_encode($res);
+       
         }
 }
