@@ -63,14 +63,16 @@
                                                 <th>Nombre</th>
                                                 <th>Precio</th>
                                                 <th>Cantidad</th>
-                                                <th>Total</th>
+                                                <th>SubTotal</th>
+                                                <th></th>
+
                                                 <thead width="1%">
                                                     </th>
                                                 </thead>
-                                                <tbody id="tablaProductos" >
+                                            <tbody id="tablaProductos">
 
-                                                </tbody>
-                                          
+                                            </tbody>
+
                                         </table>
                                         <div class="row">
                                             <div class="col-12 col-sm-6 offset-md-6">
@@ -165,16 +167,16 @@
             $.ajax({
                 url: '<?php echo base_url(); ?>/TemporalCompras/guardar/' + id_producto + '/' + cantidad,
                 success: function(resultados) {
-                    if (resultados == 0) {
-                    } else {
+                    if (resultados == 0) {} else {
                         var resultados = JSON.parse(resultados);
                         if (resultados.error == '') {
                             console.log(resultados.datos)
                             $('#tablaProductos').empty();
                             $('#tablaProductos').append(resultados.datos);
-                            $('#total').val(resultados.total.toFixed(2));
+                            $('#total').val(resultados.total);
                             $("#codigo").val('');
                             $("#codigo").removeClass('is-valid')
+                            $("#agregar_producto").prop('disabled', true);
                             $("#id_producto").val('');
                             $("#nombre").val('');
                             $("#cantidad").val('');

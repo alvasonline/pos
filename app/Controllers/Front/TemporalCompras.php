@@ -52,7 +52,7 @@ class TemporalCompras extends BaseController
             $error = 'Error al guardar';
         }
         $res['datos'] = $this->cargaProductos($id_compra);
-        $res['total'] = $this->totalProductos($id_compra);
+        $res['total'] = number_format($this->totalProductos($id_compra),2,'.',',');
         $res['error'] = $error;
    
         echo json_encode($res);
@@ -76,11 +76,12 @@ class TemporalCompras extends BaseController
             $numFila++;
             $fila .= "<tr id='fila" . $numFila . "'>";
             $fila .= "<td>" . $numFila . "</td>";
+            $fila .= "<td>" . $row['folio'] . "</td>";
             $fila .= "<td>" . $row['nombre'] . "</td>";
             $fila .= "<td>" . $row['precio'] . "</td>";
-            $fila .= "<td>" . $row['cantidad'] . "</td>";
-            $fila .= "<td>" . $row['subtotal'] . "</td>";
-            $fila .= "<td><a onclick=\"eliminaproducto(" . $row['id_producto'] . ", " . $id_compra . ")\" class='borrar'><i class='fa-solid fa-tras'></i></a></td>";
+            $fila .= "<td class='tbl_cantidad' id='tbl_cantidad'>" . $row['cantidad'] . "</td>";
+            $fila .= "<td class='tbl_subtotal' id='tbl_subtotal'>" . $row['subtotal'] . "</td>";
+            $fila .= "<td><a onclick=\"eliminaproducto(" . $row['id_producto'] . ", " . $id_compra . ")\" class='borrar btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i></a></td>";
             $fila .= "</tr>";
         }
         return $fila;
