@@ -20,7 +20,7 @@
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-floating">
                                                     <input type="hidden" name="id_producto" id="id_producto">
-                                                    <input class="form-control" id="codigo" name="codigo" type="text" onkeyup="buscarProducto(event, this, this.value)" />
+                                                    <input autofocus class="form-control" id="codigo" name="codigo" type="text" onkeyup="buscarProducto(event, this, this.value)" />
                                                     <label for="inputFirstName">Codigo</label>
                                                 </div>
                                                 <small for="codigo" id="resultado_error" style="color:red"></small>
@@ -127,6 +127,8 @@
                                     $("#cantidad").val('');
                                     $("#precio_compra").val('');
                                     $("#subtotal").val('');
+                                    $("#agregar_producto").prop('disabled', true);
+                                    error.innerHTML = "";
                                 }
                             }
                         }
@@ -137,28 +139,39 @@
         }
 
         function mySubtotal(tagCodigo, cantidad) {
-            var cant = document.getElementById('cantidad').value;
+            var cantidades = document.getElementById('cantidad').value;
             var aviso = document.getElementById('cantidad');
-            var max = tagCodigo.getAttribute('max');
+            var maximos = tagCodigo.getAttribute('max');
+            var max = Number(maximos);
+            var cant = Number(cantidades);
             var precio = document.getElementById('precio_compra').value;
             var subtotal = document.getElementById('subtotal');
             var multiplica = cant * precio
-            subtotal.value = multiplica.toFixed(2);
+
             switch (true) {
                 case (cant == max):
                     error.innerHTML = `solo existen ${max} unidades`;
+                    subtotal.value = multiplica.toFixed(2);
+                    aviso.classList.remove('is-invalid');
+                    $("#agregar_producto").prop('disabled', false);
+                    break
+                case (cant > max):
+                    error.innerHTML = `solo existen ${max} unidades`;
                     aviso.classList.add('is-invalid');
+                    $("#agregar_producto").prop('disabled', true);
+                    subtotal.value = 0;
                     break
                 case (cant <= 0):
-                    error.innerHTML = `ingrese la cantidad por favor`
+                    error.innerHTML = 'por favor ingrese una cantidad'
                     aviso.classList.add('is-invalid');
+                    $("#agregar_producto").prop('disabled', true);
+                    subtotal.value = 0;
                     break
-                case (cant > 0 && cant != max):
-                    error.innerHTML = '';
+                case (cant >= 1 && cant < max):
+                    error.innerHTML = ''
+                    subtotal.value = multiplica.toFixed(2);
                     aviso.classList.remove('is-invalid');
-                    break;
-                default:
-                    error.innetHtml = ''
+                    $("#agregar_producto").prop('disabled', false);
                     break
             }
         }
@@ -169,8 +182,8 @@
                 success: function(resultados) {
                     if (resultados == 0) {} else {
                         var resultados = JSON.parse(resultados);
+                        console.log(resultados);
                         if (resultados.error == '') {
-                            console.log(resultados.datos)
                             $('#tablaProductos').empty();
                             $('#tablaProductos').append(resultados.datos);
                             $('#total').val(resultados.total);

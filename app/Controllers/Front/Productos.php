@@ -89,13 +89,13 @@ class Productos extends BaseController
         $this->conectar->update($id, ['activo' => 1]);
         return redirect()->to(base_url() . '/productos/eliminado');
     }
-   
+
     public function buscarPorCodigo($codigo)
     {
         $this->conectar->select('*');
         $this->conectar->where('codigo', $codigo);
         $this->conectar->where('activo', 1);
-        $this->conectar->where('existencias >',0);
+        $this->conectar->where('existencias >', 0);
         $datos = $this->conectar->get()->getRow();
         $res['existe'] = false;
         $res['datos'] = '';
@@ -108,6 +108,6 @@ class Productos extends BaseController
             $res['existe'] = false;
         }
         echo json_encode($res);
-       
-        }
+    }
+  
 }

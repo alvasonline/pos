@@ -19,7 +19,7 @@ class TemporalCompras extends BaseController
     public function guardar($id_producto, $cantidad)
     {
         $id_compra = uniqid();
-        $error='';
+        $error = '';
         $producto = $this->productos->where('id', $id_producto)->first();
         if ($producto) {
             $datosExiste = $this->porIdProcutoCompra($id_producto);
@@ -31,7 +31,6 @@ class TemporalCompras extends BaseController
                     'cantidad' => $cantidad,
                     'subtotal' => $subtotal,
                 ];
-                /* dd($id, $data); */
                 $this->conectar->update($id, $data);
             } else {
                 $subtotal = $cantidad * $producto['precio_compra'];
@@ -51,11 +50,12 @@ class TemporalCompras extends BaseController
         } else {
             $error = 'Error al guardar';
         }
+       
         $res['datos'] = $this->cargaProductos($id_compra);
-        $res['total'] = number_format($this->totalProductos($id_compra),2,'.',',');
+        $res['total'] = number_format($this->totalProductos($id_compra), 2, '.', ',');
         $res['error'] = $error;
-   
         echo json_encode($res);
+        /* $this->sacarDeInventario($id_producto, $cantidad); */
     }
 
     public function porIdProcutoCompra($id_producto)
@@ -80,7 +80,7 @@ class TemporalCompras extends BaseController
             $fila .= "<td>" . $row['nombre'] . "</td>";
             $fila .= "<td>" . $row['precio'] . "</td>";
             $fila .= "<td class='tbl_cantidad' id='tbl_cantidad'>" . $row['cantidad'] . "</td>";
-            $fila .= "<td class='tbl_subtotal' id='tbl_subtotal'>" . $row['subtotal'] . "</td>";
+            $fila .= "<td class='tbl_subtotal' id='tbl_subtotal'>" . number_format($row['subtotal'], 2, '.', ',') . "</td>";
             $fila .= "<td><a onclick=\"eliminaproducto(" . $row['id_producto'] . ", " . $id_compra . ")\" class='borrar btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i></a></td>";
             $fila .= "</tr>";
         }
@@ -102,5 +102,24 @@ class TemporalCompras extends BaseController
             $total += $row['subtotal'];
         }
         return $total;
+    }
+
+    public function sacarDeInventario($id_producto, $cantidad)
+    {
+        $this->conectar->where('id', $id_producto);
+        $conectar = $this->conectar->first();
+        if ($conectar) {
+            if (['existencias'] < $cantidad) {
+                d('La cantidad es mayor a la existencia');
+            } else {
+                $resultado = $conectar['existencias'] - $cantidad;
+                $data = [
+                    'existencias' => $resultado,
+                ];
+                $this->conectar->update($id_producto, $data);
+            }
+        }else{
+            dd('No se que debe pasar aqui');
+        }
     }
 }
