@@ -22,6 +22,7 @@ class TemporalCompras extends BaseController
         $error = '';
         $producto = $this->productos->where('id', $id_producto)->first();
         if ($producto) {
+            $this->sacarDeInventario($id_producto, $cantidad);
             $datosExiste = $this->porIdProcutoCompra($id_producto);
             if ($datosExiste) {
                 $id = $datosExiste->id;
@@ -50,12 +51,11 @@ class TemporalCompras extends BaseController
         } else {
             $error = 'Error al guardar';
         }
-       
         $res['datos'] = $this->cargaProductos($id_compra);
         $res['total'] = number_format($this->totalProductos($id_compra), 2, '.', ',');
         $res['error'] = $error;
+
         echo json_encode($res);
-        /* $this->sacarDeInventario($id_producto, $cantidad); */
     }
 
     public function porIdProcutoCompra($id_producto)
@@ -106,20 +106,20 @@ class TemporalCompras extends BaseController
 
     public function sacarDeInventario($id_producto, $cantidad)
     {
-        $this->conectar->where('id', $id_producto);
-        $conectar = $this->conectar->first();
-        if ($conectar) {
-            if (['existencias'] < $cantidad) {
+        $productos =  $this->productos->where('id', $id_producto)->first();;
+
+        if ($productos) {
+            if ($cantidad > $productos['existencias']) {
                 d('La cantidad es mayor a la existencia');
             } else {
-                $resultado = $conectar['existencias'] - $cantidad;
+                $resultado = $productos['existencias'] - $cantidad;
+                $id = $productos['id'];
                 $data = [
+                    'id' => $id,
                     'existencias' => $resultado,
                 ];
-                $this->conectar->update($id_producto, $data);
+                $this->productos->update($id, $data);
             }
-        }else{
-            dd('No se que debe pasar aqui');
         }
     }
 }
