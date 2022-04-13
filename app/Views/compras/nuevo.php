@@ -182,7 +182,6 @@
                 success: function(resultados) {
                     if (resultados == 0) {} else {
                         var resultados = JSON.parse(resultados);
-                        console.log(resultados);
                         if (resultados.error == '') {
                             $('#tablaProductos').empty();
                             $('#tablaProductos').append(resultados.datos);
@@ -199,6 +198,14 @@
                     }
                 }
             })
+        }
+        function eliminaProducto(folio){
+$.ajax({
+    url:'<?php echo base_url(); ?>/TemporalCompras/eliminaProducto/' + folio,
+    success:function(resultados){
+
+    }
+})
         }
     </script>
     <?= $this->endSection(); ?>

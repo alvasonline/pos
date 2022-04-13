@@ -81,7 +81,7 @@ class TemporalCompras extends BaseController
             $fila .= "<td>" . $row['precio'] . "</td>";
             $fila .= "<td class='tbl_cantidad' id='tbl_cantidad'>" . $row['cantidad'] . "</td>";
             $fila .= "<td class='tbl_subtotal' id='tbl_subtotal'>" . number_format($row['subtotal'], 2, '.', ',') . "</td>";
-            $fila .= "<td><a onclick=\"eliminaproducto(" . $row['id_producto'] . ", " . $id_compra . ")\" class='borrar btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i></a></td>";
+            $fila .= "<td><a onclick='eliminaProducto('".$row['folio']."') class='borrar btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i></a></td>";
             $fila .= "</tr>";
         }
         return $fila;
@@ -117,6 +117,35 @@ class TemporalCompras extends BaseController
                 $data = [
                     'id' => $id,
                     'existencias' => $resultado,
+                ];
+                $this->productos->update($id, $data);
+            }
+        }
+    }
+
+    public function eliminaProducto($folio)
+    {
+        $conectar = $this->conectar->where('folio', $folio)->first();
+        if ($conectar) {
+            $id = $conectar['id'];
+            if ($conectar['cantidad'] > 1) {
+                $cantidad = $conectar['cantidad'] - 1;
+                $stotal = $conectar['precio'] * $cantidad;
+                $data = [
+                    'id' => $id,
+                    'cantidad' => $cantidad,
+                    'subtotal' => $stotal,
+                ];
+                $this->conectar->update($id, $data);
+            } else {
+                $this->conectar->delete($id);
+            }
+            $productos = $this->productos->where('id', $id)->first();
+            if ($productos) {
+
+                $aumentar = $productos['existencias'] + 1;
+                $data = [
+                    'existencias' => $aumentar,
                 ];
                 $this->productos->update($id, $data);
             }
