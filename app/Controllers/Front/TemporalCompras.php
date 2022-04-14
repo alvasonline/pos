@@ -23,7 +23,7 @@ class TemporalCompras extends BaseController
         $producto = $this->productos->where('id', $id_producto)->first();
         if ($producto) {
             $this->sacarDeInventario($id_producto, $cantidad);
-            $datosExiste = $this->porIdProcutoCompra($id_producto);
+            $datosExiste = $this->porIdProductoCompra($id_producto);
             if ($datosExiste) {
                 $id = $datosExiste->id;
                 $cantidad = $datosExiste->cantidad + $cantidad;
@@ -58,7 +58,7 @@ class TemporalCompras extends BaseController
         echo json_encode($res);
     }
 
-    public function porIdProcutoCompra($id_producto)
+    public function porIdProductoCompra($id_producto)
     {
         $this->conectar->select('*');
         $this->conectar->where('id_producto', $id_producto);
@@ -66,7 +66,7 @@ class TemporalCompras extends BaseController
         return $datos;
     }
 
-    public function cargaProductos($id_compra)
+    public function cargaProductos()
     {
         $resultado = $this->porCompra();
         $fila = '';
@@ -81,7 +81,7 @@ class TemporalCompras extends BaseController
             $fila .= "<td>" . $row['precio'] . "</td>";
             $fila .= "<td class='tbl_cantidad' id='tbl_cantidad'>" . $row['cantidad'] . "</td>";
             $fila .= "<td class='tbl_subtotal' id='tbl_subtotal'>" . number_format($row['subtotal'], 2, '.', ',') . "</td>";
-            $fila .= "<td><a onclick='eliminaProducto('".$row['folio']."') class='borrar btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i></a></td>";
+            $fila .= "<td><a onclick='eliminarProducto(\"" . $row['folio'] . "\")' class='borrar btn btn-danger btn-sm'><i class='fa-solid fa-trash'></i></a></td>";
             $fila .= "</tr>";
         }
         return $fila;
@@ -123,11 +123,13 @@ class TemporalCompras extends BaseController
         }
     }
 
-    public function eliminaProducto($folio)
+    public function eliminarProducto($id_compra)
     {
-        $conectar = $this->conectar->where('folio', $folio)->first();
+
+        $error = '';
+        $conectar = $this->conectar->where('folio', $id_compra)->first();
+        $id = $conectar['id'];
         if ($conectar) {
-            $id = $conectar['id'];
             if ($conectar['cantidad'] > 1) {
                 $cantidad = $conectar['cantidad'] - 1;
                 $stotal = $conectar['precio'] * $cantidad;
@@ -140,15 +142,27 @@ class TemporalCompras extends BaseController
             } else {
                 $this->conectar->delete($id);
             }
-            $productos = $this->productos->where('id', $id)->first();
-            if ($productos) {
-
-                $aumentar = $productos['existencias'] + 1;
-                $data = [
-                    'existencias' => $aumentar,
-                ];
-                $this->productos->update($id, $data);
-            }
         }
+        $productos = $this->productos->where('id', $id)->first();
+        if ($productos) {
+            dd($productos['id']);
+            $aumentar = $productos['existencias'] + 1;
+            $data = [
+                'existencias' => $aumentar,
+            ];
+            $this->productos->update($id, $data);
+        }
+        $res['datos'] = $this->cargaProductos();
+        $res['total'] = number_format($this->totalProductos($id_compra), 2, '.', ',');
+        $res['error'] = $error;
+        echo json_encode($res);
+    }
+
+    public function iniciar(){
+        $error='';
+        $res['datos'] = $this->cargaProductos();
+        /* $res['total'] = number_format($this->totalProductos($id_compra), 2, '.', ','); */
+        $res['error'] = $error;
+        echo json_encode($res);
     }
 }

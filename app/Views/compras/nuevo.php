@@ -13,6 +13,7 @@
                             <div class="card shadow-lg border-0 rounded-lg mt-5  p-4">
                                 <div class="card-header">
                                     <h3 class="text-center font-weight-light my-4">Agregar Productos</h3>
+                                    <a onclick="inicio()" class="btn btn-warning">Cargar</a>
                                 </div>
                                 <div class="card-body">
                                     <form method="POST" action="<?= base_url() ?>/Front/crearunidad">
@@ -22,6 +23,7 @@
                                                     <input type="hidden" name="id_producto" id="id_producto">
                                                     <input autofocus class="form-control" id="codigo" name="codigo" type="text" onkeyup="buscarProducto(event, this, this.value)" />
                                                     <label for="inputFirstName">Codigo</label>
+                                                    <td>
                                                 </div>
                                                 <small for="codigo" id="resultado_error" style="color:red"></small>
                                             </div>
@@ -93,6 +95,24 @@
     </main>
     <script>
         var error = document.getElementById('cantidad_error');
+
+        function inicio() {
+            $.ajax({
+                url: '<?php echo base_url(); ?>/TemporalCompras/iniciar/',
+                success: function(resultados) {
+                    if (resultados == 0) {
+                        $(tagCodigo).val('');
+                    } else {
+                        var resultados = JSON.parse(resultados);
+                        if (resultados.error == '') {
+                            $("#tablaProductos").empty();
+                            $('#tablaProductos').append(resultados.datos);
+                            $('#total').val(resultados.total);
+                        }
+                    }
+                }
+            })
+        }
 
         function buscarProducto(e, tagCodigo, codigo) {
             var enterKey = 13;
@@ -199,13 +219,24 @@
                 }
             })
         }
-        function eliminaProducto(folio){
-$.ajax({
-    url:'<?php echo base_url(); ?>/TemporalCompras/eliminaProducto/' + folio,
-    success:function(resultados){
 
-    }
-})
+        function eliminarProducto(folio) {
+
+            $.ajax({
+                url: '<?php echo base_url(); ?>/TemporalCompras/eliminarProducto/' + folio,
+                success: function(resultados) {
+                    if (resultados == 0) {
+                        $(tagCodigo).val('');
+                    } else {
+                        var resultados = JSON.parse(resultados);
+                        if (resultados.error == '') {
+                            $("#tablaProductos").empty();
+                            $('#tablaProductos').append(resultados.datos);
+                            $('#total').val(resultados.total);
+                        }
+                    }
+                }
+            })
         }
     </script>
     <?= $this->endSection(); ?>
