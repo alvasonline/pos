@@ -125,10 +125,10 @@ class TemporalCompras extends BaseController
 
     public function eliminarProducto($id_compra)
     {
-
         $error = '';
         $conectar = $this->conectar->where('folio', $id_compra)->first();
         $id = $conectar['id'];
+        $id_pr = $conectar['id_producto'];
         if ($conectar) {
             if ($conectar['cantidad'] > 1) {
                 $cantidad = $conectar['cantidad'] - 1;
@@ -143,14 +143,13 @@ class TemporalCompras extends BaseController
                 $this->conectar->delete($id);
             }
         }
-        $productos = $this->productos->where('id', $id)->first();
+        $productos = $this->productos->where('id', $id_pr)->first();
         if ($productos) {
-            dd($productos['id']);
             $aumentar = $productos['existencias'] + 1;
             $data = [
                 'existencias' => $aumentar,
             ];
-            $this->productos->update($id, $data);
+            $this->productos->update($id_pr, $data);
         }
         $res['datos'] = $this->cargaProductos();
         $res['total'] = number_format($this->totalProductos($id_compra), 2, '.', ',');
@@ -158,11 +157,13 @@ class TemporalCompras extends BaseController
         echo json_encode($res);
     }
 
-    public function iniciar(){
-        $error='';
+    public function iniciar($id_compra = null)
+    {
+        $error = '';
         $res['datos'] = $this->cargaProductos();
-        /* $res['total'] = number_format($this->totalProductos($id_compra), 2, '.', ','); */
+        $res['total'] = number_format($this->totalProductos($id_compra), 2, '.', ',');
         $res['error'] = $error;
+
         echo json_encode($res);
     }
 }

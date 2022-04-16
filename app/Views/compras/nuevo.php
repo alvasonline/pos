@@ -94,8 +94,11 @@
     </div>
     </main>
     <script>
+        $(document).ready(function() {
+        })
+        
         var error = document.getElementById('cantidad_error');
-
+        
         function inicio() {
             $.ajax({
                 url: '<?php echo base_url(); ?>/TemporalCompras/iniciar/',
@@ -113,7 +116,7 @@
                 }
             })
         }
-
+        inicio();
         function buscarProducto(e, tagCodigo, codigo) {
             var enterKey = 13;
             if (codigo != '') {

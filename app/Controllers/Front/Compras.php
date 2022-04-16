@@ -5,9 +5,10 @@ namespace App\Controllers\Front;
 use App\Controllers\BaseController;
 use App\Models\ComprasModel;
 
+
 class Compras extends BaseController
 {
-    protected $conectar, $compras;
+    protected $conectar;
 
     public function __construct()
     {
