@@ -5,6 +5,7 @@ namespace App\Controllers\Front;
 use App\Controllers\BaseController;
 use App\Models\TemporalComprasModel;
 use App\Models\ProductosModel;
+use App\Models\ComprasModel;
 
 class TemporalCompras extends BaseController
 {
@@ -165,5 +166,18 @@ class TemporalCompras extends BaseController
         $res['error'] = $error;
 
         echo json_encode($res);
+    }
+    public function guardaCompra($usuario, $total)
+    {
+        $compras = $this->conectar->findAll();
+        dd($compras);
+        foreach ($compras as $compra) {
+            $compras = new ComprasModel();
+            $this->compras->save([
+                'folio' => $compra['folio'],
+                'id_cajero' => $usuario,
+                'total' => $total,
+            ]);
+        }
     }
 }

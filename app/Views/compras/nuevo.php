@@ -3,6 +3,9 @@
 <?php
 
 ?>
+<?php $user_session = session(); 
+dd($user_session->nombre);
+?>
 <div id="layoutSidenav_content">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
@@ -13,7 +16,6 @@
                             <div class="card shadow-lg border-0 rounded-lg mt-5  p-4">
                                 <div class="card-header">
                                     <h3 class="text-center font-weight-light my-4">Agregar Productos</h3>
-                                    <a onclick="inicio()" class="btn btn-warning">Cargar</a>
                                 </div>
                                 <div class="card-body">
                                     <form method="POST" action="<?= base_url() ?>/Front/crearunidad">
@@ -80,7 +82,7 @@
                                             <div class="col-12 col-sm-6 offset-md-6">
                                                 <label style="font-weight: bold; font-size: 30px; text-align: center" for="">Total $</label>
                                                 <input readonly id="total" name="total" value="0.00" size="7" type="text" class="mb-2" style="font-weight: bold; font-size: 30px; text-align:center">
-                                                <button type="button" name="completa_compra" id="completa_compra" class="btn btn-success mb-3">Completar Compra</button>
+                                                <button type="button" name="completa_compra" id="completa_compra" class="btn btn-success mb-3" onclick="guardar()">Completar Compra</button>
                                             </div>
                                         </div>
                                     </form>
@@ -95,10 +97,11 @@
     </main>
     <script>
         $(document).ready(function() {
+
         })
-        
+
         var error = document.getElementById('cantidad_error');
-        
+
         function inicio() {
             $.ajax({
                 url: '<?php echo base_url(); ?>/TemporalCompras/iniciar/',
@@ -117,6 +120,7 @@
             })
         }
         inicio();
+
         function buscarProducto(e, tagCodigo, codigo) {
             var enterKey = 13;
             if (codigo != '') {
@@ -240,6 +244,12 @@
                     }
                 }
             })
+
+        }
+
+        function guardar() {
+            
+            console.log($user_sesion->nombre);
         }
     </script>
     <?= $this->endSection(); ?>
