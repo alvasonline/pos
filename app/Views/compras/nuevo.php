@@ -1,10 +1,7 @@
 <?= $this->extend('front/layout/main'); ?>
 <?= $this->section('content'); ?>
-<?php
+<?php $user_session = session();
 
-?>
-<?php $user_session = session(); 
-dd($user_session->nombre);
 ?>
 <div id="layoutSidenav_content">
     <div id="layoutAuthentication">
@@ -23,6 +20,7 @@ dd($user_session->nombre);
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-floating">
                                                     <input type="hidden" name="id_producto" id="id_producto">
+                                                    <input type="hidden" name="user" id="user" value="<?= $user_session->usuario ?>">
                                                     <input autofocus class="form-control" id="codigo" name="codigo" type="text" onkeyup="buscarProducto(event, this, this.value)" />
                                                     <label for="inputFirstName">Codigo</label>
                                                     <td>
@@ -248,8 +246,12 @@ dd($user_session->nombre);
         }
 
         function guardar() {
-            
-            console.log($user_sesion->nombre);
+            $.ajax({
+                url: '#',
+                succes: function(resultado) {
+                   console.log($("#user").val(''));
+                }
+            })
         }
     </script>
     <?= $this->endSection(); ?>
