@@ -38,7 +38,7 @@
                                                     <input class="form-control" name="cantidad" id="cantidad" type="number" min="1" oninput="mySubtotal(this, this.value)" />
                                                     <label for="inputLastName">Cantidad</label>
                                                 </div>
-                                                <small for="codigo" id="cantidad_error" style="color:red"></small>
+                                                <div for="codigo" id="cantidad_error" style="color:red"></div>
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -249,7 +249,7 @@
             $.ajax({
                 url: '#',
                 succes: function(resultado) {
-                   console.log($("#user").val(''));
+                    console.log($("#user").val(''));
                 }
             })
         }
