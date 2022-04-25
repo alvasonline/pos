@@ -19,18 +19,15 @@ class lstCompras extends BaseController
 
     public function new()
     {
-
         $data = [
             'titulo' => 'Comprar productos',
         ];
-
         return view('compras/new', $data);
     }
 
     public function buscaProducto($id_producto)
     {
         $productos = $this->productos->where('codigo', $id_producto)->first();
-
         if ($productos) {
             if ($productos['existencias'] > 0) {
                 $datos = [
@@ -59,13 +56,15 @@ class lstCompras extends BaseController
     {
 
         $existe = $this->duplicado($id_producto);
-        if($existe){
-            $nuevoSub = $existe['precio_venta'] * $cantidad + $existe['subtotal'];
-            $datos=[
+        if ($existe) {
+            $nuevoSub = $existe['precio'] * $cantidad + $existe['subtotal'];
+            $id = $existe['id'];
+            $datos = [
                 'cantidad' => $existe['cantidad'] + $cantidad,
-                'subtotal' => $existe
+                'subtotal' => $nuevoSub,
             ];
-        }
+            $this->compras->update($id,$datos);
+        }else{
 
         $id_compra = uniqid();
         $productos = $this->productos->where('codigo', $id_producto)->first();
@@ -80,11 +79,36 @@ class lstCompras extends BaseController
         ];
         $this->compras->save($datos);
     }
-    
-    public function duplicado($id_producto){
-    $compras = $this->compras->where('codigo',$id_producto)->first();
-   
-    return $compras;
-    
+
+    $dataTemporal = $this->traerProductos();
+
+
+     $fila='';
+    $num=0;
+    foreach($dataTemporal as $data){
+        $num++;
+        $fila.='<tr>';
+        $fila.='<td>'.$num.'</td>';
+        $fila.='<td>'.$data["codigo"].'</td>';
+        $fila.='<td>'.$data["nombre"].'</td>';
+        $fila.='<td class="moneda">'.number_format($data["precio"],2,'.',',').'</td>';
+        $fila.='<td class="moneda">'.$data["cantidad"].'</td>';
+        $fila.='<td class="moneda">'.number_format($data["subtotal"],2,'.',',').'</td>';
+        $fila.='</tr>';
     }
+           echo json_encode($fila);
+}
+
+
+    public function duplicado($id_producto)
+    {
+        $compras = $this->compras->where('codigo', $id_producto)->first();
+        return $compras;
+    }
+
+    public function traerProductos(){
+        $compras =$this->compras->findAll();
+        return $compras;
+    }
+
 }
