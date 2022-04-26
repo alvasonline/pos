@@ -5,6 +5,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content'); ?>
+<?php $user_session = session(); ?>
 <div id="layoutSidenav_content">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
@@ -17,26 +18,26 @@
                                     <h3 class="font-weight-light my-4"><?= $titulo; ?></h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action="" method="post">
+                                    <form action="<?=base_url(); ?>" method="post" id="form_compra">
                                         <div class="row">
                                             <div class="col-md-12 col-lg-6 mt-3">
                                                 <div class="form-floating">
+                                                <input type="number" class="form-control" name="cantidad_valida" id="cantidad_valida">
                                                     <input type="text" class="form-control" name="codigo" id="codigo" autofocus onkeyup="buscar(event,this,this.value)">
                                                     <label for="codigo">Código</label>
                                                 </div>
+                                              
                                                 <small for="codigo" id="resultado_error" style="color:red"></small>
                                             </div>
-
                                             <div class="col-md-12 col-lg-6 mt-3">
                                                 <div class="form-floating">
-                                                    <input type="number" class="form-control" name="cantidad" min="1" id="cantidad" disabled oninput="totaliza(this)">
+                                                    <input type="number" class="form-control" name="cantidad" min="1" id="cantidad" oninput="totaliza(this)">
                                                     <label for="cantidad">Cantidad</label>
                                                 </div>
                                                 <small for="codigo" id="cantidad_aviso" style="color:red"></small>
                                             </div>
                                         </div>
                                         <div class="row">
-
                                             <div class="col-md-12 col-lg-6 mt-3">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" name="nombre" id="nombre" disabled>
@@ -58,7 +59,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-lg-6 mt-4">
-                                                <button type="button" disabled class="btn btn-secondary" id="agregar_producto" name="agregar_producto" onclick="agregarBd(codigo.value, cantidad.value)">Agregar Producto</button>
+                                                <button type="button" disabled class="btn btn-warning" id="agregar_producto" name="agregar_producto" onclick="agregarBd(codigo.value, cantidad.value)"><i class="fa-solid fa-circle-plus"></i> Agregar Producto</button>
                                             </div>
                                         </div>
                                     </form>
@@ -74,18 +75,18 @@
                                         <th scope="col" class="moneda">Precio</th>
                                         <th scope="col" class="moneda">Cantidad</th>
                                         <th scope="col" class="moneda">Subtotal</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody class="tabla_productos" id="tabla_productos">
-
                                 </tbody>
                             </table>
                             <div class="row">
-                            <div class="col-12 col-sm-6 offset-md-6">
-                            <label style="font-weight: bold; font-size: 30px; text-align: center" for="">Total $</label>
-                            <input readonly id="total" name="total" value="0.00" size="7" type="text" class="mb-2" style="font-weight: bold; font-size: 30px; text-align:center">
-                            <button type="button" name="completa_compra" id="completa_compra" class="btn btn-success mb-3" onclick="guardar()">Completar Compra</button>
-                            </div>
+                                <div class="col-12 col-sm-6 offset-md-6">
+                                    <label style="font-weight: bold; font-size: 30px; text-align: center" for="">Total $</label>
+                                    <input disabled id="total" name="total" size="7" type="text" class="mb-2" style="font-weight: bold; font-size: 30px; text-align:center">
+                                    <button type="button" name="completa_compra" id="completa_compra" class="btn btn-success mb-3" onclick="guardar()"> <i class="fa-solid fa-circle-plus"></i> Completar Compra</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -99,10 +100,24 @@
         var validar = document.getElementById('cantidad');
         var agregado = document.getElementById('alertok');
         var tabla = document.getElementById('tabla_productos');
+        $(document).ready(function() {
+            $.ajax({
+                url: '<?php echo base_url() ?>/lstCompras/productosTabla/',
+                dataType: 'json',
+                success: function(resultado) {
+                    tabla.innerHTML = resultado.tabla;
+                    $("#total").val(resultado.total);
+                    if($("#total").val()>0){
+                        $("#completa_compra").prop('disabled', false);
+                    }else{
+                        $("#completa_compra").prop('disabled', true);
+                    }
+                }
+            })
+        })
 
         /* Primera Busqueda */
         function buscar(event, tagCodigo, codigo) {
-
             $enterKey = 13;
             if (codigo != '') {
                 if (event.which == $enterKey) {
@@ -188,21 +203,48 @@
             }
         }
 
+        /*Agregar el producto a la BD y devolcer la info */
         function agregarBd(id_producto, cantidad) {
             $.ajax({
                 url: '<?php echo base_url() ?>/lstCompras/agregaProducto/' + id_producto + '/' + cantidad,
                 dataType: 'json',
                 success: function(resultado) {
-                    console.log(resultado);
+                    aviso.innerHTML = '';
                     $("#codigo").val('');
                     $("#codigo").removeClass('is-valid');
                     $("#cantidad").val('');
                     $("#nombre").val('');
                     $("#precio_compra").val('');
                     $("#subtotal").val('');
-                    tabla.innerHTML = resultado;
+                    $("#agregar_producto").prop('disabled', true);
+                    $("#total").val(resultado.total);
+                    tabla.innerHTML = resultado.tabla;
+                    if($("#total").val()>0){
+                        $("#completa_compra").prop('disabled', false);
+                    }else{
+                        $("#completa_compra").prop('disabled', true);
+                    }
                 }
             })
+        }
+
+        function eliminaProducto(id_producto) {
+            $.ajax({
+                url: '<?php echo base_url() ?>/lstCompras/borraTemporal/' + id_producto,
+                dataType: 'json',
+                success: function(resultado) {
+                    tabla.innerHTML = resultado.tabla;
+                    $("#total").val(resultado.total);
+                    if($("#total").val()>0){
+                        $("#completa_compra").prop('disabled', false);
+                    }else{
+                        $("#completa_compra").prop('disabled', true);
+                    }
+                }
+            })
+        }
+        function guardar(){
+       console.log('test')
         }
     </script>
     <?= $this->endSection(); ?>
