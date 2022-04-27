@@ -44,6 +44,7 @@ class lstCompras extends BaseController
     public function agregaProducto($id_producto, $cantidad)
     {
         $existe = $this->duplicado($id_producto);
+
         if ($existe) {
             $id = $existe['id'];
             $nuevoSub = $existe['precio'] * $cantidad + $existe['subtotal'];
@@ -51,7 +52,7 @@ class lstCompras extends BaseController
             $this->compras->update($id, $datos);
         } else {
             $id_compra = uniqid();
-            $productos = $this->productos->where('codigo', $id_producto)->first();
+            $productos = $this->productos->where('id', $id_producto)->first();
             $datos = ['id_producto' => $productos['id'], 'folio' => $id_compra, 'codigo' => $productos['codigo'], 'nombre' => $productos['nombre'], 'cantidad' => $cantidad, 'precio' => $productos['precio_venta'], 'subtotal' => $productos['precio_venta'] * $cantidad,];
             $this->compras->save($datos);
         }
@@ -64,7 +65,7 @@ class lstCompras extends BaseController
     /*Revisa si existe un producto en la tabla temporal para no volverlo a agregar (Trabaja dentro de AgregarProducto()) */
     public function duplicado($id_producto)
     {
-        $compras = $this->compras->where('codigo', $id_producto)->first();
+        $compras = $this->compras->where('id_producto', $id_producto)->first();
         return $compras;
     }
 
@@ -122,11 +123,11 @@ class lstCompras extends BaseController
         $compras = $this->compras->where('codigo', $codigo)->first();
         $id = $compras['id'];
         if ($compras['cantidad'] > 1) {
-            $nvaCantidad=$compras['cantidad'] - 1;
-            $nvoSubtotal=$nvaCantidad * $compras['precio'];
+            $nvaCantidad = $compras['cantidad'] - 1;
+            $nvoSubtotal = $nvaCantidad * $compras['precio'];
             $data = [
                 'cantidad' => $nvaCantidad,
-                'subtotal'=>$nvoSubtotal,
+                'subtotal' => $nvoSubtotal,
             ];
             $this->compras->update($id, $data);
         } else {
@@ -139,12 +140,16 @@ class lstCompras extends BaseController
 
     public function bajarInventario($id_producto, $cantidad)
     {
-        $productos = $this->productos->where('codigo', $id_producto)->first();
+        $productos = $this->productos->where('id', $id_producto)->first();
         $id = $productos['id'];
+        if($cantidad <=$productos['existencias']){
         $data = [
             'existencias' => $productos['existencias'] - $cantidad,
         ];
         $this->productos->update($id, $data);
+    }else{
+        dd('Error de ingreso de productos');
+    }
     }
 
     public function aumentaInventario($id_producto)
@@ -156,9 +161,10 @@ class lstCompras extends BaseController
         ];
         $this->productos->update($id, $data);
     }
-    public function guardaCompra(){
+    public function guardaCompra()
+    {
         $compras = new ComprasModel();
-        
+
         $id_compra = uniqid();
         dd($id_compra);
     }

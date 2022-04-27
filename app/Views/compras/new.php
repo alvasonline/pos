@@ -20,9 +20,9 @@
                                 <div class="card-body">
                                     <form action="<?=base_url(); ?>" method="post" id="form_compra">
                                         <div class="row">
+                                        <input hidden type="number" class="form-control" name="id_producto" id="id_producto">
                                             <div class="col-md-12 col-lg-6 mt-3">
                                                 <div class="form-floating">
-                                                <input type="number" class="form-control" name="cantidad_valida" id="cantidad_valida">
                                                     <input type="text" class="form-control" name="codigo" id="codigo" autofocus onkeyup="buscar(event,this,this.value)">
                                                     <label for="codigo">Código</label>
                                                 </div>
@@ -31,8 +31,10 @@
                                             </div>
                                             <div class="col-md-12 col-lg-6 mt-3">
                                                 <div class="form-floating">
+                                                    <span id="view_cantidad">
                                                     <input type="number" class="form-control" name="cantidad" min="1" id="cantidad" oninput="totaliza(this)">
                                                     <label for="cantidad">Cantidad</label>
+                                                    </span>
                                                 </div>
                                                 <small for="codigo" id="cantidad_aviso" style="color:red"></small>
                                             </div>
@@ -59,7 +61,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-lg-6 mt-4">
-                                                <button type="button" disabled class="btn btn-warning" id="agregar_producto" name="agregar_producto" onclick="agregarBd(codigo.value, cantidad.value)"><i class="fa-solid fa-circle-plus"></i> Agregar Producto</button>
+                                                <button type="button" disabled class="btn btn-warning" id="agregar_producto" name="agregar_producto" onclick="agregarBd(id_producto.value, cantidad.value)"><i class="fa-solid fa-circle-plus"></i> Agregar Producto</button>
                                             </div>
                                         </div>
                                     </form>
@@ -148,8 +150,9 @@
                                 $("#cantidad").attr('max', '');
                                 $("#nombre").val('');
                                 $("#precio_compra").val('');
-                                $("#cantidad").val(0);
+                                $("#cantidad").val('');
                                 $("#subtotal").val('');
+                                $("#id_producto").val('');
                             } else {
                                 $("#resultado_error").html(resultado.error);
                                 $(tagCodigo).addClass('is-invalid');
@@ -160,6 +163,7 @@
                                 $("#precio_compra").val('');
                                 $("#cantidad").val('');
                                 $("#subtotal").val('');
+                                $("#id_producto").val('');
                             }
                         }
                     })
