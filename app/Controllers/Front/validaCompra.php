@@ -15,6 +15,34 @@ class validaCompra extends BaseController
         $this->compras = new ProductosModel();
         $this->temporal = new TemporalComprasModel();
     }
+
+    /*---------------- buscar los producto para agregar a la lista */
+    public function buscarProducto($id)
+    {
+        $compras = $this->compras->where('id', $id)->first();
+        if ($compras) {
+            if ($compras['existencias'] > 0) {
+                $datos = [
+                    'id' => $compras['id'],
+                    'codigo' => $compras['codigo'],
+                    'nombre' => $compras['nombre'],
+                    'precio_compra' => $compras['precio_compra'],
+                    'error' => '',
+                    'agregar' => true
+                ];
+                return $datos;
+            } else {
+                $datos['error'] = 'producto fuera de inventario';
+                $datos['agregar'] = false;
+                return $datos;
+            }
+        } else {
+            $datos['error'] = 'No existe el producto';
+            $datos['agregar'] = false;
+            return $datos;
+        }
+    }
+
     /*---------------- Se Agrega a la lista de productos por comprar */
     public function agregarLista($id_producto, $cantidad)
     {
@@ -71,6 +99,31 @@ class validaCompra extends BaseController
         }
     }
 
+    /*---------------- Borrar de la lista y disminuye
+    del inventario de productos */
+    public function borraTemporal($id_producto)
+    {
+        $temporal = $this->temporal->where('id_producto', $id_producto)->first();
+        $compras = $this->compras->where('id', $id_producto)->first();
+        if($temporal){
+            $id=$temporal['id'];
+        if ($temporal['cantidad'] > 1 && $compras['existencias'] > 0) {
+            $nvaCantidad = $temporal['cantidad'] - 1;
+            $data = [
+                'cantidad' => $nvaCantidad,
+                'subtotal' => $nvaCantidad * $temporal['precio']
+            ];
+            $this->temporal->update($id,$data);
+            $this->aumentaInventario($id_producto);
+        }else{
+            $this->temporal->delete($id);
+            $this->aumentaInventario($id_producto);
+        }
+    }else{
+            dd('Error');
+        }
+    }
+
     /*---------------- Disminuye el inventario de productos */
     public function disminuyeInventario($id_producto, $cantidad)
     {
@@ -79,33 +132,38 @@ class validaCompra extends BaseController
             if ($cantidad > $compras['existencias'] || $cantidad <= 0) {
                 return 'La cantidad es incosistente con el inventario';
             } else {
-                $datos = [
-                    'existencias' => $compras['existencias'] - $cantidad,
-                ];
+                $datos['existencias'] = $compras['existencias'] - 1;
                 $this->compras->update($id_producto, $datos);
             }
         }
     }
     /*---------------- Aumenta el inventario de productos */
-    public function aumentaInventario($id_producto, $cantidad)
+    public function aumentaInventario($id_producto)
     {
         $compras = $this->compras->where('id', $id_producto)->first();
         if ($compras) {
-            if ($cantidad > $compras['existencias'] || $cantidad <= 0) {
-                return 'La cantidad es incosistente con el inventario';
-            } else {
-                $datos = [
-                    'existencias' => $compras['existencias'] + 1,
-                ];
-                $this->compras->update($id_producto, $datos);
-            }
+            $datos = [
+                'existencias' => $compras['existencias'] + 1,
+            ];
+            $this->compras->update($id_producto, $datos);
         }
     }
     function muestraTemporal()
     {
+        $fila = '';
+        $num = 0;
         $temporal = $this->temporal->findAll();
-        foreach($temporal as $tabla){
-            dd($tabla['id']);
+        foreach ($temporal as $tabla) {
+            $num++;
+            $fila .= '<tr>';
+            $fila .= '<td>' . $num . '</td>';
+            $fila .= '<td>' . $tabla['codigo'] . '</td>';
+            $fila .= '<td>' . $tabla['nombre'] . '</td>';
+            $fila .= '<td>' . $tabla['cantidad'] . '</td>';
+            $fila .= '<td>' . number_format($tabla['precio'], 2, '.', ',') . '</td>';
+            $fila .= '<td>.' . number_format($tabla['subtotal'], 2, '.', ',') . '</td>';
+            $fila .= '</tr>';
         }
+        return ($fila);
     }
 }

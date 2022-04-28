@@ -31,10 +31,8 @@
                                             </div>
                                             <div class="col-md-12 col-lg-6 mt-3">
                                                 <div class="form-floating">
-                                                    <span id="view_cantidad">
                                                     <input type="number" class="form-control" name="cantidad" min="1" id="cantidad" oninput="totaliza(this)">
-                                                    <label for="cantidad">Cantidad</label>
-                                                    </span>
+                                                    <label for="cantidad">Cantida</label>
                                                 </div>
                                                 <small for="codigo" id="cantidad_aviso" style="color:red"></small>
                                             </div>
