@@ -1,9 +1,9 @@
+<?= $id_compra = uniqid();
+?>;
 <?= $this->extend('front/layout/main'); ?>
-
 <?= $this->section('title') ?>
 <?= $titulo; ?>
 <?= $this->endSection() ?>
-
 <?= $this->section('content'); ?>
 <?php $user_session = session(); ?>
 <div id="layoutSidenav_content">
@@ -17,34 +17,37 @@
                                 <div class="card-header text-center">
                                     <h3 class="font-weight-light my-4"><?= $titulo; ?></h3>
                                 </div>
+                            
                                 <div class="card-body">
-                                    <form action="<?=base_url(); ?>" method="post" id="form_compra">
+                                    <form action="<?= base_url(); ?>/lstCompras/guarda" method="post" id="form_compra" name="form_compra" autocomplete="off">
                                         <div class="row">
-                                        <input hidden type="number" class="form-control" name="id_producto" id="id_producto">
-                                            <div class="col-md-12 col-lg-6 mt-3">
+                                            <input hidden type="number" class="form-control" name="id_producto" id="id_producto">
+                                            <input hidden type="text" class="form-control" name="id_compra" id="id_compra" value="<?php echo $id_compra?>">
+                                            <input hidden type="text" class="form-control" name="sesion" id="sesion" value="<?php echo $user_session->id_usuario?>">
+                                            <div class="col-md-12 col-lg-6 b-3">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" name="codigo" id="codigo" autofocus onkeyup="buscar(event,this,this.value)">
                                                     <label for="codigo">Código</label>
                                                 </div>
-                                              
+
                                                 <small for="codigo" id="resultado_error" style="color:red"></small>
                                             </div>
-                                            <div class="col-md-12 col-lg-6 mt-3">
+                                            <div class="col-md-12 col-lg-6 mb-3">
                                                 <div class="form-floating">
-                                                    <input type="number" class="form-control" name="cantidad" min="1" id="cantidad" oninput="totaliza(this)">
+                                                    <input disabled type="number" class="form-control" name="cantidad" min="1" id="cantidad" oninput="totaliza(this)">
                                                     <label for="cantidad">Cantida</label>
                                                 </div>
                                                 <small for="codigo" id="cantidad_aviso" style="color:red"></small>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12 col-lg-6 mt-3">
+                                            <div class="col-md-12 col-lg-6 mb-3">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" name="nombre" id="nombre" disabled>
                                                     <label for="nombre">Nombre</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12 col-lg-6 mt-3">
+                                            <div class="col-md-12 col-lg-6 mb-3">
                                                 <div class="form-floating">
                                                     <input type="number" class="form-control" name="precio_compra" id="precio_compra" disabled>
                                                     <label for="precio_compra">Precio de Compra</label>
@@ -52,19 +55,17 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12 col-lg-6 mt-3">
+                                            <div class="col-md-12 col-lg-6 mb-3">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" name="subtotal" id="subtotal" disabled>
                                                     <label for="subtotal">SubTotal</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-lg-6 mt-4">
-                                                <button type="button" disabled class="btn btn-warning" id="agregar_producto" name="agregar_producto" onclick="agregarBd(id_producto.value, cantidad.value)"><i class="fa-solid fa-circle-plus"></i> Agregar Producto</button>
+                                                <button hidden type="button" class="btn btn-warning" id="agregar_producto" name="agregar_producto" onclick="agregarBd(id_producto.value, cantidad.value)"><i class="fa-solid fa-circle-plus"></i> Agregar Producto</button>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
-                            </div>
+                          
                             <!-- Tabla -->
                             <table class="table table-sm table-striped">
                                 <thead>
@@ -79,13 +80,17 @@
                                     </tr>
                                 </thead>
                                 <tbody class="tabla_productos" id="tabla_productos">
+                              
                                 </tbody>
                             </table>
                             <div class="row">
                                 <div class="col-12 col-sm-6 offset-md-6">
                                     <label style="font-weight: bold; font-size: 30px; text-align: center" for="">Total $</label>
-                                    <input disabled id="total" name="total" size="7" type="text" class="mb-2" style="font-weight: bold; font-size: 30px; text-align:center">
-                                    <button type="button" name="completa_compra" id="completa_compra" class="btn btn-success mb-3" onclick="guardar()"> <i class="fa-solid fa-circle-plus"></i> Completar Compra</button>
+                                    <input  id="total" name="total" size="7" type="text" class="mb-2" style="font-weight: bold; font-size: 30px; text-align:center">
+                                    <button hidden type="button" name="completa_compra" id="completa_compra" class="btn btn-success mb-3"> <i class="fa-solid fa-circle-plus"></i> Completar Compra</button>
+                                </div>
+                            </div>
+                            </form>
                                 </div>
                             </div>
                         </div>
@@ -107,13 +112,20 @@
                 success: function(resultado) {
                     tabla.innerHTML = resultado.tabla;
                     $("#total").val(resultado.total);
-                    if($("#total").val()>0){
-                        $("#completa_compra").prop('disabled', false);
-                    }else{
-                        $("#completa_compra").prop('disabled', true);
-                    }
+                 
+                    if (resultado.total  >0) {
+                        $("#completa_compra").prop('hidden',false);
+                    } 
                 }
-            })
+            });
+            $("#completa_compra").click(function() {
+                let nFila = $("#tabla_productos tr").length;
+            if(nFila<1){
+                console.log('No hay Compras');
+            }else{
+                $("#form_compra").submit();
+            }
+            });
         })
 
         /* Primera Busqueda */
@@ -132,7 +144,7 @@
                                 $(tagCodigo).addClass('is-valid');
                                 $("#resultado_error").html('');
                                 $("#cantidad").prop('disabled', false);
-                                $("#agregar_producto").prop('disabled', false);
+                                $("#agregar_producto").prop('hidden', false);
                                 $("#cantidad").focus();
                                 $("#cantidad").val(1);
                                 $("#cantidad").attr('max', resultado.productos.existencias);
@@ -144,24 +156,24 @@
                                 $("#resultado_error").html(resultado.error);
                                 $(tagCodigo).addClass('is-invalid');
                                 $("#cantidad").prop('disabled', true);
-                                $("#agregar_producto").prop('disabled', true);
                                 $("#cantidad").attr('max', '');
                                 $("#nombre").val('');
                                 $("#precio_compra").val('');
                                 $("#cantidad").val('');
                                 $("#subtotal").val('');
                                 $("#id_producto").val('');
+                                $("#agregar_producto").prop('hidden', true);
                             } else {
                                 $("#resultado_error").html(resultado.error);
                                 $(tagCodigo).addClass('is-invalid');
                                 $("#cantidad").prop('disabled', true);
-                                $("#agregar_producto").prop('disabled', true);
                                 $("#cantidad").attr('max', '');
                                 $("#nombre").val('');
                                 $("#precio_compra").val('');
                                 $("#cantidad").val('');
                                 $("#subtotal").val('');
                                 $("#id_producto").val('');
+                                $("#agregar_producto").prop('hidden', true);
                             }
                         }
                     })
@@ -182,19 +194,18 @@
                 case (cantidad == max):
                     aviso.innerHTML = `Solo existen ${max} en inventario`;
                     validar.classList.remove('is-invalid');
-                    $("#agregar_producto").prop('disabled', false);
-                    $(validar).css('background-color', '#ffffd9');
+                    $("#agregar_producto").prop('hidden', false);
                     break;
                 case (cantidad >= max):
                     aviso.innerHTML = `Solo existen ${max} en inventario`;
                     validar.classList.add('is-invalid');
-                    $("#agregar_producto").prop('disabled', true);
+                    $("#agregar_producto").prop('hidden', true);
                     $("#subtotal").val(0)
                     break;
                 case (cantidad <= 0):
                     aviso.innerHTML = "Ingrese una cantidad correcta por favor";
                     validar.classList.add('is-invalid');
-                    $("#agregar_producto").prop('disabled', true);
+                    $("#agregar_producto").prop('hidden', true);
                     $("#subtotal").val(0)
                     break;
                 default:
@@ -202,6 +213,7 @@
                     validar.classList.remove('is-invalid');
                     $("#agregar_producto").prop('disabled', false);
                     $(validar).removeAttr('style')
+                    $("#agregar_producto").prop('hidden', false);
             }
         }
 
@@ -212,18 +224,20 @@
                 dataType: 'json',
                 success: function(resultado) {
                     aviso.innerHTML = '';
+                    $("#completa_compra").prop('hidden', false);
                     $("#codigo").val('');
                     $("#codigo").removeClass('is-valid');
+                    $("#cantidad").prop('disabled', true);
                     $("#cantidad").val('');
                     $("#nombre").val('');
                     $("#precio_compra").val('');
                     $("#subtotal").val('');
-                    $("#agregar_producto").prop('disabled', true);
+                    $("#agregar_producto").prop('hidden', true);
                     $("#total").val(resultado.total);
                     tabla.innerHTML = resultado.tabla;
-                    if($("#total").val()>0){
+                    if ($("#total").val() > 0) {
                         $("#completa_compra").prop('disabled', false);
-                    }else{
+                    } else {
                         $("#completa_compra").prop('disabled', true);
                     }
                 }
@@ -237,16 +251,11 @@
                 success: function(resultado) {
                     tabla.innerHTML = resultado.tabla;
                     $("#total").val(resultado.total);
-                    if($("#total").val()>0){
-                        $("#completa_compra").prop('disabled', false);
-                    }else{
-                        $("#completa_compra").prop('disabled', true);
-                    }
+                    if (resultado.total ==null) {
+                        $("#completa_compra").prop('hidden',true);
+                    } 
                 }
             })
-        }
-        function guardar(){
-       console.log('test')
         }
     </script>
     <?= $this->endSection(); ?>

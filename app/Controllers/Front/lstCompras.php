@@ -6,15 +6,17 @@ use App\Controllers\BaseController;
 use App\Models\ProductosModel;
 use App\Models\TemporalComprasModel;
 use App\Models\ComprasModel;
+use App\Models\DetalleCompraModel;
 
 
 class lstCompras extends BaseController
 {
-    protected $compras, $productos;
+    protected $compras, $productos, $guardar, $detalle_compra;
     public function __construct()
     {
         $this->compras = new TemporalComprasModel();
         $this->productos = new ProductosModel();
+        $this->guardar = new ComprasModel();
     }
     /* Inicio de la pagina, presentación del contenido */
     public function new()
@@ -35,7 +37,7 @@ class lstCompras extends BaseController
                 $datos = ['error' => 'Producto Fuera de Inventario', 'existe' => true, 'inventario' => false,];
             }
         } else {
-            $datos = ['error' => 'Producto no existe', 'existe' => false,];
+            $datos = ['error' => 'El Producto no existe', 'existe' => false,];
         }
         echo json_encode($datos);
     }
@@ -101,7 +103,6 @@ class lstCompras extends BaseController
                 $fila .= "<td><a onclick='eliminaProducto(\"" . $data['codigo'] . "\")' class='btn btn-danger btn-sm'><i class='fa-solid fa-trash-can text-white'> - 1</i></a></td>";
                 $fila .= '</tr>';
             }
-
             return ($fila);
         }
     }
@@ -138,18 +139,23 @@ class lstCompras extends BaseController
         $this->productosTabla();
     }
 
+    public function borraCompra(){
+        $this->compras->where('folio!=',0);
+        $this->compras->delete();
+    }
+
     public function bajarInventario($id_producto, $cantidad)
     {
         $productos = $this->productos->where('id', $id_producto)->first();
         $id = $productos['id'];
-        if($cantidad <=$productos['existencias']){
-        $data = [
-            'existencias' => $productos['existencias'] - $cantidad,
-        ];
-        $this->productos->update($id, $data);
-    }else{
-        dd('Error de ingreso de productos');
-    }
+        if ($cantidad <= $productos['existencias']) {
+            $data = [
+                'existencias' => $productos['existencias'] - $cantidad,
+            ];
+            $this->productos->update($id, $data);
+        } else {
+            dd('Error de ingreso de productos');
+        }
     }
 
     public function aumentaInventario($id_producto)
@@ -161,11 +167,27 @@ class lstCompras extends BaseController
         ];
         $this->productos->update($id, $data);
     }
-    public function guardaCompra()
+   
+    public function guarda()
     {
-        $compras = new ComprasModel();
-
-        $id_compra = uniqid();
-        dd($id_compra);
+        $id_compra = $this->request->getPost('id_compra');
+        $total = $this->request->getPost('total');
+        $id_usuario =  $this->request->getPost('sesion');
+        $resultadoId = $this->guardar->insertaCompra($id_compra, $total, $id_usuario);
+        if ($resultadoId) {
+            $resultadoCompra = $this->compras->findAll();
+            $this->detalle_compra = new DetalleCompraModel();
+            foreach ($resultadoCompra as $row) {
+                $this->detalle_compra->save([
+                    'id_compra' => $resultadoId,
+                    'id_producto' => $row['id_producto'],
+                    'nombre' => $row['nombre'],
+                    'cantidad' => $row['cantidad'],
+                    'precio' => $row['precio'],
+                ]);
+            }
+        }
+        $this->borraCompra();
+        return redirect()->to(base_url() . '/productos');
     }
 }
