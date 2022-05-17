@@ -1,4 +1,4 @@
-<?php $user_session = session(); 
+<?php $user_session = session();
 
 ?>
 <!DOCTYPE html>
@@ -19,10 +19,10 @@
 </head>
 
 <body class="bg-dark">
-<?php if($user_session->nombre !=null):
-    return redirect()->to(base_url('/configuracion'));
-endif
-?>
+    <?php if ($user_session->nombre != null) :
+        return redirect()->to(base_url('/configuracion'));
+    endif
+    ?>
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
@@ -44,10 +44,6 @@ endif
                                             <input value="<?= old('password') ?>" name="password" class="form-control" id="inputPassword" type="password" />
                                             <label for="inputPassword">Contraseña</label>
                                             <small class="text-danger"> <?= session('errors.password') ?></small>
-                                        </div>
-                                        <div class="form-check mb-3">
-                                            <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                            <label class="form-check-label small" for="inputRememberPassword">Recordar Contraseña</label>
                                         </div>
                                         <?php if (isset($error)) { ?>
                                             <div class="alert alert-danger" role="alert">
