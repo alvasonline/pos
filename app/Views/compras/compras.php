@@ -11,10 +11,8 @@
     <main>
         <div class="container px-4">
 
-            <div class="container mt-5 mb-3 px-4">
-                <a name="" id="" class="btn btn-dark" href="<?= base_url('Front/nuevacompra') ?>" role="button"> <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
-            </div>
-            <div class="card mb-4">
+        
+            <div class="card mb-4 mt-5">
 
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
@@ -25,8 +23,8 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nombre</th>
-                                <th>Nombre Corto</th>
+                                <th>Folio</th>
+                                <th>Total</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -34,8 +32,8 @@
                             <?php foreach ($datos as $dato) : ?>
                                 <tr>
                                     <td><?= $dato['id'] ?></td>
-                                    <td><?= $dato['nombre'] ?></td>
-                                    <td><?= $dato['nombre_corto'] ?></td>
+                                    <td><?= $dato['folio'] ?></td>
+                                    <td><?= $dato['total'] ?></td>
                                     <td>
                                         <div class="btn-group" role="group">
                                             <a href="<?= base_url().'/Front/editarunidad/' . $dato['id'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> </a>
