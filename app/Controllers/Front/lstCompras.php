@@ -261,7 +261,4 @@ class lstCompras extends BaseController
         $pdf->output("compra_pdf.pdf", "I");
     }
 
-    function muestraComprapdf()
-    {
-    }
 }
