@@ -71,8 +71,8 @@
                 </a>
                 <div class="collapse" id="compras" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= base_url('Front/listarcompra') ?>">Nueva Compra</a>
-                        <a class="nav-link" href="<?= base_url('Front/nuevacompra') ?>">Compras</a>
+                        <a class="nav-link" href="<?= base_url('Front/listarcompra') ?>">Compras</a>
+                        <a class="nav-link" href="<?= base_url('Compras') ?>">Nueva Compra</a>
                     </nav>
                 </div>
                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#administracion" aria-expanded="false" aria-controls="administracion">

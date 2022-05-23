@@ -125,7 +125,7 @@ class Usuarios extends BaseController
             $datosUsuario = $this->conectar->where('usuario', $usuario)->first();
             if ($datosUsuario != null) {
                 if (password_verify($password, $datosUsuario['password'])) {
-                    $datosSesion = ['id_usuario' => $datosUsuario['id'], 'nombre' => $datosUsuario['nombre'], 'id_caja' => $datosUsuario['id_caja'], 'id_rol' => $datosUsuario['id_rol'],'usuario' => $datosUsuario['usuario']];
+                    $datosSesion = ['id_usuario' => $datosUsuario['id'], 'nombre' => $datosUsuario['nombre'], 'id_caja' => $datosUsuario['id_caja'], 'id_rol' => $datosUsuario['id_rol'], 'usuario' => $datosUsuario['usuario']];
                     $session = session();
                     $session->set($datosSesion);
                     return redirect()->to(base_url() . '/configuracion');
