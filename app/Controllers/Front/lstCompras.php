@@ -46,7 +46,7 @@ class lstCompras extends BaseController
     public function agregaProducto($id_producto, $cantidad)
     {
         $existe = $this->duplicado($id_producto);
-
+     
         if ($existe) {
             $id = $existe['id'];
             $nuevoSub = $existe['precio'] * $cantidad + $existe['subtotal'];
@@ -62,7 +62,6 @@ class lstCompras extends BaseController
         $info = $this->productosTabla();
         return ($info);
     }
-
 
     /*Revisa si existe un producto en la tabla temporal para no volverlo a agregar (Trabaja dentro de AgregarProducto()) */
     public function duplicado($id_producto)
@@ -80,7 +79,6 @@ class lstCompras extends BaseController
             'tabla' => $traer,
             'total' => $total,
         ];
-
         echo json_encode($data);
     }
 
@@ -119,6 +117,7 @@ class lstCompras extends BaseController
         }
     }
 
+        /* Borra el temporal de los productos listados */
     public function borraTemporal($codigo)
     {
         $compras = $this->compras->where('codigo', $codigo)->first();
@@ -139,8 +138,9 @@ class lstCompras extends BaseController
         $this->productosTabla();
     }
 
-    public function borraCompra(){
-        $this->compras->where('folio!=',0);
+    public function borraCompra()
+    {
+        $this->compras->where('folio!=', 0);
         $this->compras->delete();
     }
 
@@ -167,11 +167,11 @@ class lstCompras extends BaseController
         ];
         $this->productos->update($id, $data);
     }
-   
+
     public function guarda()
     {
         $id_compra = $this->request->getPost('id_compra');
-        $total = $this->request->getPost('total');
+        $total = preg_replace('/[,]/', '', $this->request->getPost('total'));
         $id_usuario =  $this->request->getPost('sesion');
         $resultadoId = $this->guardar->insertaCompra($id_compra, $total, $id_usuario);
         if ($resultadoId) {
@@ -189,5 +189,9 @@ class lstCompras extends BaseController
         }
         $this->borraCompra();
         return redirect()->to(base_url() . '/productos');
+    }
+
+    function muestraComprapdf()
+    {
     }
 }

@@ -17,13 +17,13 @@
                                 <div class="card-header text-center">
                                     <h3 class="font-weight-light my-4"><?= $titulo; ?></h3>
                                 </div>
-                            
+
                                 <div class="card-body">
                                     <form action="<?= base_url(); ?>/lstCompras/guarda" method="post" id="form_compra" name="form_compra" autocomplete="off">
                                         <div class="row">
                                             <input hidden type="number" class="form-control" name="id_producto" id="id_producto">
-                                            <input hidden type="text" class="form-control" name="id_compra" id="id_compra" value="<?php echo $id_compra?>">
-                                            <input hidden type="text" class="form-control" name="sesion" id="sesion" value="<?php echo $user_session->id_usuario?>">
+                                            <input hidden type="text" class="form-control" name="id_compra" id="id_compra" value="<?php echo $id_compra ?>">
+                                            <input hidden type="text" class="form-control" name="sesion" id="sesion" value="<?php echo $user_session->id_usuario ?>">
                                             <div class="col-md-12 col-lg-6 b-3">
                                                 <div class="form-floating">
                                                     <input type="text" class="form-control" name="codigo" id="codigo" autofocus onkeyup="buscar(event,this,this.value)">
@@ -65,32 +65,32 @@
                                                 <button hidden type="button" class="btn btn-warning" id="agregar_producto" name="agregar_producto" onclick="agregarBd(id_producto.value, cantidad.value)"><i class="fa-solid fa-circle-plus"></i> Agregar Producto</button>
                                             </div>
                                         </div>
-                          
-                            <!-- Tabla -->
-                            <table class="table table-sm table-striped">
-                                <thead>
-                                    <tr class="table-dark">
-                                        <th scope="col">#</th>
-                                        <th scope="col">Codigo</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col" class="moneda">Precio</th>
-                                        <th scope="col" class="moneda">Cantidad</th>
-                                        <th scope="col" class="moneda">Subtotal</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody class="tabla_productos" id="tabla_productos">
-                              
-                                </tbody>
-                            </table>
-                            <div class="row">
-                                <div class="col-12 col-sm-6 offset-md-6">
-                                    <label style="font-weight: bold; font-size: 30px; text-align: center" for="">Total $</label>
-                                    <input  id="total" name="total" size="7" type="text" class="mb-2" style="font-weight: bold; font-size: 30px; text-align:center">
-                                    <button hidden type="button" name="completa_compra" id="completa_compra" class="btn btn-success mb-3"> <i class="fa-solid fa-circle-plus"></i> Completar Compra</button>
-                                </div>
-                            </div>
-                            </form>
+
+                                        <!-- Tabla -->
+                                        <table class="table table-sm table-striped">
+                                            <thead>
+                                                <tr class="table-dark">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Codigo</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col" class="moneda">Precio</th>
+                                                    <th scope="col" class="moneda">Cantidad</th>
+                                                    <th scope="col" class="moneda">Subtotal</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="tabla_productos" id="tabla_productos">
+
+                                            </tbody>
+                                        </table>
+                                        <div class="row">
+                                            <div class="col-12 col-sm-6 offset-md-6">
+                                                <label style="font-weight: bold; font-size: 30px; text-align: center" for="">Total $</label>
+                                                <input id="total" name="total" size="7" type="text" class="mb-2" style="font-weight: bold; font-size: 30px; text-align:center">
+                                                <button hidden type="button" name="completa_compra" id="completa_compra" class="btn btn-success mb-3"> <i class="fa-solid fa-circle-plus"></i> Completar Compra</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -112,19 +112,19 @@
                 success: function(resultado) {
                     tabla.innerHTML = resultado.tabla;
                     $("#total").val(resultado.total);
-                 
-                    if (resultado.total  >0) {
-                        $("#completa_compra").prop('hidden',false);
-                    } 
+                    let nFila = $("#tabla_productos tr").length;
+                    if (nFila > 0) {
+                        $("#completa_compra").prop('hidden', false);
+                    }
                 }
             });
             $("#completa_compra").click(function() {
                 let nFila = $("#tabla_productos tr").length;
-            if(nFila<1){
-                console.log('No hay Compras');
-            }else{
-                $("#form_compra").submit();
-            }
+                if (nFila < 1) {
+                    console.log('No hay Compras');
+                } else {
+                    $("#form_compra").submit();
+                }
             });
         })
 
@@ -217,14 +217,16 @@
             }
         }
 
-        /*Agregar el producto a la BD y devolcer la info */
+        /*Agregar el producto a la BD y devolver la info */
         function agregarBd(id_producto, cantidad) {
             $.ajax({
                 url: '<?php echo base_url() ?>/lstCompras/agregaProducto/' + id_producto + '/' + cantidad,
                 dataType: 'json',
                 success: function(resultado) {
+                    let nFila = $("#tabla_productos tr").length;
                     aviso.innerHTML = '';
                     $("#completa_compra").prop('hidden', false);
+                    $("#completa_compra").prop('disabled', false);
                     $("#codigo").val('');
                     $("#codigo").removeClass('is-valid');
                     $("#cantidad").prop('disabled', true);
@@ -235,11 +237,6 @@
                     $("#agregar_producto").prop('hidden', true);
                     $("#total").val(resultado.total);
                     tabla.innerHTML = resultado.tabla;
-                    if ($("#total").val() > 0) {
-                        $("#completa_compra").prop('disabled', false);
-                    } else {
-                        $("#completa_compra").prop('disabled', true);
-                    }
                 }
             })
         }
@@ -251,9 +248,9 @@
                 success: function(resultado) {
                     tabla.innerHTML = resultado.tabla;
                     $("#total").val(resultado.total);
-                    if (resultado.total ==null) {
-                        $("#completa_compra").prop('hidden',true);
-                    } 
+                    if (resultado.total == null) {
+                        $("#completa_compra").prop('hidden', true);
+                    }
                 }
             })
         }
