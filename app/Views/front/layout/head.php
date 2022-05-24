@@ -34,7 +34,7 @@
                         <?php echo $user_session->nombre ?>
                         <i class="fas fa-user fa-fw"></i> </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="<?= base_url() . '/Front/cambiapassword/'?>">Datos de usuario</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url() . '/Front/cambiapassword/' ?>">Datos de usuario</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li>
                             <hr class="dropdown-divider" />
@@ -46,50 +46,55 @@
 
         </nav>
         <div id="layoutSidenav_nav">
-    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-        <div class="sb-sidenav-menu">
-            <div class="nav">
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#tienda" aria-expanded="false" aria-controls="tienda">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-basket-shopping"></i></div>
-                    Tienda
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="tienda" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= base_url('Front/productos') ?>">Productos</a>
-                        <a class="nav-link" href="<?= base_url('Front/unidades') ?>">Unidades</a>
-                        <a class="nav-link" href="<?= base_url('Front/categorias') ?>">Categorias</a>
-                    </nav>
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#tienda" aria-expanded="false" aria-controls="tienda">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+                            Tienda
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="tienda" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="<?= base_url('Front/productos') ?>">Productos</a>
+                                <a class="nav-link" href="<?= base_url('Front/unidades') ?>">Unidades</a>
+                                <a class="nav-link" href="<?= base_url('Front/categorias') ?>">Categorias</a>
+                            </nav>
+                        </div>
+                        <a href="<?= base_url('Front/clientes') ?>" class="nav-link">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i> </div>
+                            Clientes
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#caja" aria-expanded="false" aria-controls="caja">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-truck"></i></i></div>
+                            Compras
+                            <div div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="caja" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="<?= base_url('Front/listarcompra') ?>">Nueva Compra</a>
+                                <a class="nav-link" href="<?= base_url('Compras') ?>">Compras</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link" href="<?=base_url()?>/ventas/venta">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-cash-register"></i></i></div>
+                            Caja
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#administracion" aria-expanded="false" aria-controls="administracion">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-toolbox"></i></i></div>
+                            Administracion
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="administracion" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="<?= base_url('Front/configuracion') ?>">Configuracion</a>
+                                <a class="nav-link" href="<?= base_url('Front/caja') ?>">Caja</a>
+                                <a class="nav-link" href="<?= base_url('Front/roles') ?>">Roles</a>
+                                <a class="nav-link" href="<?= base_url('Front/usuarios') ?>">Usuarios</a>
+                            </nav>
+                        </div>
+
+                    </div>
                 </div>
-                <a href="<?= base_url('Front/clientes') ?>" class="nav-link">
-                <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i> </div>
-                   Clientes</a>
-                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#compras" aria-expanded="false" aria-controls="compras">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-cash-register"></i></i></div>
-                    Tienda
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="compras" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= base_url('Front/listarcompra') ?>">Compras</a>
-                        <a class="nav-link" href="<?= base_url('Compras') ?>">Nueva Compra</a>
-                    </nav>
-                </div>
-                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#administracion" aria-expanded="false" aria-controls="administracion">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-toolbox"></i></i></div>
-                    Administracion
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="administracion" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                    <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="<?= base_url('Front/configuracion') ?>">Configuracion</a>
-                        <a class="nav-link" href="<?= base_url('Front/caja') ?>">Caja</a>
-                        <a class="nav-link" href="<?= base_url('Front/roles') ?>">Roles</a>
-                        <a class="nav-link" href="<?= base_url('Front/usuarios') ?>">Usuarios</a>
-                    </nav>
-                </div>
-                
-            </div>
+            </nav>
         </div>
-    </nav>
-</div>

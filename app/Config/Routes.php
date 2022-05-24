@@ -128,6 +128,9 @@ $routes->group('Front', ['namespace' => 'App\Controllers\Front'], function ($rou
     $routes->get('nuevacompra', 'Compras::nuevo');
     $routes->get('listarcompra', 'lstCompras::new');
 
+     /* Ventas */
+     $routes->get('ventas', 'Ventas:index');
+
     /*realState */
     $routes->get('realty', 'Realty::index');
     $routes->get('realtynuevo', 'Realty::nuevo');

@@ -3,59 +3,59 @@
 namespace App\Controllers\Front;
 
 use App\Controllers\BaseController;
-use App\Models\ComprasModel;
+use App\Models\VentasModel;
 use App\Models\DetalleCompraModel;
 use App\Models\ConfiguracionModel;
 
 
-class Compras extends BaseController
+class Ventas extends BaseController
 {
-    protected $compras, $detalle_compra, $configuracion;
+    protected $ventas, $detalle_compra, $configuracion;
 
     public function __construct()
     {
-        $this->compras = new ComprasModel();
+        $this->ventas = new VentasModel();
         $this->detalle_compra = new DetalleCompraModel();
         $this->configuracion = new ConfiguracionModel();
     }
 
     public function index($activo = 1)
     {
-        $compras = $this->compras->where("activo", $activo)->findAll();
-        $data = ['titulo' => 'Lista de Compras', 'datos' => $compras];
-        return view('compras/compras', $data);
+        $ventas = $this->ventas->where("activo", $activo)->findAll();
+        $data = ['titulo' => 'Lista de Ventas', 'datos' => $ventas];
+        return view('ventas/ventas', $data);
     }
 
     public function nuevo()
     {
-        return view('compras/nuevo');
+        return view('ventas/nuevo');
     }
 
 
     public function eliminado($activo = 0)
     {
-        $compras = $this->compras->where("activo", $activo)->findAll();
-        $data = ['titulo' => 'Lista de Compras Desactivadas', 'datos' => $compras];
-        return view('compras/eliminado', $data);
+        $ventas = $this->ventas->where("activo", $activo)->findAll();
+        $data = ['titulo' => 'Lista de Ventas Desactivadas', 'datos' => $ventas];
+        return view('ventas/eliminado', $data);
     }
 
 
     public function editar($id = null)
     {
-        $compras = $this->compras->where('id', $id)->first();
+        $ventas = $this->ventas->where('id', $id)->first();
         $data = [
             'titulo' => 'Actualizar Compra',
-            'datos' => $compras
+            'datos' => $ventas
         ];
-        return view('compras/editar', $data);
+        return view('ventas/editar', $data);
     }
 
     public function guardar()
     {
         $validation = service('validation');
         $validation->setRules([
-            'nombre' => 'required|alpha_space|is_unique[compras.nombre]|min_length[3]',
-            'nombre_corto' => 'required|alpha_space|is_unique[compras.nombre_corto]|min_length[3]',
+            'nombre' => 'required|alpha_space|is_unique[ventas.nombre]|min_length[3]',
+            'nombre_corto' => 'required|alpha_space|is_unique[ventas.nombre_corto]|min_length[3]',
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
@@ -67,8 +67,8 @@ class Compras extends BaseController
                 'titulo' => 'Agregar Compra',
                 'guardado' => 'Si',
             ];
-            $this->compras->save($data);
-            return view('compras/nuevo', $data);
+            $this->ventas->save($data);
+            return view('ventas/nuevo', $data);
         }
     }
 
@@ -76,54 +76,49 @@ class Compras extends BaseController
     {
         $validation = service('validation');
         $validation->setRules([
-            'nombre' => 'required|alpha_space|is_unique[compras.nombre]|min_length[3]',
-            'nombre_corto' => 'required|alpha_space|is_unique[compras.nombre]',
+            'nombre' => 'required|alpha_space|is_unique[ventas.nombre]|min_length[3]',
+            'nombre_corto' => 'required|alpha_space|is_unique[ventas.nombre]',
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         } else {
             $id = $this->request->getVar('id');
-            $compras = $this->compras->where('id', $id)->first();
+            $ventas = $this->ventas->where('id', $id)->first();
             $data = [
                 'nombre' => $this->request->getVar('nombre'),
                 'nombre_corto' => $this->request->getVar('nombre_corto'),
                 'titulo' => 'Actualizar Compra',
                 'guardado' => 'Se guardó correctamente la Compra',
-                'datos' => $compras,
+                'datos' => $ventas,
             ];
-            $this->compras->update($id, $data);
-            return view('compras/editar', $data);
+            $this->ventas->update($id, $data);
+            return view('ventas/editar', $data);
         }
     }
 
     public function eliminar($id = null)
     {
-        $this->compras->update($id, ['activo' => 0]);
-        return redirect()->to(base_url() . '/compras');
+        $this->ventas->update($id, ['activo' => 0]);
+        return redirect()->to(base_url() . '/ventas');
     }
 
     public function activar($id = null)
     {
-        $this->compras->update($id, ['activo' => 1]);
-        return redirect()->to(base_url() . '/compras/eliminado');
+        $this->ventas->update($id, ['activo' => 1]);
+        return redirect()->to(base_url() . '/ventas/eliminado');
     }
 
-    function desactivaCompra($id_compra){
-
-    }
-
-
-    function muestraCompraPdf($id_compra)
+     function muestraCompraPdf($id_compra)
     {
         $data['id_compra'] = $id_compra;
-        $data['titulo'] = 'Compras';
-        return view('compras/ver_compra_pdf', $data);
+        $data['titulo'] = 'Ventas';
+        return view('ventas/ver_compra_pdf', $data);
     }
 
     function generaCompraPdf($id_compra)
     {
-        $datos_compra = $this->compras->where('id', $id_compra)->first();
+        $datos_compra = $this->ventas->where('id', $id_compra)->first();
         $detalle_compra=$this->detalle_compra->select('*')->where('id_compra', $id_compra)->findAll();
         $nombreTienda = $this->configuracion->select('valor')->where('nombre', 'tienda_nombre')->get()->getRow()->valor;
         $direccionTienda = $this->configuracion->select('valor')->where('nombre', 'tienda_direccion')->get()->getRow()->valor;
