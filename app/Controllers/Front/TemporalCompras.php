@@ -175,7 +175,7 @@ class TemporalCompras extends BaseController
             $compras = new ComprasModel();
             $this->compras->save([
                 'folio' => $compra['folio'],
-                'id_cajero' => $usuario,
+                'id_usuario' => $usuario,
                 'total' => $total,
             ]);
         }
